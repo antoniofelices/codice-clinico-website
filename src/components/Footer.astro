@@ -1,0 +1,29 @@
+---
+import CTAButton from "@components/CTAButton.astro"
+---
+
+<footer class="bg-m-gray-100">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="text-center py-16 2xl:py-32">
+      <p class="text-lg">Tu socio tecnologico.</p>
+      <h2 class="text-3xl md:text-6xl lg:text-9xl 2xl:text-14xl font-bold py-6">
+        Códice Clínico
+      </h2>
+      <CTAButton href="/solicita-demo" size="md"> Solicita una demo </CTAButton>
+    </div>
+
+    <div class="border-t border-m-gray-300 pt-8 mt-8">
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
+      >
+        <div class="flex items-center gap-3">
+          <span>© {new Date().getFullYear()} Códice Clínico</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="/politica-de-privacidad"> Política de privacidad </a>
+          <a href="/contacto"> Contacto </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

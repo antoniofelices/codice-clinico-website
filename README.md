@@ -1,46 +1,39 @@
-# Astro Starter Kit: Basics
+# Códice Clínico website
 
-```sh
-npm create astro@latest -- --template basics
+## Documentation
+
+### Installation
+
+You can use this project as a template — simply modify the files inside the 'content' folder.
+
+1. Clone this repo
+
+```bash
+$ git clone git@github.com:antoniofelices/codice-clinico-website.git .
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+2. Install packages
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+$ npm install
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+3. Run develop
 
-## 🧞 Commands
+```bash
+$ npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+## Contributing
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Please feel free to send pull requests and raise issues.
+Any contributions you make will be under the GPL-3.0 license.
+Therefore, when you submit code changes, they are understood to be covered by the same licence.
 
-## 👀 Want to learn more?
+### Code of Conduct
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Studio Moare has adopted the Contributor Covenant Code of Conduct that we expect project participants to adhere to. [Please read the full text](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) so that you can understand what actions will and will not be tolerated.
+
+## License
+
+© 2026+, Antonio Felices. Released under the [GPL-3.0 licence](./LICENSE).

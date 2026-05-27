@@ -1,0 +1,25 @@
+---
+const mainMenu = [
+  { label: "Inicio", url: "/" },
+  { label: "Nosotros", url: "nosotros" },
+  { label: "Precios", url: "precios" },
+]
+---
+
+<nav
+  class="fixed lg:static top-0 left-0 right-0 h-4/6 lg:h-auto lg:w-auto bg-m-orange-500 lg:bg-transparent z-10 lg:z-auto lg:mx-2"
+>
+  <div class="grid lg:static place-items-center h-full lg:h-auto">
+    <ul
+      class="flex gap-x-2 flex-col font-features-['smcp'] md:flex-row text-4xl lg:text-sm"
+    >
+      {
+        mainMenu.map((item) => (
+          <li class="lg:mx-2">
+            <a href={item.url}>{item.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
