@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro"
 import Hero from "@components/Hero.astro"
 import Form from "@components/Form.astro"
+import ListItem from "@components/ListItem.astro"
 ---
 
 <Layout title="" description="" includeHeader={false} includeFooter={false}>
@@ -14,10 +15,19 @@ import Form from "@components/Form.astro"
   </section>
   <section class="container py-16">
     <ul class="max-w-4xl mx-auto">
-      <li>Demo personalizada sin compromiso</li>
-      <li>Te explicamos cómo migrar tus datos actuales</li>
-      <li>Resolveremos todas tus dudas en 30 minutos</li>
-      <li>Sin instalaciones ni contratos de permanencia</li>
+      <ListItem text="Demo personalizada sin compromiso" includeIcon={false} />
+      <ListItem
+        text="Te explicamos cómo migrar tus datos actuales"
+        includeIcon={false}
+      />
+      <ListItem
+        text="Resolveremos todas tus dudas en 30 minutos"
+        includeIcon={false}
+      />
+      <ListItem
+        text="Sin instalaciones ni contratos de permanencia"
+        includeIcon={false}
+      />
     </ul>
   </section>
 </Layout>
