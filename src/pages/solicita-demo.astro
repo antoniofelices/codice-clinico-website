@@ -1,11 +1,15 @@
 ---
 import Layout from "@layouts/Layout.astro"
 import Hero from "@components/Hero.astro"
+import Form from "@components/Form.astro"
 ---
 
-<Layout title="" description="" includeFooter={false}>
+<Layout title="" description="" includeHeader={false} includeFooter={false}>
   <Hero
     maintitle="¿Preparado?"
     secondarycontent="Descubra todas las posibilidades concertando hoy mismo una cita con un experto de Códice."
   />
+  <section class="container">
+    <Form />
+  </section>
 </Layout>

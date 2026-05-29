@@ -4,9 +4,7 @@
 
 <div class="form-request">
   <div id="form-success" class="hidden text-center py-16 px-4 lg:px-8">
-    <p
-      class="text-5xl lg:text-7xl font-bold text-m-red-500 font-sans-1 leading-tight"
-    >
+    <p class="text-5xl lg:text-7xl font-bold text-m-red-500 leading-tight">
       ¡Gracias<br />por firmar!
     </p>
     <p class="mt-6 text-m-gray-600 text-base lg:text-xl max-w-sm mx-auto">
@@ -21,25 +19,25 @@
     novalidate
     class="bg-white rounded-2xl p-4 lg:py-12 shadow-sm"
   >
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
-      <!-- Nombre -->
-      <div class="field">
-        <label for="family_name">
-          Nombre <span class="req" aria-hidden="true">*</span>
-        </label>
-        <input
-          type="text"
-          id="family_name"
-          name="family_name"
-          required
-          autocomplete="family-name"
-          placeholder="García López"
-        />
-        <span class="error-msg">Por favor, introduce tu nombre.</span>
-      </div>
+    <!-- Nombre -->
+    <div class="field mb-6">
+      <label for="family_name">
+        Nombre <span class="req" aria-hidden="true">*</span>
+      </label>
+      <input
+        type="text"
+        id="family_name"
+        name="family_name"
+        required
+        autocomplete="family-name"
+        placeholder="García López"
+      />
+      <span class="error-msg">Por favor, introduce tu nombre.</span>
+    </div>
 
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <!-- Email -->
-      <div class="field sm:col-span-2">
+      <div class="field">
         <label for="email">
           Email <span class="req" aria-hidden="true">*</span>
         </label>
@@ -96,14 +94,14 @@
 
     <p
       id="form-error"
-      class="hidden mt-5 text-sm text-m-red-500 font-sans-1 text-center font-medium"
+      class="hidden mt-5 text-sm text-m-red-500 text-center font-medium"
     >
     </p>
 
     <button
       type="submit"
       id="submit-btn"
-      class="mt-8 w-full bg-m-blue-500 text-white font-sans-1 font-semibold text-base lg:text-l py-4 px-8 rounded-xl cursor-pointer"
+      class="mt-8 w-full bg-m-blue-500 text-white text-base lg:text-l py-4 px-8 rounded-xl cursor-pointer"
     >
       Enviar
     </button>
@@ -126,7 +124,6 @@
   /* ── Label ── */
   .field > label,
   .checkbox-label {
-    font-family: var(--font-sans-1);
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-m-gray-900);
@@ -211,7 +208,6 @@
   /* ── Error message ── */
   .error-msg {
     display: none;
-    font-family: var(--font-sans-1);
     font-size: 0.79rem;
     color: var(--color-m-red-500);
     font-weight: 500;

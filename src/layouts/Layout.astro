@@ -10,7 +10,7 @@ interface Props {
   description?: string
   ogImage?: string
   includeFooter?: boolean
-  mainMenu?: boolean
+  includeHeader?: boolean
 }
 
 const { currentLocale, props, site, url } = Astro
@@ -20,7 +20,7 @@ const {
   description,
   ogImage,
   includeFooter = true,
-  mainMenu = true,
+  includeHeader = true,
 } = props
 
 const canonicalUrl = new URL(url.pathname, site)
@@ -45,7 +45,7 @@ const canonicalUrl = new URL(url.pathname, site)
     <ClientRouter />
   </head>
   <body class="bg-background">
-    <Header includeMainMenu={mainMenu} />
+    {includeHeader && <Header />}
     <slot />
     {includeFooter && <Footer />}
   </body>

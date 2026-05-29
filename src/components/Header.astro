@@ -1,64 +1,61 @@
 ---
 import CTAButton from "@components/CTAButton.astro"
 import MainMenu from "./MenuMain.astro"
-const includeMainMenu = Astro.props.includeMainMenu
+import Logo from "./Logo.astro"
 ---
 
 <header class={`absolute w-lvw py-4`}>
   <div class="container flex justify-between items-center">
     <div class="flex items-center">
-      {
-        includeMainMenu && (
+      <a href="/" aria-label="Inicio">
+        <Logo />
+      </a>
+      <button
+        id="mobile-dropdown-toggle"
+        class="p-2 mobile-dropdown-toggle order-last static lg:hidden"
+        type="button"
+      >
+        <span class="sr-only">Acceso Menú</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          arial-hidden="true"
+          class="close absolute z-20 top-20 right-20 hidden"
+          id="icon-close"
+        >
           <>
-            <button
-              id="mobile-dropdown-toggle"
-              class="p-2 mobile-dropdown-toggle order-last static lg:hidden"
-              type="button"
-            >
-              <span class="sr-only">Acceso Menú</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                arial-hidden="true"
-                class="close absolute z-20 top-20 right-20 hidden"
-                id="icon-close"
-              >
-                <>
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </>
-              </svg>
-              <svg
-                width="32"
-                height="24"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                arial-hidden="true"
-                class="open"
-                id="icon-open"
-              >
-                <>
-                  <path d="m 0,4.7830688 h 24 v 2.4 H 0 Z" />
-                  <path d="m 0,16.816931 h 22 v 2.4 H 0 Z" />
-                  <path d="m 0,10.8 h 20 v 2.4 H 0 Z" />
-                </>
-              </svg>
-            </button>
-            <div id="container-navigation" class="hidden lg:block">
-              <MainMenu />
-            </div>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
           </>
-        )
-      }
+        </svg>
+        <svg
+          width="32"
+          height="24"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          arial-hidden="true"
+          class="open"
+          id="icon-open"
+        >
+          <>
+            <path d="m 0,4.7830688 h 24 v 2.4 H 0 Z"></path>
+            <path d="m 0,16.816931 h 22 v 2.4 H 0 Z"></path>
+            <path d="m 0,10.8 h 20 v 2.4 H 0 Z"></path>
+          </>
+        </svg>
+      </button>
+      <div id="container-navigation" class="hidden lg:block">
+        <MainMenu />
+      </div>
     </div>
-    <CTAButton href="/solicita-demo" size="sm"> Solicita una demo </CTAButton>
+    <CTAButton href="/solicita-demo" size="sm">Solicita una demo</CTAButton>
   </div>
 </header>
