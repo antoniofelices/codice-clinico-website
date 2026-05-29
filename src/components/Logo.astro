@@ -1,6 +1,14 @@
 ---
-const height = Astro.props.height ? Astro.props.height : "3rem"
-const fill = Astro.props.fill ? Astro.props.fill : "#ffffff"
+interface Props {
+  height: string
+  fillType?: string
+  fillCircle?: string
+}
+const {
+  height = "3rem",
+  fillType = "#212163",
+  fillCircle = "#212163",
+} = Astro.props
 ---
 
 <svg
@@ -8,7 +16,7 @@ const fill = Astro.props.fill ? Astro.props.fill : "#ffffff"
   height={height}
   xmlns="http://www.w3.org/2000/svg"
 >
-  <g fill="#212163" transform="translate(-4.8,-35.816387)">
+  <g fill={fillType} transform="translate(-4.8,-35.816387)">
     <path
       d="m 36.54,141.8 v 0 q -10.02,0 -17.1,-4.47 Q 12.36,132.86 8.61,125.12 4.86,117.38 4.8,107.6 v 0 Q 4.86,97.64 8.73,89.93 12.6,82.22 19.74,77.81 26.88,73.4 36.72,73.4 v 0 q 11.04,0 18.69,5.55 7.65,5.55 9.99,15.15 v 0 L 51,98 q -1.68,-5.22 -5.58,-8.13 -3.9,-2.91 -8.88,-2.91 v 0 q -5.64,0 -9.3,2.67 -3.66,2.67 -5.4,7.35 -1.74,4.68 -1.74,10.62 v 0 q 0,9.24 4.14,14.94 4.14,5.7 12.3,5.7 v 0 q 5.76,0 9.09,-2.64 3.33,-2.64 5.01,-7.62 v 0 l 14.76,3.3 q -3,9.9 -10.5,15.21 -7.5,5.31 -18.36,5.31 z"
     ></path>
@@ -27,10 +35,11 @@ const fill = Astro.props.fill ? Astro.props.fill : "#ffffff"
     <path
       d="m 327.84,141.8 v 0 q -9.84,0 -17.28,-4.26 -7.44,-4.26 -11.61,-11.82 -4.17,-7.56 -4.17,-17.4 v 0 q 0,-10.62 4.08,-18.45 4.08,-7.83 11.34,-12.15 7.26,-4.32 16.8,-4.32 v 0 q 10.08,0 17.13,4.71 7.05,4.71 10.47,13.29 3.42,8.58 2.58,20.22 v 0 h -46.92 q 0.72,6.96 4.14,11.22 v 0 q 4.32,5.4 12.6,5.4 v 0 q 5.34,0 9.21,-2.37 3.87,-2.37 5.97,-6.87 v 0 l 14.28,4.32 q -3.72,8.76 -11.49,13.62 -7.77,4.86 -17.13,4.86 z m -17.22,-41.1 h 31.86 q -0.78,-6.3 -3.36,-9.78 v 0 q -3.66,-4.86 -11.52,-4.86 v 0 q -8.88,0 -13.2,5.46 v 0 q -2.76,3.54 -3.78,9.18 z"
     ></path>
-    <circle cx="101.16531" cy="44.816387" r="9"></circle>
+    <circle cx="101.16531" cy="44.816387" r="9" fill={fillCircle}></circle>
   </g>
+
   <g
-    fill="#212163"
+    fill={fillType}
     fill-opacity="0.7"
     transform="translate(-3.7830508,-67.341811)"
   >

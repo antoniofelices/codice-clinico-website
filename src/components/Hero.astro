@@ -1,8 +1,9 @@
 ---
-const maintitle = Astro.props.maintitle
-  ? Astro.props.maintitle
-  : "Códice Clínico"
-const secondarycontent = Astro.props.secondarycontent
+interface Props {
+  maintitle: string
+  secondarycontent?: string
+}
+const { maintitle = "Códice Clínico", secondarycontent } = Astro.props
 ---
 
 <section class="py-32 2xl:py-36">
