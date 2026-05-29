@@ -2,7 +2,7 @@
 interface Props {
   href: string
   variant?: "primary" | "secondary" | "outline" | "white"
-  size?: "sm" | "md" | "lg"
+  size?: "xs" | "sm" | "md" | "lg"
   class?: string
 }
 
@@ -22,6 +22,7 @@ const variantClasses = {
 }
 
 const sizeClasses = {
+  xs: "px-4 py-1 text-xs",
   sm: "px-4 py-2 text-sm",
   md: "px-6 py-3 text-base",
   lg: "px-8 py-4 text-lg",
