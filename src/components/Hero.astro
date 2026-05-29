@@ -11,7 +11,11 @@ const secondarycontent = Astro.props.secondarycontent
       <h1 class="text-6xl md:text-9xl lg:text-11xl 2xl:text-16xl py-4">
         {maintitle}
       </h1>
-      {secondarycontent && <p class="mt-4">{secondarycontent}</p>}
+      {
+        secondarycontent && (
+          <p class="mt-4 max-w-4xl mx-auto">{secondarycontent}</p>
+        )
+      }
     </div>
   </div>
 </section>
