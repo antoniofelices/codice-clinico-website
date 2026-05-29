@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #0f0f1e;
+  --color-background: #f5f1e8;
+
+  --color-m-sky-500: #5dc4f7;
+  --color-m-blue-500: #212163;
+  --color-m-red-500: #df2935;
+  --color-m-green-500: #69dc9e;
+
+  --color-m-gray-50: #edeced;
+  --color-m-gray-100: #d4d2d4;
+  --color-m-gray-200: #bbb8bb;
+  --color-m-gray-300: #b3afb3;
+  --color-m-gray-400: #aba6ab;
+  --color-m-gray-500: #a39da3;
+  --color-m-gray-600: #898489;
+  --color-m-gray-700: #6f6b6f;
+  --color-m-gray-800: #555255;
+  --color-m-gray-900: #3c383c;
+  --color-m-gray-950: #1c1c1c;
+
+  --font-*: initial;
+  --font-sans:
+    proximanova, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --text-*: initial;
+  --text-xs: 0.79rem;
+  --text-sm: 0.889rem;
+  --text-base: 1rem;
+  --text-l: 1.125rem;
+  --text-xl: 1.266rem;
+  --text-2xl: 1.424rem;
+  --text-3xl: 1.602rem;
+  --text-4xl: 1.802rem;
+  --text-5xl: 2.027rem;
+  --text-6xl: 2.281rem;
+  --text-7xl: 2.565rem;
+  --text-8xl: 2.885rem;
+  --text-9xl: 3.247rem;
+  --text-10xl: 3.653rem;
+  --text-11xl: 4.11rem;
+  --text-12xl: 4.623rem;
+  --text-13xl: 5.202rem;
+  --text-14xl: 5.852rem;
+  --text-15xl: 6.583rem;
+  --text-16xl: 7.406rem;
+  --text-17xl: 8.332rem;
+  --text-18xl: 9.373rem;
+  --text-19xl: 10.545rem;
+  --text-20xl: 11.863rem;
+
+  --text-xs--line-height: 1.75;
+  --text-sm--line-height: 1.6;
+  --text-base--line-height: 1.45;
+  --text-l--line-height: 1.45;
+  --text-xl--line-height: 1.45;
+  --text-2xl--line-height: 1.3;
+  --text-3xl--line-height: 1.3;
+  --text-4xl--line-height: 1.3;
+  --text-5xl--line-height: 1.1;
+  --text-6xl--line-height: 1.1;
+  --text-7xl--line-height: 1.1;
+  --text-8xl--line-height: 1.1;
+  --text-9xl--line-height: 1.1;
+  --text-10xl--line-height: 1;
+  --text-11xl--line-height: 1;
+  --text-12xl--line-height: 1;
+  --text-13xl--line-height: 1;
+  --text-14xl--line-height: 1;
+  --text-15xl--line-height: 0.9;
+  --text-16xl--line-height: 0.9;
+  --text-17xl--line-height: 0.9;
+  --text-18xl--line-height: 0.9;
+  --text-19xl--line-height: 0.9;
+  --text-20xl--line-height: 0.9;
+
+  --spacing-112: 26rem;
+  --spacing-128: 28rem;
+  --spacing-144: 30rem;
+  --spacing-160: 32rem;
+}
+
+@utility container {
+  @apply px-4 md:px-10;
+  margin-inline: auto;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+  p,
+  ul {
+    @apply text-sm md:text-base lg:text-2xl;
+    margin-bottom: 1rem;
+  }
+  body:has(button.navigation-open) {
+    overflow: hidden;
+  }
+  main a {
+    @apply border-b border-dotted;
+  }
+  /* img {
+        padding-top: 2rem;
+    } */
+}
