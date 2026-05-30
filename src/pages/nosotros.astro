@@ -7,33 +7,43 @@ import Card from "@components/Card.astro"
 ---
 
 <Layout title="" description="">
-  <Hero
-    maintitle="Nosotros"
-    secondarycontent="Nacimos de un problema real. Somos un equipo familiar con experiencia directa en la práctica clínica privada. Vimos de cerca cómo las historias en papel, las agendas en cuadernos y los datos dispersos frenaban a médicos con vocación. Decidimos cambiarlo."
-  />
+  <Hero maintitle="Nosotros">
+    <p class="mt-4">
+      <strong>Nacimos de un problema real</strong>. Somos un equipo familiar con
+      experiencia directa en la práctica clínica privada. Vimos de cerca cómo
+      las historias en papel, las agendas en cuadernos y los datos dispersos
+      frenaban a médicos con vocación. Decidimos cambiarlo.
+    </p>
+  </Hero>
   <section class="py-16">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-12 text-center">Nuestra organización</h2>
       <div class="grid md:grid-cols-3 gap-8">
         <Card title="Finalidad" icon={Heart}>
-          <strong
-            >Ayudar a la práctica privada y a las clínicas pequeñas y medianas a
-            dar el salto digital.</strong
-          >Gestionar pacientes, citas e historias clínicas en la nube, sin
-          depender de papel ni de sistemas obsoletos.
+          <p>
+            <strong
+              >Ayudar a la práctica privada y a las clínicas pequeñas y medianas
+              a dar el salto digital.</strong
+            > Gestionar pacientes, citas e historias clínicas en la nube, sin depender
+            de papel ni de sistemas obsoletos.
+          </p>
         </Card>
         <Card title="Misión" icon={Goal}>
-          <strong
-            >Ser el software de referencia para la práctica clínica privada en
-            Latinoamérica</strong
-          >: accesible, interoperable y construido con los estándares
-          internacionales de salud digital.
+          <p>
+            <strong
+              >Ser el software de referencia para la práctica clínica privada en
+              Latinoamérica</strong
+            >: accesible, interoperable y construido con los estándares
+            internacionales de salud digital.
+          </p>
         </Card>
         <Card title="Visión" icon={Telescope}>
-          <strong
-            >Convertirnos en la red de salud privada más conectada del Perú</strong
-          >: donde los datos del paciente le pertenecen, viajan con él y sirven
-          para tomar mejores decisiones clínicas.
+          <p>
+            <strong
+              >Convertirnos en la red de salud privada más conectada del Perú</strong
+            >: donde los datos del paciente le pertenecen, viajan con él y
+            sirven para tomar mejores decisiones clínicas.
+          </p>
         </Card>
       </div>
     </div>

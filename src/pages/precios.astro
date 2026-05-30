@@ -4,12 +4,16 @@ import Hero from "@components/Hero.astro"
 ---
 
 <Layout title="Precios" description="">
-  <Hero
-    maintitle="Precios"
-    secondarycontent="Nos adaptamos a todo tipo de práctica clínica, desde el médico particular hasta la clínica con varios especialistas. Sin sorpresas, sin permanencia."
-  />
+  <Hero maintitle="Precios">
+    <p class="mt-4">
+      Nos adaptamos a todo tipo de práctica clínica, desde el médico particular
+      hasta la clínica con varios especialistas. <strong
+        >Sin sorpresas, sin permanencia</strong
+      >.
+    </p>
+  </Hero>
   <section class="py-16">
-    <div class="container">
+    <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-12 text-center">Caracteristicas</h2>
       <div class="grid grid-cols-3 gap-8">
         <div>

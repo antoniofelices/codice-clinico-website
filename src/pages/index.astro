@@ -1,32 +1,23 @@
 ---
 import { ClipboardClock, Timeline, UsersRound } from "@lucide/astro"
 import Layout from "@layouts/Layout.astro"
+import Hero from "@components/Hero.astro"
 import CTAButton from "@components/CTAButton.astro"
 import ListItem from "@components/ListItem.astro"
 import Card from "@components/Card.astro"
 ---
 
 <Layout title="Códice Clínico" description="">
-  <section class="py-32 2xl:py-36">
-    <div class="container">
-      <div class="text-center">
-        <h1 class="text-6xl md:text-9xl lg:text-11xl 2xl:text-16xl py-4">
-          Códice Clínico
-        </h1>
-        <div class="max-w-4xl mx-auto">
-          <p class="mt-4">Tu clínica, sin papeles. Sin errores. Sin límites.</p>
-          <p class="mt-4">
-            Códice Clínico es el software médico en la nube diseñado para
-            consultorios y clínicas privadas que quieren trabajar mejor desde el
-            primer día.
-          </p>
-          <CTAButton href="/solicita-demo" size="md" class="mt-6">
-            Solicita una demo gratuita
-          </CTAButton>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Hero maintitle="Códice Clínico">
+    <p class="mt-4">Tu clínica, sin papeles. Sin errores. Sin límites.</p>
+    <p class="mt-4">
+      Códice Clínico es el software médico en la nube diseñado para consultorios
+      y clínicas privadas que quieren trabajar mejor desde el primer día.
+    </p>
+    <CTAButton href="/solicita-demo" size="md" class="mt-6">
+      Solicita una demo gratuita
+    </CTAButton>
+  </Hero>
   <section class="py-16">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-12 text-center">
@@ -34,16 +25,22 @@ import Card from "@components/Card.astro"
       </h2>
       <div class="grid md:grid-cols-3 gap-8">
         <Card title="Gestión de citas" icon={ClipboardClock}>
-          Reserva, cancela y reprograma citas desde cualquier dispositivo. La
-          agenda de tu clínica, siempre actualizada.
+          <p>
+            Reserva, cancela y reprograma citas desde cualquier dispositivo. La
+            agenda de tu clínica, siempre actualizada.
+          </p>
         </Card>
         <Card title="Historia clínica digital (EHR)" icon={Timeline}>
-          Registra diagnósticos, medicamentos, estudios y notas de evolución. El
-          historial completo de cada paciente, disponible en segundos.
+          <p>
+            Registra diagnósticos, medicamentos, estudios y notas de evolución.
+            El historial completo de cada paciente, disponible en segundos.
+          </p>
         </Card>
         <Card title="Gestión de personal y consultorios" icon={UsersRound}>
-          Asigna médicos a consultorios, controla accesos por rol y mantén tu
-          equipo coordinado sin fricciones.
+          <p>
+            Asigna médicos a consultorios, controla accesos por rol y mantén tu
+            equipo coordinado sin fricciones.
+          </p>
         </Card>
       </div>
     </div>
