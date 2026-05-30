@@ -44,7 +44,7 @@ const canonicalUrl = new URL(url.pathname, site)
     {ogImage && <meta property="og:image" content={ogImage} />}
     <ClientRouter />
   </head>
-  <body class="bg-background">
+  <body class="bg-background font-sans">
     {includeHeader && <Header />}
     <slot />
     {includeFooter && <Footer />}
