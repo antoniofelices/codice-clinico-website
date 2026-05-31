@@ -1,58 +1,70 @@
 ---
 import { Heart, Goal, Telescope } from "@lucide/astro"
 import Layout from "@layouts/Layout.astro"
-import Hero from "@components/Hero.astro"
+import Heading from "@components/Heading.astro"
 import ListItem from "@components/ListItem.astro"
 import Card from "@components/Card.astro"
 ---
 
 <Layout title="" description="">
-  <Hero maintitle="Nosotros">
-    <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
-      Nacimos de un problema real.
-    </p>
-    <p>
-      Somos un <strong>equipo familiar</strong> con experiencia directa en la práctica
-      clínica privada. Vimos de cerca cómo las historias en papel, las agendas en
-      cuadernos y los datos dispersos frenaban a médicos con vocación. Decidimos cambiarlo.
-    </p>
-  </Hero>
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-12 text-center">Nuestra organización</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <Card title="Finalidad" icon={Heart}>
-          <p>
-            <strong
-              >Ayudar a la práctica privada y a las clínicas pequeñas y medianas
-              a dar el salto digital.</strong
-            > Gestionar pacientes, citas e historias clínicas en la nube, sin depender
-            de papel ni de sistemas obsoletos.
-          </p>
-        </Card>
-        <Card title="Misión" icon={Goal}>
-          <p>
-            <strong
-              >Ser el software de referencia para la práctica clínica privada en
-              Latinoamérica</strong
-            >: accesible, interoperable y construido con los estándares
-            internacionales de salud digital.
-          </p>
-        </Card>
-        <Card title="Visión" icon={Telescope}>
-          <p>
-            <strong
-              >Convertirnos en la red de salud privada más conectada del Perú</strong
-            >: donde los datos del paciente le pertenecen, viajan con él y
-            sirven para tomar mejores decisiones clínicas.
-          </p>
-        </Card>
+  <section class="pt-40 pb-22 2xl:pt-48">
+    <div class="container">
+      <div class="max-w-4xl">
+        <Heading maintitle="Nosotros" />
+        <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
+          Nacimos de un problema real.
+        </p>
+        <p>
+          Somos un <strong>equipo familiar</strong> con experiencia directa en la
+          práctica clínica privada. Vimos de cerca cómo las historias en papel, las
+          agendas en cuadernos y los datos dispersos frenaban a médicos con vocación.
+          Decidimos cambiarlo.
+        </p>
       </div>
     </div>
   </section>
   <section class="py-16">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-12 text-center">Lo que nos mueve</h2>
+    <div class="container">
+      <div class="max-w-6xl">
+        <Heading maintitle="Nuestra organización" />
+        <p class="text-3xl font-bold mb-12">
+          Una finalidad clara, una misión y una visión.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <Card title="Finalidad" icon={Heart}>
+            <p>
+              <strong
+                >Ayudar a la práctica privada y a las clínicas pequeñas y
+                medianas a dar el salto digital.</strong
+              > Gestionar pacientes, citas e historias clínicas en la nube, sin depender
+              de papel ni de sistemas obsoletos.
+            </p>
+          </Card>
+          <Card title="Misión" icon={Goal}>
+            <p>
+              <strong
+                >Ser el software de referencia para la práctica clínica privada
+                en Latinoamérica</strong
+              >: accesible, interoperable y construido con los estándares
+              internacionales de salud digital.
+            </p>
+          </Card>
+          <Card title="Visión" icon={Telescope}>
+            <p>
+              <strong
+                >Convertirnos en la red de salud privada más conectada del Perú</strong
+              >: donde los datos del paciente le pertenecen, viajan con él y
+              sirven para tomar mejores decisiones clínicas.
+            </p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16">
+    <div class="max-w-3xl">
+      <Heading maintitle="Lo que nos mueve" />
+      <p class="text-3xl font-bold mb-12 text-center">Lo que nos mueve</p>
       <ul>
         <ListItem
           text="Transparencia. Precios claros, contratos sencillos, sin letra pequeña. Somos una empresa familiar y nos comportamos como tal."

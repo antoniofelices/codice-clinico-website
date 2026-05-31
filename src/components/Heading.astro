@@ -1,0 +1,19 @@
+---
+interface Props {
+  maintitle: string
+  variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+  class?: string
+}
+
+const {
+  maintitle = "Códice Clínico",
+  variant = "h1",
+  class: extraClass = "",
+} = Astro.props
+
+const Tag = variant
+---
+
+<Tag class={`uppercase py-4 ${extraClass}`}>
+  {maintitle}
+</Tag>

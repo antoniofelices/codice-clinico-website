@@ -1,99 +1,114 @@
 ---
 import { ClipboardClock, Timeline, UsersRound } from "@lucide/astro"
 import Layout from "@layouts/Layout.astro"
-import Hero from "@components/Hero.astro"
+import Heading from "@components/Heading.astro"
 import CTAButton from "@components/CTAButton.astro"
 import ListItem from "@components/ListItem.astro"
 import Card from "@components/Card.astro"
 ---
 
 <Layout title="Códice Clínico" description="">
-  <Hero maintitle="Software clínico en la nube">
-    <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
-      Tu clínica, sin papeles. Sin errores. Sin límites.
-    </p>
-    <p class="mt-4">
-      Códice Clínico es el software médico en la nube diseñado para consultorios
-      y clínicas privadas que quieren trabajar mejor desde el primer día.
-    </p>
-    <div class="flex gap-8">
-      <CTAButton href="/solicita-demo" size="md" class="mt-6">
-        Solicita una demo gratuita
-      </CTAButton>
-      <CTAButton href="/precios" size="md" variant="outline" class="mt-6">
-        Precios
-      </CTAButton>
+  <section class="pt-40 pb-22 2xl:pt-48">
+    <div class="container">
+      <div class="max-w-4xl">
+        <Heading maintitle="Software clínico en la nube" />
+        <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
+          Tu clínica, sin papeles. Sin errores. Sin límites.
+        </p>
+        <p class="mt-4">
+          Códice Clínico es el software médico en la nube diseñado para
+          consultorios y clínicas privadas que quieren trabajar mejor desde el
+          primer día.
+        </p>
+        <div class="flex gap-8">
+          <CTAButton href="/solicita-demo" size="md" class="mt-6">
+            Solicita una demo gratuita
+          </CTAButton>
+          <CTAButton href="/precios" size="md" variant="outline" class="mt-6">
+            Precios
+          </CTAButton>
+        </div>
+      </div>
     </div>
-  </Hero>
+  </section>
   <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex place-content-center gap-8">
-        <h2>Construido sobre estándares abiertos</h2>
-        <ul class="flex gap-8 mb-0">
-          <li>HL7 FHIR</li>
-          <li>CIE-10</li>
-          <li>Cifrado AES-256</li>
-          <li>Exportación libre</li>
+    <div class="container">
+      <div class="max-w-6xl">
+        <div class="flex items-center gap-8">
+          <h2>Construido sobre estándares abiertos</h2>
+          <ul class="flex gap-8 mb-0">
+            <li>HL7 FHIR</li>
+            <li>CIE-10</li>
+            <li>Cifrado AES-256</li>
+            <li>Exportación libre</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16">
+    <div class="container">
+      <div class="max-w-6xl">
+        <Heading maintitle="Códice Clínico" variant="h2" />
+        <p class="text-3xl font-bold mb-12">
+          Todo lo que necesita tu práctica, en un solo lugar
+        </p>
+        <p class="">
+          Tres módulos que trabajan juntos para que dediques menos tiempo a la
+          administración y más a tus pacientes.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <Card title="Gestión de citas" icon={ClipboardClock}>
+            <p>
+              Reserva, cancela y reprograma citas desde cualquier dispositivo.
+              La agenda de tu clínica, siempre actualizada.
+            </p>
+          </Card>
+          <Card title="Historia clínica digital (EHR)" icon={Timeline}>
+            <p>
+              Registra diagnósticos, medicamentos, estudios y notas de
+              evolución. El historial completo de cada paciente, disponible en
+              segundos.
+            </p>
+          </Card>
+          <Card title="Gestión de personal y consultorios" icon={UsersRound}>
+            <p>
+              Asigna médicos a consultorios, controla accesos por rol y mantén
+              tu equipo coordinado sin fricciones.
+            </p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16">
+    <div class="container">
+      <div class="max-w-3xl">
+        <Heading maintitle="Por qué elegir Códice Clínico" variant="h2" />
+        <p class="text-3xl font-bold mb-12">
+          Hecho para la práctica clínica privada.
+        </p>
+        <ul>
+          <ListItem
+            text="Interoperabilidad real. Tus datos son tuyos. Exporta, migra y comparte información clínica en formatos estándar en cualquier momento."
+          />
+          <ListItem
+            text="Menos errores, menos costes. Elimina el papel, reduce duplicidades y
+        automatiza los procesos que hoy hacen a mano."
+          />
+          <ListItem
+            text="Control total de accesos. Define exactamente quién ve qué: médicos,
+        administrativos y dirección con permisos diferenciados y seguros."
+          />
+          <ListItem
+            text="En la nube, sin instalaciones. Sin servidores que mantener. Accede desde cualquier ordenador o tablet, en la clínica o fuera de ella."
+          />
+          <ListItem
+            text="Pensado para la práctica privada. Sin la complejidad de los grandes
+        sistemas hospitalarios. Configurable, ágil y a tu medida desde el día uno."
+          />
         </ul>
       </div>
-    </div>
-  </section>
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-12 text-center">
-        Todo lo que necesita tu práctica, en un solo lugar
-      </h2>
-      <p class="text-center">
-        Tres módulos que trabajan juntos para que dediques menos tiempo a la
-        administración y más a tus pacientes.
-      </p>
-      <div class="grid md:grid-cols-3 gap-8">
-        <Card title="Gestión de citas" icon={ClipboardClock}>
-          <p>
-            Reserva, cancela y reprograma citas desde cualquier dispositivo. La
-            agenda de tu clínica, siempre actualizada.
-          </p>
-        </Card>
-        <Card title="Historia clínica digital (EHR)" icon={Timeline}>
-          <p>
-            Registra diagnósticos, medicamentos, estudios y notas de evolución.
-            El historial completo de cada paciente, disponible en segundos.
-          </p>
-        </Card>
-        <Card title="Gestión de personal y consultorios" icon={UsersRound}>
-          <p>
-            Asigna médicos a consultorios, controla accesos por rol y mantén tu
-            equipo coordinado sin fricciones.
-          </p>
-        </Card>
-      </div>
-    </div>
-  </section>
-  <section class="py-16">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-12 text-center">
-        Por qué elegir Códice Clínico
-      </h2>
-      <ul>
-        <ListItem
-          text="Interoperabilidad real. Tus datos son tuyos. Exporta, migra y comparte información clínica en formatos estándar en cualquier momento."
-        />
-        <ListItem
-          text="Menos errores, menos costes. Elimina el papel, reduce duplicidades y
-        automatiza los procesos que hoy hacen a mano."
-        />
-        <ListItem
-          text="Control total de accesos. Define exactamente quién ve qué: médicos,
-        administrativos y dirección con permisos diferenciados y seguros."
-        />
-        <ListItem
-          text="En la nube, sin instalaciones. Sin servidores que mantener. Accede desde cualquier ordenador o tablet, en la clínica o fuera de ella."
-        />
-        <ListItem
-          text="Pensado para la práctica privada. Sin la complejidad de los grandes
-        sistemas hospitalarios. Configurable, ágil y a tu medida desde el día uno."
-        />
-      </ul>
     </div>
   </section>
 </Layout>

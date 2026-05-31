@@ -1,18 +1,23 @@
 ---
 import Layout from "@layouts/Layout.astro"
-import Hero from "@components/Hero.astro"
+import Heading from "@components/Heading.astro"
 import Form from "@components/Form.astro"
 import ListItem from "@components/ListItem.astro"
 ---
 
 <Layout title="" description="" includeHeader={false} includeFooter={false}>
-  <Hero maintitle="¿Preparado para el cambio?">
-    <p class="mt-4">
-      Agenda una sesión gratuita con nuestro equipo y descubre cómo Códice
-      Clínico puede transformar la gestión de tu clínica en menos tiempo del que
-      imaginas.
-    </p>
-  </Hero>
+  <section class="pt-40 pb-22 2xl:pt-48">
+    <div class="container">
+      <div class="max-w-4xl">
+        <Heading maintitle="¿Preparado para el cambio?" />
+        <p class="mt-4">
+          Agenda una sesión gratuita con nuestro equipo y descubre cómo Códice
+          Clínico puede transformar la gestión de tu clínica en menos tiempo del
+          que imaginas.
+        </p>
+      </div>
+    </div>
+  </section>
   <section class="">
     <div class="max-w-4xl mx-auto px-4">
       <Form />
