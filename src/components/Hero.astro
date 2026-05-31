@@ -1,22 +1,17 @@
 ---
 interface Props {
   maintitle: string
-  secondarycontent?: string
 }
-const { maintitle = "Códice Clínico", secondarycontent } = Astro.props
+const { maintitle = "Códice Clínico" } = Astro.props
 ---
 
-<section class="py-32 2xl:py-36">
+<section class="pt-40 pb-22 2xl:pt-48">
   <div class="container">
-    <div class="text-center">
-      <h1 class="text-6xl md:text-9xl lg:text-11xl 2xl:text-16xl py-4">
+    <div class="max-w-4xl">
+      <h1 class="uppercase py-4">
         {maintitle}
       </h1>
-      {
-        secondarycontent && (
-          <p class="mt-4 max-w-4xl mx-auto">{secondarycontent}</p>
-        )
-      }
+      <slot />
     </div>
   </div>
 </section>
