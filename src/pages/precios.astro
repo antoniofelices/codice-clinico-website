@@ -1,7 +1,10 @@
 ---
+import { Check } from "@lucide/astro"
 import Layout from "@layouts/Layout.astro"
 import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
+import CTABanner from "@components/CTABanner.astro"
+import LeadParagraph from "@components/LeadParagraph.astro"
 ---
 
 <Layout title="Precios" description="">
@@ -18,31 +21,51 @@ import Heading from "@components/Heading.astro"
     </p>
   </Container>
 
-  <Container classMaxWidth="max-w-4xl">
-    <h2 class="text-3xl font-bold mb-12">Caracteristicas</h2>
+  <Container>
     <div class="grid grid-cols-3 gap-8">
       <div>
         <h3>Solo</h3>
-        <p>1 usuario · Médico independiente o consultorio unipersonal</p>
+        <p>1 usuario</p>
+        <p>
+          Para el médico independiente o el consultorio unipersonal que quiere
+          digitalizarse hoy.
+        </p>
+        <p>Para empezar en solitario</p>
         <ul>
-          <li>-…</li>
+          <li>Historia clínica digital</li>
+          <li>Agenda de citas ilimitada</li>
+          <li>Soporte por correo</li>
         </ul>
       </div>
       <div>
         <h3>Clínica</h3>
+        <p>De 2 a 10 usuarios</p>
         <p>
-          De 2 a 10 usuarios · Clínicas pequeñas y medianas con varios
-          especialistas
+          Para clínicas pequeñas y medianas con varios especialistas que
+          trabajan en equipo.
         </p>
+        <p>Ideal para clínicas</p>
         <ul>
-          <li>-…</li>
+          <li>Historia clínica digital</li>
+          <li>Agenda de citas ilimitada</li>
+          <li>Varios médicos y consultorios</li>
+          <li>Soporte prioritario</li>
         </ul>
       </div>
       <div>
         <h3>Corporativo</h3>
-        <p>Más de 10 usuarios · Grupos de clínicas o redes de salud privada</p>
+        <p>Más de 10 usuarios</p>
+        <p>
+          Para grupos de clínicas o redes de salud privada que necesitan escalar
+          con control.
+        </p>
+        <p>A medida de tu red</p>
         <ul>
-          <li>-…</li>
+          <li>Historia clínica digital</li>
+          <li>Agenda de citas ilimitada</li>
+          <li>Usuarios y sedes ilimitados</li>
+          <li>Integraciones</li>
+          <li>Gestor de cuenta dedicado</li>
         </ul>
       </div>
     </div>
@@ -51,4 +74,63 @@ import Heading from "@components/Heading.astro"
       encontrar la configuración ideal para tu práctica.
     </p>
   </Container>
+  <Container>
+    <Heading variant="h2" maintitle="Comparativa" />
+    <LeadParagraph content="Qué incluye cada plan" />
+    <table class="table-auto">
+      <thead>
+        <tr>
+          <th>Características</th>
+          <th>Solo</th>
+          <th>Clínica</th>
+          <th>Corporativa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Usuarios</td>
+          <td>1</td>
+          <td>2-10</td>
+          <td>ilimitados</td>
+        </tr>
+        <tr>
+          <td>Historia clínica digital</td>
+          <td><Check /></td>
+          <td><Check /></td>
+          <td><Check /></td>
+        </tr>
+        <tr>
+          <td>Agenda de citas</td>
+          <td><Check /></td>
+          <td><Check /></td>
+          <td><Check /></td>
+        </tr>
+        <tr>
+          <td>Roles y permisos</td>
+          <td> - </td>
+          <td><Check /></td>
+          <td><Check /></td>
+        </tr>
+        <tr>
+          <td>Varias sedes</td>
+          <td> - </td>
+          <td>Hasta 3</td>
+          <td><Check /></td>
+        </tr>
+        <tr>
+          <td>Integraciones</td>
+          <td> - </td>
+          <td> - </td>
+          <td><Check /></td>
+        </tr>
+        <tr>
+          <td>Soporte</td>
+          <td>Correo</td>
+          <td>Prioritario</td>
+          <td>Gestor dedicado</td>
+        </tr>
+      </tbody>
+    </table>
+  </Container>
+  <CTABanner />
 </Layout>
