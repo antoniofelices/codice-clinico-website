@@ -1,10 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro"
-import Hero from "@components/Hero.astro"
+import Container from "@components/Container.astro"
+import Heading from "@components/Heading.astro"
 ---
 
 <Layout title="" description="" includeFooter={false}>
-  <Hero maintitle="Contacto">
+  <Container variant="hero" classMaxWidth="max-w-4xl">
+    <Heading maintitle="Contacto" />
     <p>El programa en la nube todo en uno para la práctica clínica.</p>
-  </Hero>
+  </Container>
 </Layout>

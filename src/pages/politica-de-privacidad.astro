@@ -1,11 +1,19 @@
 ---
 import Layout from "@layouts/Layout.astro"
-import Hero from "@components/Hero.astro"
+import Container from "@components/Container.astro"
+import Heading from "@components/Heading.astro"
 ---
 
 <Layout title="Política de privacidad" description="" includeFooter={false}>
-  <Hero maintitle="Política de privacidad" />
-  <div class="container pb-8 max-w-4/6">
+  <Container variant="hero" classMaxWidth="max-w-4xl">
+    <div class="max-w-4xl">
+      <Heading maintitle="Política de privacidad" />
+      <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
+        Política de privacidad.
+      </p>
+    </div>
+  </Container>
+  <Container classMaxWidth="max-w-4xl">
     <p>
       En la presente política de privacidad y protección de datos se detalla el
       tratamiento de los datos de carácter personal recabados, que actuará en
@@ -182,5 +190,5 @@ import Hero from "@components/Hero.astro"
       cambio en esta política, el nuevo texto se publicará en esta misma
       dirección.
     </p>
-  </div>
+  </Container>
 </Layout>

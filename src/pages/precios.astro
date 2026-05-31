@@ -1,10 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro"
-import Hero from "@components/Hero.astro"
+import Container from "@components/Container.astro"
+import Heading from "@components/Heading.astro"
 ---
 
 <Layout title="Precios" description="">
-  <Hero maintitle="Precios">
+  <Container variant="hero" classMaxWidth="max-w-4xl">
+    <Heading maintitle="Precios" />
     <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
       Un plan para cada tipo de práctica.
     </p>
@@ -14,42 +16,39 @@ import Hero from "@components/Hero.astro"
         >Sin sorpresas, sin permanencia</strong
       >.
     </p>
-  </Hero>
-  <section class="py-16">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-12 text-center">Caracteristicas</h2>
-      <div class="grid grid-cols-3 gap-8">
-        <div>
-          <h3>Solo</h3>
-          <p>1 usuario · Médico independiente o consultorio unipersonal</p>
-          <ul>
-            <li>-…</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Clínica</h3>
-          <p>
-            De 2 a 10 usuarios · Clínicas pequeñas y medianas con varios
-            especialistas
-          </p>
-          <ul>
-            <li>-…</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Corporativo</h3>
-          <p>
-            Más de 10 usuarios · Grupos de clínicas o redes de salud privada
-          </p>
-          <ul>
-            <li>-…</li>
-          </ul>
-        </div>
+  </Container>
+
+  <Container classMaxWidth="max-w-4xl">
+    <h2 class="text-3xl font-bold mb-12">Caracteristicas</h2>
+    <div class="grid grid-cols-3 gap-8">
+      <div>
+        <h3>Solo</h3>
+        <p>1 usuario · Médico independiente o consultorio unipersonal</p>
+        <ul>
+          <li>-…</li>
+        </ul>
       </div>
-      <p>
-        ¿No estás seguro de qué plan necesitas? Solicita una demo y te ayudamos
-        a encontrar la configuración ideal para tu práctica.
-      </p>
+      <div>
+        <h3>Clínica</h3>
+        <p>
+          De 2 a 10 usuarios · Clínicas pequeñas y medianas con varios
+          especialistas
+        </p>
+        <ul>
+          <li>-…</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Corporativo</h3>
+        <p>Más de 10 usuarios · Grupos de clínicas o redes de salud privada</p>
+        <ul>
+          <li>-…</li>
+        </ul>
+      </div>
     </div>
-  </section>
+    <p>
+      ¿No estás seguro de qué plan necesitas? Solicita una demo y te ayudamos a
+      encontrar la configuración ideal para tu práctica.
+    </p>
+  </Container>
 </Layout>

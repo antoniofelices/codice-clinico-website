@@ -1,0 +1,22 @@
+---
+interface Props {
+  variant?: "default" | "hero"
+  classSection?: string
+  classMaxWidth?: string
+}
+
+const { variant = "default", classSection, classMaxWidth } = Astro.props
+
+const variantSectionClasses = {
+  default: "py-16",
+  hero: "pt-40 pb-22 2xl:pt-48",
+}
+---
+
+<section class={`${variantSectionClasses[variant]} ${classSection}`}>
+  <div class="container">
+    <div class={classMaxWidth}>
+      <slot />
+    </div>
+  </div>
+</section>

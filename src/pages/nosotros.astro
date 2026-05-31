@@ -1,13 +1,17 @@
 ---
 import { Heart, Goal, Telescope } from "@lucide/astro"
 import Layout from "@layouts/Layout.astro"
-import Hero from "@components/Hero.astro"
+import Container from "@components/Container.astro"
+import Heading from "@components/Heading.astro"
+import CTABanner from "@components/CTABanner.astro"
+import LeadParagraph from "@components/LeadParagraph.astro"
 import ListItem from "@components/ListItem.astro"
 import Card from "@components/Card.astro"
 ---
 
 <Layout title="" description="">
-  <Hero maintitle="Nosotros">
+  <Container variant="hero" classMaxWidth="max-w-4xl">
+    <Heading maintitle="Nosotros" />
     <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
       Nacimos de un problema real.
     </p>
@@ -16,56 +20,58 @@ import Card from "@components/Card.astro"
       clínica privada. Vimos de cerca cómo las historias en papel, las agendas en
       cuadernos y los datos dispersos frenaban a médicos con vocación. Decidimos cambiarlo.
     </p>
-  </Hero>
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-12 text-center">Nuestra organización</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <Card title="Finalidad" icon={Heart}>
-          <p>
-            <strong
-              >Ayudar a la práctica privada y a las clínicas pequeñas y medianas
-              a dar el salto digital.</strong
-            > Gestionar pacientes, citas e historias clínicas en la nube, sin depender
-            de papel ni de sistemas obsoletos.
-          </p>
-        </Card>
-        <Card title="Misión" icon={Goal}>
-          <p>
-            <strong
-              >Ser el software de referencia para la práctica clínica privada en
-              Latinoamérica</strong
-            >: accesible, interoperable y construido con los estándares
-            internacionales de salud digital.
-          </p>
-        </Card>
-        <Card title="Visión" icon={Telescope}>
-          <p>
-            <strong
-              >Convertirnos en la red de salud privada más conectada del Perú</strong
-            >: donde los datos del paciente le pertenecen, viajan con él y
-            sirven para tomar mejores decisiones clínicas.
-          </p>
-        </Card>
-      </div>
+  </Container>
+  <Container classMaxWidth="max-w-6xl">
+    <Heading maintitle="Nuestra organización" />
+    <LeadParagraph content="Una finalidad clara, una misión y una visión." />
+    <div class="grid md:grid-cols-3 gap-8">
+      <Card title="Finalidad" icon={Heart}>
+        <p>
+          <strong
+            >Ayudar a la práctica privada y a las clínicas pequeñas y medianas a
+            dar el salto digital.</strong
+          > Gestionar pacientes, citas e historias clínicas en la nube, sin depender
+          de papel ni de sistemas obsoletos.
+        </p>
+      </Card>
+      <Card title="Misión" icon={Goal}>
+        <p>
+          <strong
+            >Ser el software de referencia para la práctica clínica privada en
+            Latinoamérica</strong
+          >: accesible, interoperable y construido con los estándares
+          internacionales de salud digital.
+        </p>
+      </Card>
+      <Card title="Visión" icon={Telescope}>
+        <p>
+          <strong
+            >Convertirnos en la red de salud privada más conectada del Perú</strong
+          >: donde los datos del paciente le pertenecen, viajan con él y sirven
+          para tomar mejores decisiones clínicas.
+        </p>
+      </Card>
     </div>
-  </section>
-  <section class="py-16">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-12 text-center">Lo que nos mueve</h2>
-      <ul>
-        <ListItem
-          text="Transparencia. Precios claros, contratos sencillos, sin letra pequeña. Somos una empresa familiar y nos comportamos como tal."
-        />
-        <ListItem
-          text="Interoperabilidad. Los datos clínicos deben fluir libremente entre
+  </Container>
+  <Container classMaxWidth="max-w-4xl">
+    <Heading maintitle="Lo que nos mueve" />
+    <LeadParagraph content="Tres principios" />
+    <p class="mb-8">
+      Son las reglas con las que tomamos cada decisión de producto y de negocio.
+    </p>
+    <ul>
+      <ListItem
+        text="Transparencia. Precios claros, contratos sencillos, sin letra pequeña. Somos una empresa familiar y nos comportamos como tal."
+      />
+      <ListItem
+        text="Interoperabilidad. Los datos clínicos deben fluir libremente entre
         sistemas. Construimos sobre estándares abiertos para que ningún paciente
         quede atrapado en un proveedor."
-        />
-        <ListItem
-          text="Acompañamiento. No eres un ticket de soporte. Cuando tienes un problema, hablas con una persona que conoce tu clínica."
-        />
-      </ul>
-    </div>
-  </section>
+      />
+      <ListItem
+        text="Acompañamiento. No eres un ticket de soporte. Cuando tienes un problema, hablas con una persona que conoce tu clínica."
+      />
+    </ul>
+  </Container>
+  <CTABanner />
 </Layout>

@@ -1,40 +1,18 @@
 ---
-import CTAButton from "@components/CTAButton.astro"
+
 ---
 
-<footer class="bg-m-gray-100">
-  <div class="max-w-4xl mx-auto px-4 py-16">
-    <div class="text-center py-16 2xl:py-32">
-      <h3 class="text-lg">¿Preparado para el cambio?</h3>
-      <p class="text-3xl md:text-6xl lg:text-9xl py-6">
-        Agenda una demo y transforma tu clínica en menos tiempo del que
-        imaginas.
-      </p>
-      <p>
-        Una sesión gratuita de 30 minutos con nuestro equipo y resolvemos todas
-        tus dudas.
-      </p>
-      <CTAButton href="/solicita-demo" size="md" class="my-8"
-        >Solicita una demo gratuita</CTAButton
-      >
-      <ul class="mb-0 flex gap-8 place-content-center text-sm">
-        <li>Sin compromiso</li>
-        <li>Sin instalaciones</li>
-        <li>Sin permanencia</li>
-      </ul>
-    </div>
-
-    <div class="border-t border-m-gray-300 pt-8 mt-8">
-      <div
-        class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
-      >
-        <div class="flex items-center gap-3">
-          <span>© {new Date().getFullYear()} Códice Clínico</span>
-        </div>
-        <div class="flex items-center gap-6">
-          <a href="/politica-de-privacidad"> Política de privacidad </a>
-          <a href="/contacto"> Contacto </a>
-        </div>
+<footer class="py-8 border-t border-m-gray-300">
+  <div class="container">
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
+    >
+      <div class="flex items-center gap-3">
+        <span>© {new Date().getFullYear()} Códice Clínico</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="/politica-de-privacidad"> Política de privacidad </a>
+        <a href="/contacto"> Contacto </a>
       </div>
     </div>
   </div>
