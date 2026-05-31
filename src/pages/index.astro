@@ -5,6 +5,7 @@ import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
 import CTAButton from "@components/CTAButton.astro"
 import CTABanner from "@components/CTABanner.astro"
+import LeadParagraph from "@components/LeadParagraph.astro"
 import ListItem from "@components/ListItem.astro"
 import Card from "@components/Card.astro"
 ---
@@ -41,10 +42,11 @@ import Card from "@components/Card.astro"
   </Container>
   <Container classMaxWidth="max-w-6xl">
     <Heading maintitle="Códice Clínico" variant="h2" />
-    <p class="text-3xl font-bold mb-12">
-      Todo lo que necesita tu práctica, en un solo lugar
-    </p>
-    <p class="">
+    <LeadParagraph
+      content="Todo lo que necesita tu práctica, en un solo lugar"
+      class="max-w-2xl"
+    />
+    <p class="mb-8">
       Tres módulos que trabajan juntos para que dediques menos tiempo a la
       administración y más a tus pacientes.
     </p>

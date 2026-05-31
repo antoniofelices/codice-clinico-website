@@ -3,6 +3,8 @@ import { Heart, Goal, Telescope } from "@lucide/astro"
 import Layout from "@layouts/Layout.astro"
 import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
+import CTABanner from "@components/CTABanner.astro"
+import LeadParagraph from "@components/LeadParagraph.astro"
 import ListItem from "@components/ListItem.astro"
 import Card from "@components/Card.astro"
 ---
@@ -21,9 +23,7 @@ import Card from "@components/Card.astro"
   </Container>
   <Container classMaxWidth="max-w-6xl">
     <Heading maintitle="Nuestra organización" />
-    <p class="text-3xl font-bold mb-12">
-      Una finalidad clara, una misión y una visión.
-    </p>
+    <LeadParagraph content="Una finalidad clara, una misión y una visión." />
     <div class="grid md:grid-cols-3 gap-8">
       <Card title="Finalidad" icon={Heart}>
         <p>
@@ -55,7 +55,10 @@ import Card from "@components/Card.astro"
   </Container>
   <Container classMaxWidth="max-w-4xl">
     <Heading maintitle="Lo que nos mueve" />
-    <p class="text-3xl font-bold mb-12 text-center">Lo que nos mueve</p>
+    <LeadParagraph content="Tres principios" />
+    <p class="mb-8">
+      Son las reglas con las que tomamos cada decisión de producto y de negocio.
+    </p>
     <ul>
       <ListItem
         text="Transparencia. Precios claros, contratos sencillos, sin letra pequeña. Somos una empresa familiar y nos comportamos como tal."
@@ -70,4 +73,5 @@ import Card from "@components/Card.astro"
       />
     </ul>
   </Container>
+  <CTABanner />
 </Layout>
