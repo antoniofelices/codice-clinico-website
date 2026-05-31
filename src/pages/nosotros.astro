@@ -21,11 +21,13 @@ import Card from "@components/Card.astro"
       cuadernos y los datos dispersos frenaban a médicos con vocación. Decidimos cambiarlo.
     </p>
   </Container>
-  <Container classMaxWidth="max-w-6xl">
-    <Heading maintitle="Nuestra organización" />
+  <Container>
+    <Heading maintitle="Nuestra organización" variant="h2" />
     <LeadParagraph content="Una finalidad clara, una misión y una visión." />
     <div class="grid md:grid-cols-3 gap-8">
-      <Card title="Finalidad" icon={Heart}>
+      <Card icon={Heart}>
+        <Heading maintitle="Finalidad" variant="h3" />
+        <p class="font-bold">El salto digital</p>
         <p>
           <strong
             >Ayudar a la práctica privada y a las clínicas pequeñas y medianas a
@@ -34,7 +36,9 @@ import Card from "@components/Card.astro"
           de papel ni de sistemas obsoletos.
         </p>
       </Card>
-      <Card title="Misión" icon={Goal}>
+      <Card icon={Goal}>
+        <Heading maintitle="Misión" variant="h3" />
+        <p class="font-bold">Software de referencia</p>
         <p>
           <strong
             >Ser el software de referencia para la práctica clínica privada en
@@ -43,7 +47,9 @@ import Card from "@components/Card.astro"
           internacionales de salud digital.
         </p>
       </Card>
-      <Card title="Visión" icon={Telescope}>
+      <Card icon={Telescope}>
+        <Heading maintitle="Visión" variant="h3" />
+        <p class="font-bold">La red mas conectada</p>
         <p>
           <strong
             >Convertirnos en la red de salud privada más conectada del Perú</strong

@@ -40,7 +40,7 @@ import Card from "@components/Card.astro"
       </ul>
     </div>
   </Container>
-  <Container classMaxWidth="max-w-6xl">
+  <Container>
     <Heading maintitle="Códice Clínico" variant="h2" />
     <LeadParagraph
       content="Todo lo que necesita tu práctica, en un solo lugar"
@@ -51,19 +51,22 @@ import Card from "@components/Card.astro"
       administración y más a tus pacientes.
     </p>
     <div class="grid md:grid-cols-3 gap-8">
-      <Card title="Gestión de citas" icon={ClipboardClock}>
+      <Card icon={ClipboardClock}>
+        <Heading maintitle="Gestión de citas" variant="h3" />
         <p>
           Reserva, cancela y reprograma citas desde cualquier dispositivo. La
           agenda de tu clínica, siempre actualizada.
         </p>
       </Card>
-      <Card title="Historia clínica digital (EHR)" icon={Timeline}>
+      <Card icon={Timeline}>
+        <Heading maintitle="Historia clínica digital (EHR)" variant="h3" />
         <p>
           Registra diagnósticos, medicamentos, estudios y notas de evolución. El
           historial completo de cada paciente, disponible en segundos.
         </p>
       </Card>
-      <Card title="Gestión de personal y consultorios" icon={UsersRound}>
+      <Card icon={UsersRound}>
+        <Heading maintitle="Gestión de personal y consultorios" variant="h3" />
         <p>
           Asigna médicos a consultorios, controla accesos por rol y mantén tu
           equipo coordinado sin fricciones.
