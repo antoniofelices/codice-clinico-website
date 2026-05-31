@@ -8,21 +8,45 @@ import Card from "@components/Card.astro"
 ---
 
 <Layout title="Códice Clínico" description="">
-  <Hero maintitle="Códice Clínico">
-    <p class="mt-4">Tu clínica, sin papeles. Sin errores. Sin límites.</p>
+  <Hero maintitle="Software clínico en la nube">
+    <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
+      Tu clínica, sin papeles. Sin errores. Sin límites.
+    </p>
     <p class="mt-4">
       Códice Clínico es el software médico en la nube diseñado para consultorios
       y clínicas privadas que quieren trabajar mejor desde el primer día.
     </p>
-    <CTAButton href="/solicita-demo" size="md" class="mt-6">
-      Solicita una demo gratuita
-    </CTAButton>
+    <div class="flex gap-8">
+      <CTAButton href="/solicita-demo" size="md" class="mt-6">
+        Solicita una demo gratuita
+      </CTAButton>
+      <CTAButton href="/precios" size="md" variant="outline" class="mt-6">
+        Precios
+      </CTAButton>
+    </div>
   </Hero>
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex place-content-center gap-8">
+        <h2>Construido sobre estándares abiertos</h2>
+        <ul class="flex gap-8 mb-0">
+          <li>HL7 FHIR</li>
+          <li>CIE-10</li>
+          <li>Cifrado AES-256</li>
+          <li>Exportación libre</li>
+        </ul>
+      </div>
+    </div>
+  </section>
   <section class="py-16">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-12 text-center">
         Todo lo que necesita tu práctica, en un solo lugar
       </h2>
+      <p class="text-center">
+        Tres módulos que trabajan juntos para que dediques menos tiempo a la
+        administración y más a tus pacientes.
+      </p>
       <div class="grid md:grid-cols-3 gap-8">
         <Card title="Gestión de citas" icon={ClipboardClock}>
           <p>
