@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets"
 import { ClipboardClock, Timeline, UsersRound } from "@lucide/astro"
+import screenShot from "@assets/images/1920x1080.jpg"
 import Layout from "@layouts/Layout.astro"
 import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
@@ -29,6 +31,11 @@ import Card from "@components/Card.astro"
       </CTAButton>
     </div>
   </Container>
+  <Image
+    src={screenShot}
+    alt="Imagen de la webapp"
+    class="w-full object-cover"
+  />
   <Container classMaxWidth="max-w-4xl">
     <div class="flex items-center gap-8">
       <h2>Construido sobre estándares abiertos</h2>
