@@ -1,0 +1,23 @@
+---
+import { Circle } from "@lucide/astro"
+
+interface Props {
+  variant?: "default" | "on-dark"
+  class?: string
+  size?: string
+}
+
+const { variant = "default", class: extraClass = "", size = "14" } = Astro.props
+---
+
+<Circle
+  class:list={[
+    "eyebrow rounded-full",
+    variant === "default"
+      ? "text-m-sky-50 bg-m-sky-50 shadow-m-sky-50"
+      : "text-m-cream-50 bg-m-cream-50 shadow-m-cream-50",
+    extraClass,
+  ]}
+  aria-hidden="true"
+  size={size}
+/>

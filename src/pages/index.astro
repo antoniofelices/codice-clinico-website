@@ -5,7 +5,7 @@ import screenShot from "@assets/images/1920x1080.jpg"
 import Layout from "@layouts/Layout.astro"
 import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
-import CTAButton from "@components/CTAButton.astro"
+import Button from "@components/Button.astro"
 import CTABanner from "@components/CTABanner.astro"
 import LeadParagraph from "@components/LeadParagraph.astro"
 import ListItem from "@components/ListItem.astro"
@@ -14,7 +14,7 @@ import Card from "@components/Card.astro"
 
 <Layout title="Códice Clínico" description="">
   <Container variant="hero" classMaxWidth="max-w-4xl">
-    <Heading maintitle="Software clínico en la nube" />
+    <Heading maintitle="Software clínico en la nube" eyebrow={true} />
     <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
       Tu clínica, sin papeles. Sin errores. Sin límites.
     </p>
@@ -23,12 +23,12 @@ import Card from "@components/Card.astro"
       y clínicas privadas que quieren trabajar mejor desde el primer día.
     </p>
     <div class="flex gap-8">
-      <CTAButton href="/solicita-demo" size="md" class="mt-6">
+      <Button href="/solicita-demo" size="md" class="mt-6" variant="cpt">
         Solicita una demo gratuita
-      </CTAButton>
-      <CTAButton href="/precios" size="md" variant="outline" class="mt-6">
+      </Button>
+      <Button href="/precios" size="md" variant="ghost" class="mt-6">
         Precios
-      </CTAButton>
+      </Button>
     </div>
   </Container>
   <Image
@@ -83,9 +83,7 @@ import Card from "@components/Card.astro"
   </Container>
   <Container classMaxWidth="max-w-3xl">
     <Heading maintitle="Por qué elegir Códice Clínico" variant="h2" />
-    <p class="text-3xl font-bold mb-12">
-      Hecho para la práctica clínica privada.
-    </p>
+    <LeadParagraph content="Hecho para la práctica clínica privada." />
     <ul>
       <ListItem
         text="Interoperabilidad real. Tus datos son tuyos. Exporta, migra y comparte información clínica en formatos estándar en cualquier momento."

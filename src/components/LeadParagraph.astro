@@ -1,12 +1,19 @@
 ---
 interface Props {
   content: string
+  theme?: "default" | "on-dark"
   class?: string
 }
 
-const { content, class: extraClass } = Astro.props
+const { content, theme = "default", class: extraClass = "" } = Astro.props
 ---
 
-<p class={`text-3xl md:text-5xl lg:text-7xl font-bold mb-4 ${extraClass}`}>
+<p
+  class:list={[
+    "mb-4 text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl font-bold",
+    theme === "on-dark" ? "text-m-cream-50/80" : "text-m-gray-500",
+    extraClass,
+  ]}
+>
   {content}
 </p>

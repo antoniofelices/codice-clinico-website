@@ -1,18 +1,29 @@
 ---
-import CTAButton from "@components/CTAButton.astro"
+import Button from "@components/Button.astro"
 import MainMenu from "./MenuMain.astro"
 import Logo from "./Logo.astro"
 ---
 
-<header class="sticky top-0 z-50 bg-white border-b border-black/10">
-  <div class="container flex justify-between items-center h-16">
-    <div class="flex items-center">
-      <a href="/" aria-label="Inicio">
-        <Logo />
-      </a>
+<header
+  class="sticky top-0 z-50 border-b border-m-gray-50"
+  style="background: rgba(245,241,232,0.78); backdrop-filter: saturate(180%) blur(16px);"
+>
+  <div class="container flex items-center justify-between h-16 gap-8">
+    <a href="/" aria-label="Inicio" class="shrink-0">
+      <Logo />
+    </a>
+
+    <div id="desktop-nav" class="hidden lg:flex items-center flex-1">
+      <MainMenu />
+    </div>
+
+    <div class="flex items-center gap-3">
+      <Button href="/solicita-demo" size="xs" variant="primary">
+        Solicita una demo
+      </Button>
       <button
         id="mobile-menu-btn"
-        class="p-2 lg:hidden"
+        class="p-2 lg:hidden text-m-indigo-500"
         type="button"
         aria-label="Acceso Menú"
       >
@@ -26,40 +37,33 @@ import Logo from "./Logo.astro"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          arial-hidden="true"
-          class="close absolute z-20 top-20 right-20 hidden"
+          aria-hidden="true"
+          class="absolute z-20 top-5 right-5 hidden"
           id="icon-close"
         >
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
         <svg
-          width="32"
-          height="24"
-          viewBox="0 0 24 24"
+          width="24"
+          height="18"
+          viewBox="0 0 24 18"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
-          arial-hidden="true"
+          aria-hidden="true"
           class="open"
           id="icon-open"
         >
-          <>
-            <path d="m 0,4.7830688 h 24 v 2.4 H 0 Z"></path>
-            <path d="m 0,16.816931 h 22 v 2.4 H 0 Z"></path>
-            <path d="m 0,10.8 h 20 v 2.4 H 0 Z"></path>
-          </>
+          <path d="M0 0h24v2H0zM0 8h20v2H0zM0 16h16v2H0z"></path>
         </svg>
       </button>
-      <div id="desktop-nav" class="hidden lg:flex items-center">
-        <MainMenu />
-      </div>
     </div>
-    <CTAButton href="/solicita-demo" size="xs" variant="outline">Demo</CTAButton
-    >
   </div>
+
   <div
     id="mobile-nav"
-    class="hidden lg:hidden border-t border-black/10 bg-white"
+    class="hidden lg:hidden border-t border-m-gray-50"
+    style="background: rgba(245,241,232,0.95);"
   >
     <div class="container py-6">
       <MainMenu />
