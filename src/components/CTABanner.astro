@@ -1,26 +1,56 @@
 ---
-import Container from "@components/Container.astro"
+import Button from "@components/Button.astro"
 import Heading from "@components/Heading.astro"
-import CTAButton from "@components/CTAButton.astro"
 ---
 
-<Container classMaxWidth="max-w-4xl mx-auto">
-  <div class="text-center py-16 2xl:py-32">
-    <Heading maintitle="¿Preparado para el cambio?" variant="h3" />
-    <p class="text-3xl md:text-6xl lg:text-9xl py-6">
-      Agenda una demo y transforma tu clínica en menos tiempo del que imaginas.
-    </p>
-    <p>
-      Una sesión gratuita de 30 minutos con nuestro equipo y resolvemos todas
-      tus dudas.
-    </p>
-    <CTAButton href="/solicita-demo" size="md" class="my-8"
-      >Solicita una demo gratuita</CTAButton
+<section class="py-16">
+  <div class="container">
+    <div
+      class="relative rounded-4xl overflow-hidden px-10 py-16 md:px-16 md:py-20 text-center"
+      style="background: linear-gradient(160deg, #212163 0%, #121238 70%);"
     >
-    <ul class="mb-0 flex gap-8 place-content-center text-sm">
-      <li>Sin compromiso</li>
-      <li>Sin instalaciones</li>
-      <li>Sin permanencia</li>
-    </ul>
+      <!-- Sky radial overlay -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="background: radial-gradient(120% 140% at 85% 10%, rgba(93,196,247,0.45), transparent 55%);"
+        aria-hidden="true"
+      >
+      </div>
+      <!-- Subtle grid mask -->
+      <div
+        class="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style="background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px); background-size: 40px 40px; mask-image: linear-gradient(to bottom, black 0%, transparent 100%);"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="relative z-10">
+        <Heading
+          maintitle="¿Preparado para el cambio?"
+          variant="h2"
+          theme="on-dark"
+          class="mb-4"
+        />
+        <p
+          class="text-m-cream-50/70 font-bold text-3xl md:text-6xl lg:text-9xl max-w-xl mx-auto mb-8"
+        >
+          Agenda una demo y transforma tu clínica en menos tiempo del que
+          imaginas.
+        </p>
+        <p class="text-m-cream-50/70 max-w-xl mx-auto mb-8">
+          Una sesión gratuita de 30 minutos con nuestro equipo.
+        </p>
+        <Button href="/solicita-demo" size="lg" variant="sky" class="mb-8">
+          Solicita una demo gratuita
+        </Button>
+        <ul
+          class="flex flex-wrap gap-6 justify-center text-m-cream-50/50 text-sm mb-0"
+        >
+          <li>Sin compromiso</li>
+          <li>Sin instalaciones</li>
+          <li>Sin permanencia</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</Container>
+</section>

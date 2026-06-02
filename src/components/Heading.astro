@@ -1,19 +1,40 @@
 ---
+import Eyebrow from "./Eyebrow.astro"
+
 interface Props {
   maintitle: string
+  eyebrow?: boolean
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+  theme?: "default" | "on-dark"
   class?: string
 }
 
 const {
   maintitle = "Códice Clínico",
+  eyebrow = true,
   variant = "h1",
+  theme = "default",
   class: extraClass = "",
 } = Astro.props
 
 const Tag = variant
 ---
 
-<Tag class={`uppercase mb-4 ${extraClass}`}>
-  {maintitle}
-</Tag>
+<div class:list={["mb-6", extraClass]}>
+  <Tag
+    class:list={[
+      "font-mono uppercase text-xs tracking-wide inline-flex items-center",
+      theme === "on-dark" ? "text-m-cream-50" : "text-m-indigo-950",
+    ]}
+  >
+    {
+      eyebrow && (
+        <Eyebrow
+          variant={theme === "on-dark" ? "on-dark" : "default"}
+          class="mr-2"
+        />
+      )
+    }
+    {maintitle}
+  </Tag>
+</div>
