@@ -1,31 +1,47 @@
 @font-face {
-  font-family: "proximanova";
-  font-style: normal;
-  font-weight: 700;
-  font-display: block;
-  src: url(/fonts/proximanova/proximanova-bold.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "proximanova";
+  font-family: "JetBrains Mono";
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url(/fonts/proximanova/proximanova-regular.woff2) format("woff2");
+  src: url(/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: "usual";
+  font-family: "JetBrains Mono";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-display: block;
-  src: url(/fonts/usual/usual-bold.woff2) format("woff2");
+  src: url(/fonts/jetbrains-mono/JetBrainsMono-Medium.woff2) format("woff2");
 }
-/* 
+
 @font-face {
-  font-family: "roobert";
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(/fonts/manrope/Manrope-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(/fonts/manrope/Manrope-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
   font-display: block;
-  src: url(/fonts/roobert/roobert-bold.woff2) format("woff2");
-} */
+  src: url(/fonts/manrope/Manrope-SemiBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url(/fonts/manrope/Manrope-Bold.woff2) format("woff2");
+}
