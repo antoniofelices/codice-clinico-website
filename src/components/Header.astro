@@ -4,18 +4,18 @@ import MainMenu from "./MenuMain.astro"
 import Logo from "./Logo.astro"
 ---
 
-<header class={`absolute w-lvw py-4`}>
-  <div class="container flex justify-between items-center">
+<header class="sticky top-0 z-50 bg-white border-b border-black/10">
+  <div class="container flex justify-between items-center h-16">
     <div class="flex items-center">
       <a href="/" aria-label="Inicio">
         <Logo />
       </a>
       <button
-        id="mobile-dropdown-toggle"
-        class="p-2 mobile-dropdown-toggle order-last static lg:hidden"
+        id="mobile-menu-btn"
+        class="p-2 lg:hidden"
         type="button"
+        aria-label="Acceso Menú"
       >
-        <span class="sr-only">Acceso Menú</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -30,10 +30,8 @@ import Logo from "./Logo.astro"
           class="close absolute z-20 top-20 right-20 hidden"
           id="icon-close"
         >
-          <>
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
         <svg
           width="32"
@@ -52,11 +50,38 @@ import Logo from "./Logo.astro"
           </>
         </svg>
       </button>
-      <div id="container-navigation" class="hidden lg:block">
+      <div id="desktop-nav" class="hidden lg:flex items-center">
         <MainMenu />
       </div>
     </div>
     <CTAButton href="/solicita-demo" size="xs" variant="outline">Demo</CTAButton
     >
   </div>
+  <div
+    id="mobile-nav"
+    class="hidden lg:hidden border-t border-black/10 bg-white"
+  >
+    <div class="container py-6">
+      <MainMenu />
+    </div>
+  </div>
 </header>
+
+<script>
+  function initMobileMenu() {
+    const btn = document.getElementById("mobile-menu-btn")
+    const mobileNav = document.getElementById("mobile-nav")
+    const iconOpen = document.getElementById("icon-open")
+    const iconClose = document.getElementById("icon-close")
+
+    btn?.addEventListener("click", () => {
+      const isOpen = !mobileNav?.classList.contains("hidden")
+      mobileNav?.classList.toggle("hidden", isOpen)
+      iconOpen?.classList.toggle("hidden", !isOpen)
+      iconClose?.classList.toggle("hidden", isOpen)
+      btn?.classList.toggle("navigation-open", !isOpen)
+    })
+  }
+
+  document.addEventListener("astro:page-load", initMobileMenu)
+</script>

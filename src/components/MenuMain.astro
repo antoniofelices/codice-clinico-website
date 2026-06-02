@@ -1,25 +1,33 @@
 ---
-const mainMenu = [
-  { label: "Inicio", url: "/" },
-  { label: "Nosotros", url: "nosotros" },
-  { label: "Precios", url: "precios" },
+const currentPath = Astro.url.pathname
+
+const navItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Nosotros", href: "nosotros" },
+  { label: "Precios", href: "precios" },
 ]
 ---
 
-<nav
-  class="fixed lg:static top-0 left-0 right-0 h-4/6 lg:h-auto lg:w-auto bg-m-orange-500 lg:bg-transparent z-10 lg:z-auto lg:mx-2"
->
-  <div class="grid lg:static place-items-center h-full lg:h-auto">
-    <ul
-      class="flex gap-x-2 flex-col font-features-['smcp'] md:flex-row text-4xl lg:text-sm mb-0"
-    >
-      {
-        mainMenu.map((item) => (
-          <li class="lg:mx-2">
-            <a href={item.url}>{item.label}</a>
+<nav>
+  <ul class="flex flex-col lg:flex-row gap-6 lg:gap-0 m-0">
+    {
+      navItems.map(({ label, href }) => {
+        const isActive =
+          currentPath === href || currentPath.startsWith(href + "/")
+        return (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                "font-heading text-2xl lg:text-xs uppercase tracking-widest border-none! px-0 lg:px-3 transition-colors",
+                isActive ? "text-m-red-500" : "hover:text-m-red-500",
+              ]}
+            >
+              {label}
+            </a>
           </li>
-        ))
-      }
-    </ul>
-  </div>
+        )
+      })
+    }
+  </ul>
 </nav>
