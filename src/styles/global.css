@@ -202,6 +202,12 @@
     text-wrap: balance;
   }
 
+  /*
+  Example:
+  h1 font-semibold text-6xl md:text-10xl lg:text-12xl 2xl:text-14xl
+  h2 font-semibold text-3xl md:text-5xl  lg:text-7xl  2xl:text-9xl === LeadParagraph
+  h3 font-semibold text-xl  md:text-2xl  lg:text-3xl  2xl:text-4xl
+  */
   p {
     text-wrap: pretty;
     margin-bottom: 1rem;

@@ -3,11 +3,17 @@ import type { AstroComponent } from "@lucide/astro"
 
 interface Props {
   icon?: AstroComponent
+  iconDark?: boolean
   gradientBar?: boolean
   class?: string
 }
 
-const { icon: IconComponent, gradientBar = false, class: extraClass = "" } = Astro.props
+const {
+  icon: IconComponent,
+  iconDark = false,
+  gradientBar = false,
+  class: extraClass = "",
+} = Astro.props
 ---
 
 <div
@@ -23,7 +29,14 @@ const { icon: IconComponent, gradientBar = false, class: extraClass = "" } = Ast
   }
   {
     IconComponent && (
-      <div class="w-11 h-11 bg-m-indigo-50 text-m-indigo-500 rounded-2xl flex items-center justify-center mb-6">
+      <div
+        class:list={[
+          "w-11 h-11 rounded-2xl flex items-center justify-center mb-6",
+          iconDark
+            ? "bg-m-indigo-800 text-m-sky-500"
+            : "bg-m-indigo-50 text-m-indigo-500",
+        ]}
+      >
         <IconComponent class="w-5 h-5" />
       </div>
     )
