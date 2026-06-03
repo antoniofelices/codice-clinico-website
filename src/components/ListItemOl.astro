@@ -1,0 +1,27 @@
+---
+interface Props {
+  markerSingleLine?: boolean
+  variant?: "default" | "dark"
+  class?: string
+}
+const {
+  markerSingleLine = false,
+  variant = "default",
+  class: extraClass = "",
+} = Astro.props
+
+const variantClasses: Record<string, string> = {
+  default: "maker:text-m-sky-50",
+  dark: "",
+}
+---
+
+<li
+  class:list={[
+    "marker:font-mono marker:text-sm",
+    variantClasses[variant],
+    extraClass,
+  ]}
+>
+  <slot />
+</li>

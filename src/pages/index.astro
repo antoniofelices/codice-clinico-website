@@ -8,7 +8,7 @@ import Heading from "@components/Heading.astro"
 import Button from "@components/Button.astro"
 import CTABanner from "@components/CTABanner.astro"
 import LeadParagraph from "@components/LeadParagraph.astro"
-import ListItem from "@components/ListItem.astro"
+import ListItemOl from "@components/ListItemOl.astro"
 import Card from "@components/Card.astro"
 import Eyebrow from "@components/Eyebrow.astro"
 ---
@@ -78,6 +78,11 @@ import Eyebrow from "@components/Eyebrow.astro"
           Reserva, cancela y reprograma citas desde cualquier dispositivo. La
           agenda de tu clínica, siempre actualizada.
         </p>
+        <Image
+          src={screenShot}
+          alt="Imagen de la webapp"
+          class="w-full object-cover"
+        />
       </Card>
       <Card icon={Timeline}>
         <h3
@@ -100,32 +105,103 @@ import Eyebrow from "@components/Eyebrow.astro"
           Asigna médicos a consultorios, controla accesos por rol y mantén tu
           equipo coordinado sin fricciones.
         </p>
+        <Image
+          src={screenShot}
+          alt="Imagen de la webapp"
+          class="w-full object-cover"
+        />
       </Card>
     </div>
   </Container>
   <Container classMaxWidth="max-w-3xl">
-    <Heading maintitle="Por qué elegir Códice Clínico" variant="h2" />
-    <LeadParagraph content="Hecho para la práctica clínica privada." />
-    <ul>
-      <ListItem
-        text="Interoperabilidad real. Tus datos son tuyos. Exporta, migra y comparte información clínica en formatos estándar en cualquier momento."
-      />
-      <ListItem
-        text="Menos errores, menos costes. Elimina el papel, reduce duplicidades y
-        automatiza los procesos que hoy hacen a mano."
-      />
-      <ListItem
-        text="Control total de accesos. Define exactamente quién ve qué: médicos,
-        administrativos y dirección con permisos diferenciados y seguros."
-      />
-      <ListItem
-        text="En la nube, sin instalaciones. Sin servidores que mantener. Accede desde cualquier ordenador o tablet, en la clínica o fuera de ella."
-      />
-      <ListItem
-        text="Pensado para la práctica privada. Sin la complejidad de los grandes
-        sistemas hospitalarios. Configurable, ágil y a tu medida desde el día uno."
-      />
-    </ul>
+    <div>
+      <div>
+        <Heading maintitle="Por qué elegir Códice Clínico" variant="h2" />
+        <LeadParagraph content="Hecho para la práctica clínica privada." />
+      </div>
+      <div>
+        <p>
+          Sin la complejidad de los grandes sistemas hospitalarios.
+          Configurable, ágil y a tu medida desde el día uno.
+        </p>
+      </div>
+    </div>
+    <ol class="list-decimal">
+      <ListItemOl>
+        <h3>Interoperabilidad real.</h3>
+        <p>
+          Tus datos son tuyos. Exporta, migra y comparte información clínica en
+          formatos estándar en cualquier momento.
+        </p>
+      </ListItemOl>
+      <ListItemOl>
+        <h3>Menos errores, menos costes.</h3>
+        <p>
+          Elimina el papel, reduce duplicidades y automatiza los procesos que
+          hoy hacen a mano.
+        </p>
+      </ListItemOl>
+      <ListItemOl>
+        <h3>Control total de accesos.</h3>
+        <p>
+          Define exactamente quién ve qué: médicos, administrativos y dirección
+          con permisos diferenciados y seguros.
+        </p>
+      </ListItemOl>
+      <ListItemOl>
+        <h3>En la nube, sin instalaciones.</h3>
+        <p>
+          Sin servidores que mantener. Accede desde cualquier ordenador o
+          tablet, en la clínica o fuera de ella.
+        </p>
+      </ListItemOl>
+      <ListItemOl>
+        <h3>Pensado para la práctica privada.</h3>
+        <p>
+          Sin la complejidad de los grandes sistemas hospitalarios.
+          Configurable, ágil y a tu medida desde el día uno.
+        </p>
+      </ListItemOl>
+    </ol>
+  </Container>
+  <Container>
+    <div class="max-w-2xl">
+      <Heading maintitle="Precios" variant="h2" />
+      <LeadParagraph content="Un plan para cada tipo de práctica" />
+      <p class="mb-8">
+        Desde el médico particular hasta la clínica con varios especialistas.
+        Sin sorpresas, sin permamencia.
+      </p>
+    </div>
+    <div class="grid lg:grid-cols-4 lg:gap-16">
+      <div>
+        <h3 class="mb-6 text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl">Solo</h3>
+        <p>1 usuario. Médico independiente o consultorio unipersonal.</p>
+      </div>
+      <div>
+        <h3 class="mb-6 text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl">
+          Clínica
+        </h3>
+        <p>
+          De 2 a 10 usuarios. Clínicas pequeñas y medianas con varios
+          especialistas.
+        </p>
+      </div>
+      <div>
+        <h3 class="mb-6 text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl">
+          Corporativo
+        </h3>
+        <p>Más de 10 usuarios. Grupos de clínicas o redes de salud privada.</p>
+      </div>
+      <div>
+        <p
+          class="mb-0 text-m-sky-500 text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl"
+        >
+          0
+        </p>
+        <p>De permanencia. Pruébalo, y quédate solo si te funciona.</p>
+      </div>
+    </div>
   </Container>
   <CTABanner />
 </Layout>
