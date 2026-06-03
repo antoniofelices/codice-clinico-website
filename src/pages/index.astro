@@ -11,6 +11,72 @@ import ListItemOl from "@components/ListItemOl.astro"
 import Card from "@components/Card.astro"
 import Shadow from "@components/Shadow.astro"
 import Container from "@components/Container.astro"
+
+const standards = ["HL7 FHIR", "CIE-10", "Cifrado AES-256", "Exportación libre"]
+
+const hcTags = ["Diagnósticos", "Recetas", "Estudios", "Evolución"]
+
+const teamRoles = [
+  { initials: "JR", name: "Dra. Rojas", role: "Médico" },
+  { initials: "AP", name: "Ana Paredes", role: "Admin" },
+  { initials: "DT", name: "Dirección", role: "Total" },
+]
+
+const whyItems = [
+  {
+    title: "Interoperabilidad real",
+    content:
+      "Tus datos son tuyos. Exporta, migra y comparte información clínica en formatos estándar en cualquier momento.",
+  },
+  {
+    title: "Menos errores, menos costes",
+    content:
+      "Elimina el papel, reduce duplicidades y automatiza los procesos que hoy se hacen a mano.",
+  },
+  {
+    title: "Control total de accesos",
+    content:
+      "Define exactamente quién ve qué: médicos, administrativos y dirección con permisos diferenciados y seguros.",
+  },
+  {
+    title: "En la nube, sin instalaciones",
+    content:
+      "Sin servidores que mantener. Accede desde cualquier ordenador o tablet, en la clínica o fuera de ella.",
+  },
+  {
+    title: "Acompañamiento cercano",
+    content:
+      "No eres un ticket de soporte. Cuando tienes un problema, hablas con una persona que conoce tu clínica.",
+  },
+  {
+    title: "Transparencia total",
+    content:
+      "Precios claros, contratos sencillos y sin letra pequeña. Somos una empresa familiar y nos comportamos como tal.",
+  },
+]
+
+const stats = [
+  {
+    value: "Solo",
+    desc: "1 usuario. Médico independiente o consultorio unipersonal.",
+    sky: false,
+  },
+  {
+    value: "Clínica",
+    desc: "De 2 a 10 usuarios. Clínicas pequeñas y medianas con varios especialistas.",
+    sky: false,
+  },
+  {
+    value: "Corp.",
+    desc: "Más de 10 usuarios. Grupos de clínicas o redes de salud privada.",
+    sky: false,
+  },
+  {
+    value: "0",
+    desc: "De permanencia. Pruébalo, y quédate solo si te funciona.",
+    sky: true,
+  },
+]
 ---
 
 <Layout title="Códice Clínico" description="">
@@ -18,12 +84,12 @@ import Container from "@components/Container.astro"
     <div class="container relative z-10">
       <div class="max-w-4xl">
         <Heading maintitle="Software clínico en la nube" eyebrow={true} />
-        <h1
+        <p
           class="text-7xl md:text-10xl lg:text-12xl 2xl:text-14xl font-bold tracking-tighter mt-6"
         >
           Tu clínica, <span class="text-m-indigo-500">sin papeles.</span><br />
           Sin errores. Sin límites.
-        </h1>
+        </p>
         <p class="mt-6 text-l text-m-gray-800 max-w-lg leading-relaxed">
           Códice Clínico es el sistema médico en la nube para consultorios y
           clínicas privadas que quieren trabajar mejor desde el primer día.
@@ -71,14 +137,12 @@ import Container from "@components/Container.astro"
         Construido sobre estándares abiertos
       </span>
       {
-        ["HL7 FHIR", "CIE-10", "Cifrado AES-256", "Exportación libre"].map(
-          (std) => (
-            <span class="inline-flex items-center gap-2 text-m-indigo-500 font-bold text-l tracking-tight">
-              <span class="w-2 h-2 rounded-sm bg-m-sky-500 shrink-0" />
-              {std}
-            </span>
-          ),
-        )
+        standards.map((std) => (
+          <span class="inline-flex items-center gap-2 text-m-indigo-500 font-bold text-l tracking-tight">
+            <span class="w-2 h-2 rounded-sm bg-m-sky-500 shrink-0" />
+            {std}
+          </span>
+        ))
       }
     </div>
   </Container>
@@ -124,7 +188,7 @@ import Container from "@components/Container.astro"
         </p>
         <div class="mt-auto flex flex-wrap gap-1.5 pt-4">
           {
-            ["Diagnósticos", "Recetas", "Estudios", "Evolución"].map((tag) => (
+            hcTags.map((tag) => (
               <span class="font-mono text-xs tracking-wide px-2.5 py-1 rounded-full bg-m-sky-50 text-m-indigo-500 border border-m-sky-500/30">
                 {tag}
               </span>
@@ -143,11 +207,7 @@ import Container from "@components/Container.astro"
         </p>
         <div class="mt-auto pt-4">
           {
-            [
-              { initials: "JR", name: "Dra. Rojas", role: "Médico" },
-              { initials: "AP", name: "Ana Paredes", role: "Admin" },
-              { initials: "DT", name: "Dirección", role: "Total" },
-            ].map(({ initials, name, role }, i) => (
+            teamRoles.map(({ initials, name, role }, i) => (
               <div
                 class:list={[
                   "flex items-center gap-2.5 py-2.5 text-[13.5px]",
@@ -176,7 +236,6 @@ import Container from "@components/Container.astro"
   >
     <div
       class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14 md:items-end"
-      style="grid-template-columns: 1.1fr 1fr;"
     >
       <div>
         <Heading
@@ -197,38 +256,7 @@ import Container from "@components/Container.astro"
     </div>
     <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
       {
-        [
-          {
-            title: "Interoperabilidad real",
-            content:
-              "Tus datos son tuyos. Exporta, migra y comparte información clínica en formatos estándar en cualquier momento.",
-          },
-          {
-            title: "Menos errores, menos costes",
-            content:
-              "Elimina el papel, reduce duplicidades y automatiza los procesos que hoy se hacen a mano.",
-          },
-          {
-            title: "Control total de accesos",
-            content:
-              "Define exactamente quién ve qué: médicos, administrativos y dirección con permisos diferenciados y seguros.",
-          },
-          {
-            title: "En la nube, sin instalaciones",
-            content:
-              "Sin servidores que mantener. Accede desde cualquier ordenador o tablet, en la clínica o fuera de ella.",
-          },
-          {
-            title: "Acompañamiento cercano",
-            content:
-              "No eres un ticket de soporte. Cuando tienes un problema, hablas con una persona que conoce tu clínica.",
-          },
-          {
-            title: "Transparencia total",
-            content:
-              "Precios claros, contratos sencillos y sin letra pequeña. Somos una empresa familiar y nos comportamos como tal.",
-          },
-        ].map(({ title, content }) => (
+        whyItems.map(({ title, content }) => (
           <ListItemOl markerSingleLine={false} variant="dark">
             <h4 class="text-l font-bold text-white tracking-tight">{title}</h4>
             <p class="text-m-cream-50/60 text-sm lg:text-lg mt-2">{content}</p>
@@ -249,28 +277,7 @@ import Container from "@components/Container.astro"
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       {
-        [
-          {
-            value: "Solo",
-            desc: "1 usuario. Médico independiente o consultorio unipersonal.",
-            sky: false,
-          },
-          {
-            value: "Clínica",
-            desc: "De 2 a 10 usuarios. Clínicas pequeñas y medianas con varios especialistas.",
-            sky: false,
-          },
-          {
-            value: "Corp.",
-            desc: "Más de 10 usuarios. Grupos de clínicas o redes de salud privada.",
-            sky: false,
-          },
-          {
-            value: "0",
-            desc: "De permanencia. Pruébalo, y quédate solo si te funciona.",
-            sky: true,
-          },
-        ].map(({ value, desc, sky }) => (
+        stats.map(({ value, desc, sky }) => (
           <div>
             <div
               class:list={[

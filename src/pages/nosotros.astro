@@ -5,79 +5,115 @@ import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
 import CTABanner from "@components/CTABanner.astro"
 import LeadParagraph from "@components/LeadParagraph.astro"
-import ListItem from "@components/ListItemUl.astro"
+import ListItemOl from "@components/ListItemOl.astro"
 import Card from "@components/Card.astro"
+
+const goals = [
+  {
+    icon: Heart,
+    label: "Finalidad",
+    title: "El salto digital",
+    content:
+      "<strong>Ayudar a la práctica privada y a las clínicas pequeñas y medianas a dar el salto digital.</strong> Gestionar pacientes, citas e historias clínicas en la nube, sin depender de papel ni de sistemas obsoletos.",
+  },
+  {
+    icon: Goal,
+    label: "Misión",
+    title: "Software de referencia",
+    content:
+      "<strong>Ser el software de referencia para la práctica clínica privada en Latinoamérica</strong>: accesible, interoperable y construido con los estándares internacionales de salud digital.",
+  },
+  {
+    icon: Telescope,
+    label: "Visión",
+    title: "La red mas conectada",
+    content:
+      "<strong>Convertirnos en la red de salud privada más conectada del Perú</strong>: donde los datos del paciente le pertenecen, viajan con él y sirven para tomar mejores decisiones clínicas.",
+  },
+]
+
+const values = [
+  {
+    title: "Transparencia",
+    content:
+      "Precios claros, contratos sencillos, sin letra pequeña. Somos una empresa familiar y nos comportamos como tal.",
+  },
+  {
+    title: "Interoperabilidad",
+    content:
+      "Los datos clínicos deben fluir libremente entre sistemas. Construimos sobre estándares abiertos para que ningún paciente quede atrapado en un proveedor.",
+  },
+  {
+    title: "Acompañamiento",
+    content:
+      "No eres un ticket de soporte. Cuando tienes un problema, hablas con una persona que conoce tu clínica.",
+  },
+]
 ---
 
 <Layout title="" description="">
-  <Container variant="hero" classMaxWidth="max-w-4xl">
+  <Container
+    classSection="relative overflow-hidden border-b border-m-gray-50 pt-24 pb-20"
+    classInner="relative z-10"
+    classMaxWidth="max-w-3xl"
+    shadowVariant="top"
+  >
     <Heading maintitle="Nosotros" />
-    <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
+    <p
+      class="text-7xl md:text-10xl lg:text-12xl 2xl:text-14xl font-bold tracking-tighter mt-6"
+    >
       Nacimos de un problema real.
     </p>
-    <p>
+    <p class="mt-6 text-l text-m-gray-800 leading-relaxed">
       Somos un <strong>equipo familiar</strong> con experiencia directa en la práctica
       clínica privada. Vimos de cerca cómo las historias en papel, las agendas en
       cuadernos y los datos dispersos frenaban a médicos con vocación. Decidimos cambiarlo.
     </p>
   </Container>
-  <Container classSection="py-16">
+
+  <Container classSection="bg-m-cream-50 py-28">
     <Heading maintitle="Nuestra organización" variant="h2" />
-    <LeadParagraph content="Una finalidad clara, una misión y una visión." />
-    <div class="grid md:grid-cols-3 gap-8">
-      <Card icon={Heart} gradientBar={true}>
-        <Heading maintitle="Finalidad" variant="h3" />
-        <p class="font-bold">El salto digital</p>
-        <p>
-          <strong
-            >Ayudar a la práctica privada y a las clínicas pequeñas y medianas a
-            dar el salto digital.</strong
-          > Gestionar pacientes, citas e historias clínicas en la nube, sin depender
-          de papel ni de sistemas obsoletos.
-        </p>
-      </Card>
-      <Card icon={Goal} gradientBar={true}>
-        <Heading maintitle="Misión" variant="h3" />
-        <p class="font-bold">Software de referencia</p>
-        <p>
-          <strong
-            >Ser el software de referencia para la práctica clínica privada en
-            Latinoamérica</strong
-          >: accesible, interoperable y construido con los estándares
-          internacionales de salud digital.
-        </p>
-      </Card>
-      <Card icon={Telescope} gradientBar={true}>
-        <Heading maintitle="Visión" variant="h3" />
-        <p class="font-bold">La red mas conectada</p>
-        <p>
-          <strong
-            >Convertirnos en la red de salud privada más conectada del Perú</strong
-          >: donde los datos del paciente le pertenecen, viajan con él y sirven
-          para tomar mejores decisiones clínicas.
-        </p>
-      </Card>
+    <LeadParagraph
+      content="Una finalidad clara, una misión y una visión."
+      class="max-w-2xl"
+    />
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+      {
+        goals.map(({ icon, label, title, content }) => (
+          <Card icon={icon} iconDark gradientBar>
+            <span class="font-mono text-xs tracking-[0.14em] uppercase text-m-gray-500 block mb-2">
+              {label}
+            </span>
+            <h3 class="text-2xl font-bold tracking-tight mb-3">{title}</h3>
+            <p set:html={content} />
+          </Card>
+        ))
+      }
     </div>
   </Container>
-  <Container classSection="py-16" classMaxWidth="max-w-4xl">
-    <Heading maintitle="Lo que nos mueve" />
-    <LeadParagraph content="Tres principios" />
-    <p class="mb-8">
-      Son las reglas con las que tomamos cada decisión de producto y de negocio.
-    </p>
-    <ul>
-      <ListItem
-        text="Transparencia. Precios claros, contratos sencillos, sin letra pequeña. Somos una empresa familiar y nos comportamos como tal."
-      />
-      <ListItem
-        text="Interoperabilidad. Los datos clínicos deben fluir libremente entre
-        sistemas. Construimos sobre estándares abiertos para que ningún paciente
-        quede atrapado en un proveedor."
-      />
-      <ListItem
-        text="Acompañamiento. No eres un ticket de soporte. Cuando tienes un problema, hablas con una persona que conoce tu clínica."
-      />
-    </ul>
+
+  <Container classSection="py-28">
+    <div class="grid gap-14 grid-cols-1 md:grid-cols-2">
+      <div>
+        <Heading maintitle="Lo que nos mueve" variant="h2" />
+        <LeadParagraph content="Tres principios" />
+        <p class="text-l leading-relaxed">
+          Son las reglas con las que tomamos cada decisión de producto y de
+          negocio.
+        </p>
+      </div>
+      <ol class="flex flex-col">
+        {
+          values.map(({ title, content }) => (
+            <ListItemOl markerSingleLine={true}>
+              <h4 class="text-l font-bold tracking-tight">{title}</h4>
+              <p class="text-m-gray-500 text-sm lg:text-lg mt-1">{content}</p>
+            </ListItemOl>
+          ))
+        }
+      </ol>
+    </div>
   </Container>
+
   <CTABanner />
 </Layout>
