@@ -25,9 +25,9 @@
 @font-face {
   font-family: "Manrope";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-display: block;
-  src: url(/fonts/manrope/Manrope-Regular.woff2) format("woff2");
+  src: url(/fonts/manrope/Manrope-Medium.woff2) format("woff2");
 }
 
 @font-face {

@@ -19,11 +19,11 @@ const variantClasses: Record<string, string> = {
   primary:
     "bg-m-indigo-500 text-m-cream-50 shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_8px_20px_-8px_rgba(33,33,99,0.7)] hover:shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_14px_28px_-10px_rgba(33,33,99,0.75)] hover:-translate-y-0.5",
   ghost:
-    "bg-transparent text-m-indigo-500 border border-[rgba(15,15,30,0.14)] hover:border-m-indigo-500 hover:-translate-y-0.5",
+    "bg-transparent text-m-indigo-500 border border-[rgba(15,15,30,0.44)] hover:border-m-indigo-500 hover:-translate-y-0.5",
   sky: "bg-m-sky-500 text-m-indigo-950 shadow-[0_8px_22px_-8px_rgba(93,196,247,0.8)] hover:-translate-y-0.5",
   light:
     "bg-m-cream-50 text-m-indigo-500 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-12px_rgba(0,0,0,0.4)]",
-  cpt: "bg-transparent text-m-indigo-500 font-semibold hover:gap-3",
+  cpt: "bg-m-indigo-500 text-m-cream-50 shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_8px_20px_-8px_rgba(33,33,99,0.7)] hover:shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_14px_28px_-10px_rgba(33,33,99,0.75)] hover:-translate-y-0.5",
 }
 
 const sizeClasses: Record<string, string> = {
@@ -36,15 +36,19 @@ const sizeClasses: Record<string, string> = {
 const isCpt = variant === "cpt"
 ---
 
-<a
-  href={href}
+<button
   class:list={[
-    "inline-flex items-center justify-center gap-2 font-semibold rounded-full border border-transparent cursor-pointer transition-[transform,box-shadow,gap] duration-[180ms] ease-out whitespace-nowrap",
+    "rounded-full border cursor-pointer transition-[transform,box-shadow,gap] duration-180 ease-out",
     variantClasses[variant],
-    isCpt ? "" : sizeClasses[size],
+    sizeClasses[size],
     extraClass,
   ]}
 >
-  <slot />
-  {isCpt && <ArrowRight class="w-4 h-4 shrink-0" />}
-</a>
+  <a
+    href={href}
+    class="inline-flex items-center justify-center gap-2 font-semibold whitespace-nowrap"
+  >
+    <slot />
+    {isCpt && <ArrowRight class="w-4 h-4 shrink-0" />}
+  </a>
+</button>

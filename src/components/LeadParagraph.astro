@@ -10,8 +10,8 @@ const { content, theme = "default", class: extraClass = "" } = Astro.props
 
 <p
   class:list={[
-    "mb-4 text-2xl md:text-3xl lg:text-4xl 2xl:text-6xl font-bold",
-    theme === "on-dark" ? "text-m-cream-50/80" : "text-m-gray-500",
+    "mb-4 font-semibold text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl",
+    theme === "on-dark" && "text-m-cream-50/80",
     extraClass,
   ]}
 >

@@ -10,12 +10,13 @@ import CTABanner from "@components/CTABanner.astro"
 import LeadParagraph from "@components/LeadParagraph.astro"
 import ListItem from "@components/ListItem.astro"
 import Card from "@components/Card.astro"
+import Eyebrow from "@components/Eyebrow.astro"
 ---
 
 <Layout title="Códice Clínico" description="">
   <Container variant="hero" classMaxWidth="max-w-4xl">
     <Heading maintitle="Software clínico en la nube" eyebrow={true} />
-    <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
+    <p class="font-semibold text-6xl md:text-10xl lg:text-12xl 2xl:text-14xl">
       Tu clínica, sin papeles. Sin errores. Sin límites.
     </p>
     <p class="mt-4">
@@ -36,44 +37,65 @@ import Card from "@components/Card.astro"
     alt="Imagen de la webapp"
     class="w-full object-cover"
   />
-  <Container classMaxWidth="max-w-4xl">
-    <div class="flex items-center gap-8">
-      <h2>Construido sobre estándares abiertos</h2>
+  <Container>
+    <div class="flex place-content-center gap-8">
+      <h2 class="font-mono">Construido sobre estándares abiertos</h2>
       <ul class="flex gap-8 mb-0">
-        <li>HL7 FHIR</li>
-        <li>CIE-10</li>
-        <li>Cifrado AES-256</li>
-        <li>Exportación libre</li>
+        <li class="inline-flex items-center gap-1">
+          <Eyebrow size="8" />HL7 FHIR
+        </li>
+        <li class="inline-flex items-center gap-1">
+          <Eyebrow size="8" />CIE-10
+        </li>
+        <li class="inline-flex items-center gap-1">
+          <Eyebrow size="8" />Cifrado AES-256
+        </li>
+        <li class="inline-flex items-center gap-1">
+          <Eyebrow size="8" />Exportación libre
+        </li>
       </ul>
     </div>
   </Container>
   <Container>
-    <Heading maintitle="Códice Clínico" variant="h2" />
-    <LeadParagraph
-      content="Todo lo que necesita tu práctica, en un solo lugar"
-      class="max-w-2xl"
-    />
-    <p class="mb-8">
-      Tres módulos que trabajan juntos para que dediques menos tiempo a la
-      administración y más a tus pacientes.
-    </p>
+    <Heading maintitle="El producto" variant="h2" />
+    <div class="max-w-2xl">
+      <LeadParagraph
+        content="Todo lo que necesita tu práctica, en un solo lugar"
+      />
+      <p class="mb-8">
+        Tres módulos que trabajan juntos para que dediques menos tiempo a la
+        administración y más a tus pacientes.
+      </p>
+    </div>
     <div class="grid md:grid-cols-3 gap-8">
       <Card icon={ClipboardClock}>
-        <Heading maintitle="Gestión de citas" variant="h3" />
+        <h3
+          class="mb-4 font-semibold text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"
+        >
+          Gestión de citas
+        </h3>
         <p>
           Reserva, cancela y reprograma citas desde cualquier dispositivo. La
           agenda de tu clínica, siempre actualizada.
         </p>
       </Card>
       <Card icon={Timeline}>
-        <Heading maintitle="Historia clínica digital (EHR)" variant="h3" />
+        <h3
+          class="mb-4 font-semibold text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"
+        >
+          Historia clínica digital (EHR)
+        </h3>
         <p>
           Registra diagnósticos, medicamentos, estudios y notas de evolución. El
           historial completo de cada paciente, disponible en segundos.
         </p>
       </Card>
       <Card icon={UsersRound}>
-        <Heading maintitle="Gestión de personal y consultorios" variant="h3" />
+        <h3
+          class="mb-4 font-semibold text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"
+        >
+          Personal y consultorios
+        </h3>
         <p>
           Asigna médicos a consultorios, controla accesos por rol y mantén tu
           equipo coordinado sin fricciones.
