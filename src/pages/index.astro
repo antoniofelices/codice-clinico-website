@@ -3,205 +3,296 @@ import { Image } from "astro:assets"
 import { ClipboardClock, Timeline, UsersRound } from "@lucide/astro"
 import screenShot from "@assets/images/1920x1080.jpg"
 import Layout from "@layouts/Layout.astro"
-import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
 import Button from "@components/Button.astro"
 import CTABanner from "@components/CTABanner.astro"
 import LeadParagraph from "@components/LeadParagraph.astro"
 import ListItemOl from "@components/ListItemOl.astro"
 import Card from "@components/Card.astro"
-import Eyebrow from "@components/Eyebrow.astro"
+import Shadow from "@components/Shadow.astro"
+import Container from "@components/Container.astro"
+
+const standards = ["HL7 FHIR", "CIE-10", "Cifrado AES-256", "Exportación libre"]
+
+const hcTags = ["Diagnósticos", "Recetas", "Estudios", "Evolución"]
+
+const teamRoles = [
+  { initials: "JR", name: "Dra. Rojas", role: "Médico" },
+  { initials: "AP", name: "Ana Paredes", role: "Admin" },
+  { initials: "DT", name: "Dirección", role: "Total" },
+]
+
+const whyItems = [
+  {
+    title: "Interoperabilidad real",
+    content:
+      "Tus datos son tuyos. Exporta, migra y comparte información clínica en formatos estándar en cualquier momento.",
+  },
+  {
+    title: "Menos errores, menos costes",
+    content:
+      "Elimina el papel, reduce duplicidades y automatiza los procesos que hoy se hacen a mano.",
+  },
+  {
+    title: "Control total de accesos",
+    content:
+      "Define exactamente quién ve qué: médicos, administrativos y dirección con permisos diferenciados y seguros.",
+  },
+  {
+    title: "En la nube, sin instalaciones",
+    content:
+      "Sin servidores que mantener. Accede desde cualquier ordenador o tablet, en la clínica o fuera de ella.",
+  },
+  {
+    title: "Acompañamiento cercano",
+    content:
+      "No eres un ticket de soporte. Cuando tienes un problema, hablas con una persona que conoce tu clínica.",
+  },
+  {
+    title: "Transparencia total",
+    content:
+      "Precios claros, contratos sencillos y sin letra pequeña. Somos una empresa familiar y nos comportamos como tal.",
+  },
+]
+
+const stats = [
+  {
+    value: "Solo",
+    desc: "1 usuario. Médico independiente o consultorio unipersonal.",
+    sky: false,
+  },
+  {
+    value: "Clínica",
+    desc: "De 2 a 10 usuarios. Clínicas pequeñas y medianas con varios especialistas.",
+    sky: false,
+  },
+  {
+    value: "Corp.",
+    desc: "Más de 10 usuarios. Grupos de clínicas o redes de salud privada.",
+    sky: false,
+  },
+  {
+    value: "0",
+    desc: "De permanencia. Pruébalo, y quédate solo si te funciona.",
+    sky: true,
+  },
+]
 ---
 
 <Layout title="Códice Clínico" description="">
-  <Container variant="hero" classMaxWidth="max-w-4xl">
-    <Heading maintitle="Software clínico en la nube" eyebrow={true} />
-    <p class="font-semibold text-6xl md:text-10xl lg:text-12xl 2xl:text-14xl">
-      Tu clínica, sin papeles. Sin errores. Sin límites.
-    </p>
-    <p class="mt-4">
-      Códice Clínico es el software médico en la nube diseñado para consultorios
-      y clínicas privadas que quieren trabajar mejor desde el primer día.
-    </p>
-    <div class="flex gap-8">
-      <Button href="/solicita-demo" size="md" class="mt-6" variant="cpt">
-        Solicita una demo gratuita
-      </Button>
-      <Button href="/precios" size="md" variant="ghost" class="mt-6">
-        Precios
-      </Button>
-    </div>
-  </Container>
-  <Image
-    src={screenShot}
-    alt="Imagen de la webapp"
-    class="w-full object-cover"
-  />
-  <Container>
-    <div class="flex place-content-center gap-8">
-      <h2 class="font-mono">Construido sobre estándares abiertos</h2>
-      <ul class="flex gap-8 mb-0">
-        <li class="inline-flex items-center gap-1">
-          <Eyebrow size="8" />HL7 FHIR
-        </li>
-        <li class="inline-flex items-center gap-1">
-          <Eyebrow size="8" />CIE-10
-        </li>
-        <li class="inline-flex items-center gap-1">
-          <Eyebrow size="8" />Cifrado AES-256
-        </li>
-        <li class="inline-flex items-center gap-1">
-          <Eyebrow size="8" />Exportación libre
-        </li>
-      </ul>
-    </div>
-  </Container>
-  <Container>
-    <Heading maintitle="El producto" variant="h2" />
-    <div class="max-w-2xl">
-      <LeadParagraph
-        content="Todo lo que necesita tu práctica, en un solo lugar"
-      />
-      <p class="mb-8">
-        Tres módulos que trabajan juntos para que dediques menos tiempo a la
-        administración y más a tus pacientes.
-      </p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <Card icon={ClipboardClock}>
-        <h3
-          class="mb-4 font-semibold text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"
+  <section class="relative pt-24">
+    <div class="container relative z-10">
+      <div class="max-w-4xl">
+        <Heading maintitle="Software clínico en la nube" eyebrow={true} />
+        <p
+          class="text-7xl md:text-10xl lg:text-12xl 2xl:text-14xl font-bold tracking-tighter mt-6"
         >
-          Gestión de citas
-        </h3>
-        <p>
-          Reserva, cancela y reprograma citas desde cualquier dispositivo. La
-          agenda de tu clínica, siempre actualizada.
+          Tu clínica, <span class="text-m-indigo-500">sin papeles.</span><br />
+          Sin errores. Sin límites.
         </p>
+        <p class="mt-6 text-l text-m-gray-800 max-w-lg leading-relaxed">
+          Códice Clínico es el sistema médico en la nube para consultorios y
+          clínicas privadas que quieren trabajar mejor desde el primer día.
+          Citas, historias clínicas y equipo, en un solo lugar.
+        </p>
+        <div class="flex gap-4 mt-8 flex-wrap">
+          <Button href="/solicita-demo" size="md" variant="cpt">
+            Solicita una demo gratuita
+          </Button>
+          <Button href="/precios" size="md" variant="ghost">
+            Ver el producto
+          </Button>
+        </div>
+        <div
+          class="flex flex-wrap items-center gap-2.5 mt-6 text-sm text-m-gray-500"
+        >
+          <span>Sin instalaciones</span>
+          <span class="w-1 h-1 rounded-full bg-m-gray-400 shrink-0"></span>
+          <span>Sin permanencia</span>
+          <span class="w-1 h-1 rounded-full bg-m-gray-400 shrink-0"></span>
+          <span>Tus datos siempre son tuyos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TODO: Add image. Product mockup Screenshot — overlaps next section by 90px -->
+    <div
+      class="relative z-10 max-w-280 mx-auto px-6 mt-14"
+      style="margin-bottom: -90px;"
+    >
+      <Image
+        src={screenShot}
+        alt="Imagen de la webapp"
+        class="w-full object-cover"
+      />
+    </div>
+    <Shadow />
+  </section>
+
+  <Container classSection="bg-m-cream-50 border-t border-m-gray-50 pt-36 pb-16">
+    <div class="flex items-center lg:justify-center gap-x-10 gap-y-4 flex-wrap">
+      <span
+        class="font-mono text-xs tracking-[0.14em] uppercase text-m-gray-500"
+      >
+        Construido sobre estándares abiertos
+      </span>
+      {
+        standards.map((std) => (
+          <span class="inline-flex items-center gap-2 text-m-indigo-500 font-bold text-l tracking-tight">
+            <span class="w-2 h-2 rounded-sm bg-m-sky-500 shrink-0" />
+            {std}
+          </span>
+        ))
+      }
+    </div>
+  </Container>
+
+  <Container classSection="bg-m-cream-50 py-28">
+    <Heading maintitle="El producto" eyebrow={true} variant="h2" />
+    <LeadParagraph
+      content="Todo lo que necesita tu práctica, en un solo lugar"
+      class="max-w-2xl"
+    />
+    <p class="mb-14 text-m-gray-500">
+      Tres módulos que trabajan juntos para que dediques menos tiempo a la
+      administración y más a tus pacientes.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+      <Card
+        icon={ClipboardClock}
+        iconDark
+        class="md:col-span-4 md:min-h-95 flex flex-col"
+      >
+        <h3 class="text-2xl font-bold tracking-tight mb-2">Gestión de citas</h3>
+        <p class="text-m-gray-500">
+          Reserva, cancela y reprograma desde cualquier dispositivo. La agenda
+          de tu clínica, siempre actualizada y sincronizada entre todo el
+          equipo.
+        </p>
+        <!-- Screenshot -->
         <Image
           src={screenShot}
           alt="Imagen de la webapp"
           class="w-full object-cover"
         />
       </Card>
-      <Card icon={Timeline}>
-        <h3
-          class="mb-4 font-semibold text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"
-        >
-          Historia clínica digital (EHR)
+
+      <Card icon={Timeline} iconDark class="md:col-span-2 flex flex-col">
+        <h3 class="text-xl font-bold tracking-tight mb-2">
+          Historia clínica digital
         </h3>
-        <p>
-          Registra diagnósticos, medicamentos, estudios y notas de evolución. El
+        <p class="text-m-gray-500 text-sm">
+          Diagnósticos, medicamentos, estudios y notas de evolución. El
           historial completo de cada paciente, disponible en segundos.
         </p>
+        <div class="mt-auto flex flex-wrap gap-1.5 pt-4">
+          {
+            hcTags.map((tag) => (
+              <span class="font-mono text-xs tracking-wide px-2.5 py-1 rounded-full bg-m-sky-50 text-m-indigo-500 border border-m-sky-500/30">
+                {tag}
+              </span>
+            ))
+          }
+        </div>
       </Card>
-      <Card icon={UsersRound}>
-        <h3
-          class="mb-4 font-semibold text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"
-        >
+
+      <Card icon={UsersRound} iconDark class="md:col-span-2 flex flex-col">
+        <h3 class="text-xl font-bold tracking-tight mb-2">
           Personal y consultorios
         </h3>
-        <p>
-          Asigna médicos a consultorios, controla accesos por rol y mantén tu
-          equipo coordinado sin fricciones.
+        <p class="text-m-gray-500 text-sm">
+          Asigna médicos a consultorios y controla accesos por rol para mantener
+          tu equipo coordinado, sin fricciones.
         </p>
-        <Image
-          src={screenShot}
-          alt="Imagen de la webapp"
-          class="w-full object-cover"
-        />
+        <div class="mt-auto pt-4">
+          {
+            teamRoles.map(({ initials, name, role }, i) => (
+              <div
+                class:list={[
+                  "flex items-center gap-2.5 py-2.5 text-[13.5px]",
+                  i > 0 && "border-t border-m-gray-50",
+                ]}
+              >
+                <span class="w-7 h-7 rounded-lg bg-m-cream-300 flex items-center justify-center text-xs font-bold text-m-indigo-500 shrink-0">
+                  {initials}
+                </span>
+                {name}
+                <span class="ml-auto font-mono text-xs text-m-gray-500 tracking-wide">
+                  {role}
+                </span>
+              </div>
+            ))
+          }
+        </div>
       </Card>
     </div>
   </Container>
-  <Container classMaxWidth="max-w-3xl">
-    <div>
+
+  <Container
+    classSection="bg-m-indigo-900 text-m-cream-50 py-28 relative overflow-hidden"
+    classInner="relative z-10"
+    shadowVariant="bottom"
+  >
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14 md:items-end"
+    >
       <div>
-        <Heading maintitle="Por qué elegir Códice Clínico" variant="h2" />
-        <LeadParagraph content="Hecho para la práctica clínica privada." />
+        <Heading
+          maintitle="Por qué elegir Códice"
+          eyebrow={true}
+          variant="h2"
+          theme="on-dark"
+        />
+        <LeadParagraph
+          content="Hecho para la práctica privada."
+          theme="on-dark"
+        />
       </div>
-      <div>
-        <p>
-          Sin la complejidad de los grandes sistemas hospitalarios.
-          Configurable, ágil y a tu medida desde el día uno.
-        </p>
-      </div>
-    </div>
-    <ol class="list-decimal">
-      <ListItemOl>
-        <h3>Interoperabilidad real.</h3>
-        <p>
-          Tus datos son tuyos. Exporta, migra y comparte información clínica en
-          formatos estándar en cualquier momento.
-        </p>
-      </ListItemOl>
-      <ListItemOl>
-        <h3>Menos errores, menos costes.</h3>
-        <p>
-          Elimina el papel, reduce duplicidades y automatiza los procesos que
-          hoy hacen a mano.
-        </p>
-      </ListItemOl>
-      <ListItemOl>
-        <h3>Control total de accesos.</h3>
-        <p>
-          Define exactamente quién ve qué: médicos, administrativos y dirección
-          con permisos diferenciados y seguros.
-        </p>
-      </ListItemOl>
-      <ListItemOl>
-        <h3>En la nube, sin instalaciones.</h3>
-        <p>
-          Sin servidores que mantener. Accede desde cualquier ordenador o
-          tablet, en la clínica o fuera de ella.
-        </p>
-      </ListItemOl>
-      <ListItemOl>
-        <h3>Pensado para la práctica privada.</h3>
-        <p>
-          Sin la complejidad de los grandes sistemas hospitalarios.
-          Configurable, ágil y a tu medida desde el día uno.
-        </p>
-      </ListItemOl>
-    </ol>
-  </Container>
-  <Container>
-    <div class="max-w-2xl">
-      <Heading maintitle="Precios" variant="h2" />
-      <LeadParagraph content="Un plan para cada tipo de práctica" />
-      <p class="mb-8">
-        Desde el médico particular hasta la clínica con varios especialistas.
-        Sin sorpresas, sin permamencia.
+      <p class="text-m-cream-50/60 text-l leading-relaxed">
+        Sin la complejidad de los grandes sistemas hospitalarios. Configurable,
+        ágil y a tu medida desde el día uno.
       </p>
     </div>
-    <div class="grid lg:grid-cols-4 lg:gap-16">
-      <div>
-        <h3 class="mb-6 text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl">Solo</h3>
-        <p>1 usuario. Médico independiente o consultorio unipersonal.</p>
-      </div>
-      <div>
-        <h3 class="mb-6 text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl">
-          Clínica
-        </h3>
-        <p>
-          De 2 a 10 usuarios. Clínicas pequeñas y medianas con varios
-          especialistas.
-        </p>
-      </div>
-      <div>
-        <h3 class="mb-6 text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl">
-          Corporativo
-        </h3>
-        <p>Más de 10 usuarios. Grupos de clínicas o redes de salud privada.</p>
-      </div>
-      <div>
-        <p
-          class="mb-0 text-m-sky-500 text-3xl md:text-5xl lg:text-7xl 2xl:text-9xl"
-        >
-          0
-        </p>
-        <p>De permanencia. Pruébalo, y quédate solo si te funciona.</p>
-      </div>
+    <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
+      {
+        whyItems.map(({ title, content }) => (
+          <ListItemOl markerSingleLine={false} variant="dark">
+            <h4 class="text-l font-bold text-white tracking-tight">{title}</h4>
+            <p class="text-m-cream-50/60 text-sm lg:text-lg mt-2">{content}</p>
+          </ListItemOl>
+        ))
+      }
+    </ol>
+  </Container>
+
+  <Container classSection="bg-m-cream-50 py-28">
+    <div class="max-w-3xl mb-14">
+      <Heading maintitle="Precios" eyebrow={true} variant="h2" />
+      <LeadParagraph content="Un plan para cada tipo de práctica" />
+      <p class="text-m-gray-500">
+        Desde el médico particular hasta la clínica con varios especialistas.
+        Sin sorpresas, sin permanencia.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {
+        stats.map(({ value, desc, sky }) => (
+          <div>
+            <div
+              class:list={[
+                "text-8xl md:text-9xl font-extrabold tracking-tighter leading-none",
+                sky ? "text-m-sky-500" : "text-m-indigo-500",
+              ]}
+            >
+              {value}
+            </div>
+            <p class="text-sm text-m-gray-500 mt-3 max-w-55">{desc}</p>
+          </div>
+        ))
+      }
     </div>
   </Container>
+
   <CTABanner />
 </Layout>

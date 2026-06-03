@@ -5,15 +5,102 @@ import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
 import CTABanner from "@components/CTABanner.astro"
 import LeadParagraph from "@components/LeadParagraph.astro"
+import Button from "@components/Button.astro"
+
+type ButtonVariant = "primary" | "ghost" | "sky" | "light" | "cpt"
+
+const plans: {
+  name: string
+  seats: string
+  desc: string
+  tag: string
+  features: string[]
+  cta: { label: string; href: string; variant: ButtonVariant }
+  featured: boolean
+}[] = [
+  {
+    name: "Solo",
+    seats: "1 usuario",
+    desc: "Para el médico independiente o el consultorio unipersonal que quiere digitalizarse hoy.",
+    tag: "Para empezar en solitario",
+    features: [
+      "Historia clínica digital",
+      "Agenda de citas ilimitada",
+      "Soporte por correo",
+    ],
+    cta: {
+      label: "Solicita una demo",
+      href: "/solicita-demo",
+      variant: "ghost",
+    },
+    featured: false,
+  },
+  {
+    name: "Clínica",
+    seats: "De 2 a 10 usuarios",
+    desc: "Para clínicas pequeñas y medianas con varios especialistas que trabajan en equipo.",
+    tag: "Ideal para clínicas",
+    features: [
+      "Historia clínica digital",
+      "Agenda de citas ilimitada",
+      "Varios médicos y consultorios",
+      "Soporte prioritario",
+    ],
+    cta: { label: "Solicita una demo", href: "/solicita-demo", variant: "sky" },
+    featured: false,
+  },
+  {
+    name: "Corporativo",
+    seats: "Más de 10 usuarios",
+    desc: "Para grupos de clínicas o redes de salud privada que necesitan escalar con control.",
+    tag: "A medida de tu red",
+    features: [
+      "Historia clínica digital",
+      "Agenda de citas ilimitada",
+      "Usuarios y sedes ilimitados",
+      "Integraciones",
+      "Gestor de cuenta dedicado",
+    ],
+    cta: { label: "Hablar con ventas", href: "/contacto", variant: "ghost" },
+    featured: false,
+  },
+]
+
+const tableRows = [
+  { feature: "Usuarios", solo: "1", clinica: "2 – 10", corp: "Ilimitados" },
+  {
+    feature: "Historia clínica digital",
+    solo: true,
+    clinica: true,
+    corp: true,
+  },
+  { feature: "Agenda de citas", solo: true, clinica: true, corp: true },
+  { feature: "Roles y permisos", solo: false, clinica: true, corp: true },
+  { feature: "Varias sedes", solo: false, clinica: "Hasta 3", corp: true },
+  { feature: "Integraciones", solo: false, clinica: false, corp: true },
+  {
+    feature: "Soporte",
+    solo: "Correo",
+    clinica: "Prioritario",
+    corp: "Gestor dedicado",
+  },
+]
 ---
 
 <Layout title="Precios" description="">
-  <Container variant="hero" classMaxWidth="max-w-4xl">
+  <Container
+    classSection="relative overflow-hidden border-b border-m-gray-50 pt-24 pb-20"
+    classInner="relative z-10"
+    classMaxWidth="max-w-3xl"
+    shadowVariant="top"
+  >
     <Heading maintitle="Precios" />
-    <p class="text-6xl md:text-9xl lg:text-11xl 2xl:text-14xl font-bold">
+    <p
+      class="text-7xl md:text-10xl lg:text-12xl 2xl:text-14xl font-bold tracking-tighter mt-6"
+    >
       Un plan para cada tipo de práctica.
     </p>
-    <p class="mt-4">
+    <p class="mt-6 text-l text-m-gray-800 leading-relaxed">
       Nos adaptamos a todo tipo de práctica clínica, desde el médico particular
       hasta la clínica con varios especialistas. <strong
         >Sin sorpresas, sin permanencia</strong
@@ -21,116 +108,170 @@ import LeadParagraph from "@components/LeadParagraph.astro"
     </p>
   </Container>
 
-  <Container>
-    <div class="grid grid-cols-3 gap-8">
-      <div>
-        <h3>Solo</h3>
-        <p>1 usuario</p>
-        <p>
-          Para el médico independiente o el consultorio unipersonal que quiere
-          digitalizarse hoy.
-        </p>
-        <p>Para empezar en solitario</p>
-        <ul>
-          <li>Historia clínica digital</li>
-          <li>Agenda de citas ilimitada</li>
-          <li>Soporte por correo</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Clínica</h3>
-        <p>De 2 a 10 usuarios</p>
-        <p>
-          Para clínicas pequeñas y medianas con varios especialistas que
-          trabajan en equipo.
-        </p>
-        <p>Ideal para clínicas</p>
-        <ul>
-          <li>Historia clínica digital</li>
-          <li>Agenda de citas ilimitada</li>
-          <li>Varios médicos y consultorios</li>
-          <li>Soporte prioritario</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Corporativo</h3>
-        <p>Más de 10 usuarios</p>
-        <p>
-          Para grupos de clínicas o redes de salud privada que necesitan escalar
-          con control.
-        </p>
-        <p>A medida de tu red</p>
-        <ul>
-          <li>Historia clínica digital</li>
-          <li>Agenda de citas ilimitada</li>
-          <li>Usuarios y sedes ilimitados</li>
-          <li>Integraciones</li>
-          <li>Gestor de cuenta dedicado</li>
-        </ul>
-      </div>
+  <Container classSection="bg-m-cream-50 py-28">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      {
+        plans.map(({ name, seats, desc, tag, features, cta, featured }) => (
+          <div
+            class:list={[
+              "rounded-3xl p-8 flex flex-col border",
+              featured
+                ? "bg-m-indigo-900 text-m-cream-50 shadow-lg border-m-indigo-800 relative overflow-hidden"
+                : "bg-white border-m-gray-50 shadow-card",
+            ]}
+          >
+            {/* {featured && (
+              <div
+                class="absolute top-0 right-0 w-64 h-64 pointer-events-none"
+                aria-hidden="true"
+                style="background: radial-gradient(closest-side, rgba(93,196,247,0.18), transparent 80%); transform: translate(25%, -30%);"
+              />
+            )} */}
+
+            <h3
+              class:list={[
+                "text-2xl font-bold tracking-tight",
+                featured ? "text-m-cream-50" : "text-m-indigo-500",
+              ]}
+            >
+              {name}
+            </h3>
+
+            <span
+              class:list={[
+                "font-mono text-xs tracking-[0.12em] uppercase mt-1 mb-4",
+                featured ? "text-m-sky-500" : "text-m-gray-500",
+              ]}
+            >
+              {seats}
+            </span>
+
+            <p
+              class:list={[
+                "text-sm lg:text-lg leading-relaxed mb-4",
+                featured ? "text-m-cream-50/70" : "text-m-gray-500",
+              ]}
+              style="min-height: 48px;"
+            >
+              {desc}
+            </p>
+
+            <div
+              class:list={[
+                "border-t pt-4 mb-6",
+                featured ? "border-white/10" : "border-m-gray-50",
+              ]}
+            >
+              <p
+                class:list={[
+                  "font-semibold",
+                  featured ? "text-m-cream-50/60" : "text-m-gray-500",
+                ]}
+              >
+                {tag}
+              </p>
+            </div>
+
+            <ul class="flex flex-col gap-3 mb-8">
+              {features.map((feat) => (
+                <li class="flex items-center gap-2.5 text-sm">
+                  <Check
+                    class:list={[
+                      "w-4 h-4 shrink-0",
+                      featured ? "text-m-sky-500" : "text-m-indigo-500",
+                    ]}
+                  />
+                  <span class:list={[featured ? "text-m-cream-50/80" : ""]}>
+                    {feat}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-auto">
+              <Button
+                href={cta.href}
+                variant="ghost"
+                size="md"
+                class="w-full justify-center"
+              >
+                {cta.label}
+              </Button>
+            </div>
+          </div>
+        ))
+      }
     </div>
-    <p>
-      ¿No estás seguro de qué plan necesitas? Solicita una demo y te ayudamos a
-      encontrar la configuración ideal para tu práctica.
+
+    <p class="text-center mt-10 text-sm text-m-gray-500">
+      ¿No estás seguro de qué plan necesitas?{" "}
+      <a
+        href="/solicita-demo"
+        class="underline text-m-indigo-500 hover:text-m-indigo-400"
+      >
+        Solicita una demo
+      </a>{" "}
+      y te ayudamos a encontrar la configuración ideal para tu práctica.
     </p>
   </Container>
-  <Container>
-    <Heading variant="h2" maintitle="Comparativa" />
-    <LeadParagraph content="Qué incluye cada plan" />
-    <table class="table-auto">
-      <thead>
-        <tr>
-          <th>Características</th>
-          <th>Solo</th>
-          <th>Clínica</th>
-          <th>Corporativa</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Usuarios</td>
-          <td>1</td>
-          <td>2-10</td>
-          <td>ilimitados</td>
-        </tr>
-        <tr>
-          <td>Historia clínica digital</td>
-          <td><Check /></td>
-          <td><Check /></td>
-          <td><Check /></td>
-        </tr>
-        <tr>
-          <td>Agenda de citas</td>
-          <td><Check /></td>
-          <td><Check /></td>
-          <td><Check /></td>
-        </tr>
-        <tr>
-          <td>Roles y permisos</td>
-          <td> - </td>
-          <td><Check /></td>
-          <td><Check /></td>
-        </tr>
-        <tr>
-          <td>Varias sedes</td>
-          <td> - </td>
-          <td>Hasta 3</td>
-          <td><Check /></td>
-        </tr>
-        <tr>
-          <td>Integraciones</td>
-          <td> - </td>
-          <td> - </td>
-          <td><Check /></td>
-        </tr>
-        <tr>
-          <td>Soporte</td>
-          <td>Correo</td>
-          <td>Prioritario</td>
-          <td>Gestor dedicado</td>
-        </tr>
-      </tbody>
-    </table>
+
+  <Container classSection="py-28">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-14 mb-14 md:items-end">
+      <div>
+        <Heading maintitle="Comparativa" eyebrow={true} variant="h2" />
+        <LeadParagraph content="Qué incluye cada plan" />
+      </div>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-m-gray-50">
+            <th
+              class="text-left pb-4 font-mono text-xs tracking-[0.12em] uppercase text-m-gray-500 w-2/5"
+            >
+              Características
+            </th>
+            <th
+              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-m-gray-500"
+            >
+              Solo
+            </th>
+            <th
+              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-m-gray-500"
+            >
+              Clínica
+            </th>
+            <th
+              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-m-gray-500"
+            >
+              Corporativa
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            tableRows.map(({ feature, solo, clinica, corp }) => (
+              <tr class="border-b border-m-gray-50 hover:bg-m-gray-50 transition-colors">
+                <td class="px-2 py-4 text-m-gray-800">{feature}</td>
+                {[solo, clinica, corp].map((val) => (
+                  <td class="py-3.5 text-center">
+                    {val === true ? (
+                      <Check class="w-4 h-4 text-m-indigo-500 mx-auto" />
+                    ) : val === false ? (
+                      <span class="text-m-gray-400">—</span>
+                    ) : (
+                      <span class="text-m-gray-600">{val}</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
   </Container>
+
   <CTABanner />
 </Layout>

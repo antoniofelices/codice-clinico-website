@@ -2,37 +2,51 @@
 import Layout from "@layouts/Layout.astro"
 import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
+import LeadParagraph from "@components/LeadParagraph.astro"
 import Form from "@components/Form.astro"
-import ListItem from "@components/ListItemUl.astro"
+import ListItemUl from "@components/ListItemUl.astro"
+
+const benefits = [
+  "Demo personalizada sin compromiso",
+  "Te explicamos cómo migrar tus datos actuales",
+  "Resolveremos todas tus dudas en 30 minutos",
+  "Sin instalaciones ni contratos de permanencia",
+]
 ---
 
 <Layout title="" description="" includeHeader={false} includeFooter={false}>
-  <Container variant="hero" classMaxWidth="max-w-4xl">
-    <Heading maintitle="¿Preparado para el cambio?" />
-    <p class="mt-4">
-      Agenda una sesión gratuita con nuestro equipo y descubre cómo Códice
-      Clínico puede transformar la gestión de tu clínica en menos tiempo del que
-      imaginas.
-    </p>
+  <Container
+    classSection="relative overflow-hidden min-h-screen flex flex-col justify-center py-16"
+    classInner="relative z-10"
+    shadowVariant="top"
+  >
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <Heading maintitle="Solicita una demo" />
+        <p
+          class="text-7xl md:text-10xl lg:text-12xl 2xl:text-14xl font-bold tracking-tighter mt-6"
+        >
+          ¿Preparado para <span class="text-m-indigo-500">el cambio?</span>
+        </p>
+        <p class="mt-6 text-l text-m-gray-800 leading-relaxed">
+          Agenda una sesión gratuita con nuestro equipo y descubre cómo Códice
+          Clínico puede transformar la gestión de tu clínica en menos tiempo del
+          que imaginas.
+        </p>
+        <ul class="mt-8 hidden md:block">
+          {benefits.map((text) => <ListItemUl text={text} />)}
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-4xl shadow-lg p-8 lg:p-10">
+        <h2 class="text-2xl font-bold tracking-tight text-m-indigo-500 mb-1">
+          Reserva tu sesión
+        </h2>
+        <p class="text-m-gray-500 text-sm mb-8">
+          Respuesta en 24 h · Sin compromiso
+        </p>
+        <Form />
+      </div>
+    </div>
   </Container>
 </Layout>
-<Container classMaxWidth="max-w-4xl">
-  <Form />
-</Container>
-<Container classMaxWidth="max-w-4xl">
-  <ul class="max-w-4xl mx-auto">
-    <ListItem text="Demo personalizada sin compromiso" includeIcon={false} />
-    <ListItem
-      text="Te explicamos cómo migrar tus datos actuales"
-      includeIcon={false}
-    />
-    <ListItem
-      text="Resolveremos todas tus dudas en 30 minutos"
-      includeIcon={false}
-    />
-    <ListItem
-      text="Sin instalaciones ni contratos de permanencia"
-      includeIcon={false}
-    />
-  </ul>
-</Container>

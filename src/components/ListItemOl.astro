@@ -31,7 +31,7 @@ const borderColor = {
         borderColor[variant],
         extraClass,
       ]}
-      style="grid-template-columns: auto 1fr;"
+      style="counter-increment: list-item;"
     >
       <div>
         <slot />
@@ -40,14 +40,17 @@ const borderColor = {
   ) : (
     <li
       class:list={[
-        "list-none border-t-2 pt-6 pb-6",
+        "list-none grid gap-5 border-t-2 pt-6 pb-6",
         "before:block before:content-[counter(list-item,decimal-leading-zero)] before:font-mono before:text-sm before:mb-3",
         numColor[variant],
         borderColor[variant],
         extraClass,
       ]}
+      style="grid-template-columns: auto 1fr; counter-increment: list-item;"
     >
-      <slot />
+      <div>
+        <slot />
+      </div>
     </li>
   )
 }

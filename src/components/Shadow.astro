@@ -1,0 +1,35 @@
+---
+interface Props {
+  variant?: "top" | "bottom"
+}
+
+const { variant = "top" } = Astro.props
+---
+
+<div
+  class="absolute inset-0 overflow-hidden pointer-events-none"
+  aria-hidden="true"
+>
+  {
+    variant === "top" && (
+      <>
+        <div
+          class="absolute inset-0"
+          style="background-image: linear-gradient(to right, rgba(33,33,99,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(33,33,99,0.05) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 62% 55% at 28% 38%, #000 35%, transparent 72%); -webkit-mask-image: radial-gradient(ellipse 62% 55% at 28% 38%, #000 35%, transparent 72%);"
+        />
+        <div
+          class="absolute"
+          style="top: -260px; left: 24%; transform: translateX(-50%); width: 1100px; height: 760px; background: radial-gradient(closest-side, rgba(93,196,247,0.42), rgba(93,196,247,0.08) 55%, transparent 75%); filter: blur(8px);"
+        />
+      </>
+    )
+  }
+  {
+    variant === "bottom" && (
+      <div
+        class="absolute"
+        style="bottom: -200px; right: -120px; width: 640px; height: 640px; background: radial-gradient(closest-side, rgba(93,196,247,0.20), transparent 70%);"
+      />
+    )
+  }
+</div>

@@ -1,20 +1,31 @@
 ---
+import Shadow from "./Shadow.astro"
+
 interface Props {
   variant?: "default" | "hero"
   classSection?: string
+  classInner?: string
   classMaxWidth?: string
+  shadowVariant?: "top" | "bottom"
 }
 
-const { variant = "default", classSection, classMaxWidth } = Astro.props
+const {
+  variant = "default",
+  classSection,
+  classInner,
+  classMaxWidth,
+  shadowVariant,
+} = Astro.props
 
 const variantSectionClasses = {
-  default: "py-16",
+  default: "",
   hero: "pt-40 pb-22 2xl:pt-48",
 }
 ---
 
-<section class={`${variantSectionClasses[variant]} ${classSection}`}>
-  <div class="container">
+<section class={`${variantSectionClasses[variant]} ${classSection ?? ""}`}>
+  {shadowVariant && <Shadow variant={shadowVariant} />}
+  <div class={`container ${classInner ?? ""}`}>
     <div class={classMaxWidth}>
       <slot />
     </div>
