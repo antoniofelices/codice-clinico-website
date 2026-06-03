@@ -10,18 +10,44 @@ const {
   class: extraClass = "",
 } = Astro.props
 
-const variantClasses: Record<string, string> = {
-  default: "maker:text-m-sky-50",
-  dark: "",
+const numColor = {
+  default: "before:text-m-indigo-500",
+  dark: "before:text-m-sky-500",
+}
+
+const borderColor = {
+  default: "border-m-gray-300",
+  dark: "border-white/10",
 }
 ---
 
-<li
-  class:list={[
-    "marker:font-mono marker:text-sm",
-    variantClasses[variant],
-    extraClass,
-  ]}
->
-  <slot />
-</li>
+{
+  markerSingleLine ? (
+    <li
+      class:list={[
+        "list-none grid gap-5 border-l-2 pl-5 py-6",
+        "before:content-[counter(list-item,decimal-leading-zero)] before:font-mono before:text-sm before:pt-0.5 before:shrink-0",
+        numColor[variant],
+        borderColor[variant],
+        extraClass,
+      ]}
+      style="grid-template-columns: auto 1fr;"
+    >
+      <div>
+        <slot />
+      </div>
+    </li>
+  ) : (
+    <li
+      class:list={[
+        "list-none border-t-2 pt-6 pb-6",
+        "before:block before:content-[counter(list-item,decimal-leading-zero)] before:font-mono before:text-sm before:mb-3",
+        numColor[variant],
+        borderColor[variant],
+        extraClass,
+      ]}
+    >
+      <slot />
+    </li>
+  )
+}
