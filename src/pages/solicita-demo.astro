@@ -3,36 +3,36 @@ import Layout from "@layouts/Layout.astro"
 import Container from "@components/Container.astro"
 import Heading from "@components/Heading.astro"
 import Form from "@components/Form.astro"
-import ListItem from "@components/ListItemUl.astro"
+import ListItemUl from "@components/ListItemUl.astro"
 ---
 
 <Layout title="" description="" includeHeader={false} includeFooter={false}>
-  <Container variant="hero" classMaxWidth="max-w-4xl">
-    <Heading maintitle="¿Preparado para el cambio?" />
-    <p class="mt-4">
-      Agenda una sesión gratuita con nuestro equipo y descubre cómo Códice
-      Clínico puede transformar la gestión de tu clínica en menos tiempo del que
-      imaginas.
-    </p>
+  <Container>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div>
+        <Heading maintitle="Solicita una demo" />
+        <p
+          class="text-7xl md:text-10xl lg:text-12xl 2xl:text-14xl font-bold tracking-tighter mt-6"
+        >
+          ¿Preparado para el cambio?
+        </p>
+        <p class="mt-6 text-l text-m-gray-800 leading-relaxed">
+          Agenda una sesión gratuita con nuestro equipo y descubre cómo Códice
+          Clínico puede transformar la gestión de tu clínica en menos tiempo del
+          que imaginas.
+        </p>
+        <ul class="max-w-4xl mx-auto">
+          <ListItemUl text="Demo personalizada sin compromiso" />
+          <ListItemUl text="Te explicamos cómo migrar tus datos actuales" />
+          <ListItemUl text="Resolveremos todas tus dudas en 30 minutos" />
+          <ListItemUl text="Sin instalaciones ni contratos de permanencia" />
+        </ul>
+      </div>
+      <div>
+        <h2>Reserva tu sesió</h2>
+        <Form />
+        <p>Respuesta en 24 h · Sin compromiso</p>
+      </div>
+    </div>
   </Container>
 </Layout>
-<Container classMaxWidth="max-w-4xl">
-  <Form />
-</Container>
-<Container classMaxWidth="max-w-4xl">
-  <ul class="max-w-4xl mx-auto">
-    <ListItem text="Demo personalizada sin compromiso" includeIcon={false} />
-    <ListItem
-      text="Te explicamos cómo migrar tus datos actuales"
-      includeIcon={false}
-    />
-    <ListItem
-      text="Resolveremos todas tus dudas en 30 minutos"
-      includeIcon={false}
-    />
-    <ListItem
-      text="Sin instalaciones ni contratos de permanencia"
-      includeIcon={false}
-    />
-  </ul>
-</Container>
