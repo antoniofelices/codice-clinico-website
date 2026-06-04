@@ -8,10 +8,13 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate-types": "wrangler types"
+    "generate-types": "wrangler types",
+    "build": "wrangler types && astro build"
+  },
+  "overrides": {
+    "vite": "^7"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.4",
