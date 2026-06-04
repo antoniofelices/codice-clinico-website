@@ -19,25 +19,47 @@ import Button from "@components/Button.astro"
     novalidate
     class="bg-white rounded-2xl p-4 lg:py-12 shadow-sm"
   >
-    <div class="field flex flex-col gap-1.5 mb-6">
-      <label
-        for="family_name"
-        class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
-      >
-        Nombre <span class="text-m-red-500" aria-hidden="true">*</span>
-      </label>
-      <input
-        type="text"
-        id="family_name"
-        name="family_name"
-        required
-        autocomplete="family-name"
-        placeholder="Ana García López"
-        class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
-      />
-      <span class="error-msg hidden text-xs text-m-red-500 font-medium"
-        >Por favor, introduce tu nombre.</span
-      >
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+      <div class="field flex flex-col gap-1.5">
+        <label
+          for="firstname"
+          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+        >
+          Nombre <span class="text-m-red-500" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          required
+          autocomplete="firstname"
+          placeholder="Ana"
+          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
+        />
+        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+          >Por favor, introduce tu nombre.</span
+        >
+      </div>
+      <div class="field flex flex-col gap-1.5">
+        <label
+          for="lastname"
+          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+        >
+          Apellidos <span class="text-m-red-500" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          required
+          autocomplete="lastname"
+          placeholder="García López"
+          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
+        />
+        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+          >Por favor, introduce tu apellido.</span
+        >
+      </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -99,9 +121,9 @@ import Button from "@components/Button.astro"
           class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out cursor-pointer"
         >
           <option value="" disabled selected>Selecciona una opción</option>
-          <option value="independiente">Médico independiente</option>
-          <option value="clinica_pequena">Clínica pequeña o mediana</option>
-          <option value="grupo_clinicas">Grupo de clínicas</option>
+          <option value="particular">Médico independiente</option>
+          <option value="small">Clínica pequeña o mediana</option>
+          <option value="corporative">Grupo de clínicas</option>
         </select>
         <span class="error-msg hidden text-xs text-m-red-500 font-medium"
           >Por favor, selecciona el tipo de práctica.</span
