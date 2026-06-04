@@ -1,45 +1,73 @@
 ---
-
+import Button from "@components/Button.astro"
 ---
 
-<div class="form-request">
-  <div id="form-success" class="hidden text-center py-16 px-4 lg:px-8">
-    <p class="text-5xl lg:text-7xl font-bold text-m-red-500 leading-tight">
-      ¡Gracias<br />por firmar!
-    </p>
-    <p class="mt-6 text-m-gray-600 text-base lg:text-xl max-w-sm mx-auto">
-      Tu apoyo ha sido registrado. Juntos defenderemos la prórroga.
+<div class="w-full">
+  <div
+    id="form-success"
+    aria-live="polite"
+    class="hidden text-center py-16 px-4 lg:px-8"
+  >
+    <p class="text-5xl lg:text-7xl font-bold text-m-indigo-500 leading-tight">
+      ¡Listo! Te contactaremos en menos de 24 horas.
     </p>
   </div>
 
   <form
-    id="subscribe-form"
-    method="POST"
-    action="/api/subscribe"
+    id="demo-form"
     novalidate
     class="bg-white rounded-2xl p-4 lg:py-12 shadow-sm"
   >
-    <!-- Nombre -->
-    <div class="field mb-6">
-      <label for="family_name">
-        Nombre <span class="req" aria-hidden="true">*</span>
-      </label>
-      <input
-        type="text"
-        id="family_name"
-        name="family_name"
-        required
-        autocomplete="family-name"
-        placeholder="García López"
-      />
-      <span class="error-msg">Por favor, introduce tu nombre.</span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+      <div class="field flex flex-col gap-1.5">
+        <label
+          for="firstname"
+          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+        >
+          Nombre <span class="text-m-red-500" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          required
+          autocomplete="firstname"
+          placeholder="Ana"
+          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
+        />
+        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+          >Por favor, introduce tu nombre.</span
+        >
+      </div>
+      <div class="field flex flex-col gap-1.5">
+        <label
+          for="lastname"
+          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+        >
+          Apellidos <span class="text-m-red-500" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          required
+          autocomplete="lastname"
+          placeholder="García López"
+          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
+        />
+        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+          >Por favor, introduce tu apellido.</span
+        >
+      </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <!-- Email -->
-      <div class="field">
-        <label for="email">
-          Email <span class="req" aria-hidden="true">*</span>
+      <div class="field flex flex-col gap-1.5">
+        <label
+          for="email"
+          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+        >
+          Email <span class="text-m-red-500" aria-hidden="true">*</span>
         </label>
         <input
           type="email"
@@ -48,138 +76,119 @@
           required
           autocomplete="email"
           placeholder="ana@ejemplo.com"
+          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
         />
-        <span class="error-msg">Introduce un correo electrónico válido.</span>
+        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+          >Introduce un correo electrónico válido.</span
+        >
       </div>
 
-      <!-- Teléfono -->
-      <div class="field">
-        <label for="phone">
-          Teléfono <span class="req" aria-hidden="true">*</span>
+      <div class="field flex flex-col gap-1.5">
+        <label
+          for="phone"
+          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+        >
+          Teléfono
         </label>
         <input
           type="tel"
           id="phone"
           name="phone"
-          required
           pattern="[0-9+\s]{9,15}"
           autocomplete="tel"
           placeholder="612 345 678"
+          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
         />
-        <span class="error-msg"
+        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
           >Introduce un número válido (9 - 15 dígitos).</span
         >
       </div>
 
-      <!-- Política de privacidad -->
-      <div class="field checkbox-field sm:col-span-2">
+      <div class="field flex flex-col gap-1.5 sm:col-span-2">
+        <label
+          for="practice_type"
+          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+        >
+          Tipo de práctica <span class="text-m-red-500" aria-hidden="true"
+            >*</span
+          >
+        </label>
+        <select
+          id="practice_type"
+          name="practice_type"
+          required
+          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out cursor-pointer"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="particular">Médico independiente</option>
+          <option value="small">Clínica pequeña o mediana</option>
+          <option value="corporative">Grupo de clínicas</option>
+        </select>
+        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+          >Por favor, selecciona el tipo de práctica.</span
+        >
+      </div>
+
+      <div class="checkbox-field field flex flex-col gap-1.5 sm:col-span-2">
         <div class="flex items-start gap-3">
           <input
             type="checkbox"
             id="privacy"
             name="privacy"
             required
-            class="privacy-check"
+            class="privacy-check w-4 h-4 mt-0.5 shrink-0 accent-m-indigo-500 cursor-pointer rounded"
           />
-          <label for="privacy" class="checkbox-label">
-            Acepto política de privacidad
-            <span class="req" aria-hidden="true">*</span>
+          <label
+            for="privacy"
+            class="text-sm font-medium text-m-gray-700 leading-snug cursor-pointer"
+          >
+            Acepto <a
+              href="/politica-de-privacidad"
+              class="underline text-m-indigo-500 hover:text-m-indigo-400"
+              >política de privacidad</a
+            >
+            <span class="text-m-red-500" aria-hidden="true">*</span>
           </label>
         </div>
-        <span class="error-msg ml-7"
+        <span class="error-msg hidden text-xs text-m-red-500 font-medium ml-7"
           >Debes aceptar la política de privacidad.</span
         >
       </div>
     </div>
 
+    <Button type="submit" size="md" class="mt-8 w-full">Enviar</Button>
     <p
       id="form-error"
+      aria-live="polite"
       class="hidden mt-5 text-sm text-m-red-500 text-center font-medium"
     >
     </p>
-
-    <button
-      type="submit"
-      id="submit-btn"
-      class="mt-8 w-full bg-m-blue-500 text-white text-base lg:text-l py-4 px-8 rounded-xl cursor-pointer"
-    >
-      Enviar
-    </button>
   </form>
 </div>
 
 <style>
-  /* ── Layout ── */
-  .form-request {
-    width: 100%;
-  }
-
-  /* ── Field wrapper ── */
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-  }
-
-  /* ── Label ── */
-  .field > label,
-  .checkbox-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-m-gray-900);
-    line-height: 1.4;
-    cursor: default;
-  }
-
-  .req {
-    color: var(--color-m-red-500);
-  }
-
-  /* ── Text / email / tel / number inputs ── */
-  .field input:not([type="checkbox"]) {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    color: var(--color-m-gray-900);
-    background: var(--color-white);
-    border: 1.5px solid var(--color-m-gray-200);
-    border-radius: 0.625rem;
-    outline: none;
-    transition:
-      border-color 0.15s ease,
-      box-shadow 0.15s ease;
-  }
-
-  .field input:not([type="checkbox"])::placeholder {
+  /* pseudo-states that cannot be expressed as inline Tailwind */
+  input:not([type="checkbox"])::placeholder {
     color: var(--color-m-gray-400);
   }
 
-  .field input:not([type="checkbox"]):focus {
-    border-color: var(--color-m-red-500);
+  input:not([type="checkbox"]):focus,
+  select:focus {
+    border-color: var(--color-m-indigo-500);
     box-shadow: 0 0 0 3px
-      color-mix(in srgb, var(--color-m-red-500) 12%, transparent);
+      color-mix(in srgb, var(--color-m-indigo-500) 12%, transparent);
   }
 
-  /* ── :user-invalid — only fires after user interaction ── */
-  .field input:not([type="checkbox"]):user-invalid {
+  /* :user-invalid — only fires after user interaction */
+  input:not([type="checkbox"]):user-invalid,
+  select:user-invalid {
     border-color: var(--color-m-red-500);
     background-color: color-mix(in srgb, var(--color-m-red-50) 60%, white);
   }
 
-  .field:has(input:not([type="checkbox"]):user-invalid) .error-msg {
+  .field:has(input:not([type="checkbox"]):user-invalid, select:user-invalid)
+    .error-msg {
     display: block;
-  }
-
-  /* ── Checkbox ── */
-  .privacy-check {
-    width: 1.125rem;
-    height: 1.125rem;
-    margin-top: 0.125rem;
-    flex-shrink: 0;
-    accent-color: var(--color-m-red-500);
-    cursor: pointer;
-    border-radius: 0.25rem;
   }
 
   .privacy-check:user-invalid {
@@ -190,42 +199,52 @@
   .checkbox-field:has(.privacy-check:user-invalid) .error-msg {
     display: block;
   }
-
-  .checkbox-label {
-    cursor: pointer;
-    color: var(--color-m-gray-700);
-  }
-
-  .checkbox-label a {
-    color: var(--color-m-blue-500);
-    text-decoration: underline;
-  }
-
-  .checkbox-label a:hover {
-    color: var(--color-m-blue-600);
-  }
-
-  /* ── Error message ── */
-  .error-msg {
-    display: none;
-    font-size: 0.79rem;
-    color: var(--color-m-red-500);
-    font-weight: 500;
-  }
-
-  /* ── Submit button ── */
-  #submit-btn {
-    transition:
-      background-color 0.15s ease,
-      opacity 0.15s ease;
-  }
-
-  #submit-btn:hover {
-    background-color: color-mix(in srgb, var(--color-m-blue-500) 80%, black);
-  }
-
-  #submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
 </style>
+
+<script>
+  const form = document.getElementById("demo-form") as HTMLFormElement | null
+
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault()
+
+      const submitBtn = form.querySelector<HTMLButtonElement>('[type="submit"]')!
+      const successEl = document.getElementById("form-success")!
+      const errorEl = document.getElementById("form-error")!
+      const originalText = submitBtn.textContent ?? "Enviar"
+
+      submitBtn.disabled = true
+      submitBtn.textContent = "Enviando…"
+      errorEl.classList.add("hidden")
+
+      const fd = new FormData(form)
+      const data = {
+        firstname: fd.get("firstname") as string,
+        lastname: fd.get("lastname") as string,
+        email: fd.get("email") as string,
+        phone: fd.get("phone") as string,
+        practice_type: fd.get("practice_type") as string,
+      }
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+
+        if (!res.ok) throw new Error()
+
+        form.classList.add("hidden")
+        successEl.classList.remove("hidden")
+        form.reset()
+      } catch {
+        errorEl.textContent = "Hubo un problema al enviar el formulario. Por favor intenta de nuevo."
+        errorEl.classList.remove("hidden")
+        submitBtn.disabled = false
+      } finally {
+        submitBtn.textContent = originalText
+      }
+    })
+  }
+</script>

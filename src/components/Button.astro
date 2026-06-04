@@ -2,9 +2,10 @@
 import { ArrowRight } from "@lucide/astro"
 
 interface Props {
-  href: string
+  href?: string
   variant?: "primary" | "ghost" | "sky" | "light" | "cpt"
   size?: "xs" | "sm" | "md" | "lg"
+  type?: "button" | "submit" | "reset"
   class?: string
 }
 
@@ -12,6 +13,7 @@ const {
   href,
   variant = "primary",
   size = "md",
+  type = "button",
   class: extraClass = "",
 } = Astro.props
 
@@ -34,21 +36,25 @@ const sizeClasses: Record<string, string> = {
 }
 
 const isCpt = variant === "cpt"
+
+const baseClasses = [
+  "inline-flex items-center justify-center gap-2 font-semibold whitespace-nowrap rounded-full border cursor-pointer transition-[transform,box-shadow,gap] duration-180 ease-out",
+  variantClasses[variant],
+  sizeClasses[size],
+  extraClass,
+]
 ---
 
-<button
-  class:list={[
-    "rounded-full border cursor-pointer transition-[transform,box-shadow,gap] duration-180 ease-out",
-    variantClasses[variant],
-    sizeClasses[size],
-    extraClass,
-  ]}
->
-  <a
-    href={href}
-    class="inline-flex items-center justify-center gap-2 font-semibold whitespace-nowrap"
-  >
-    <slot />
-    {isCpt && <ArrowRight class="w-4 h-4 shrink-0" />}
-  </a>
-</button>
+{
+  href ? (
+    <a href={href} class:list={baseClasses}>
+      <slot />
+      {isCpt && <ArrowRight class="w-4 h-4 shrink-0" />}
+    </a>
+  ) : (
+    <button type={type} class:list={baseClasses}>
+      <slot />
+      {isCpt && <ArrowRight class="w-4 h-4 shrink-0" />}
+    </button>
+  )
+}
