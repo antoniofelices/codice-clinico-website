@@ -3,19 +3,18 @@ import Button from "@components/Button.astro"
 ---
 
 <div class="w-full">
-  <div id="form-success" class="hidden text-center py-16 px-4 lg:px-8">
+  <div
+    id="form-success"
+    aria-live="polite"
+    class="hidden text-center py-16 px-4 lg:px-8"
+  >
     <p class="text-5xl lg:text-7xl font-bold text-m-indigo-500 leading-tight">
-      ¡Gracias<br />contactar con nosotros!
-    </p>
-    <p class="mt-6 text-m-gray-600 text-base lg:text-xl max-w-sm mx-auto">
-      Tu petición ha sido enviada. Nos pondremos en contacto contigo en breve.
+      ¡Listo! Te contactaremos en menos de 24 horas.
     </p>
   </div>
 
   <form
-    id="subscribe-form"
-    method="POST"
-    action="/api/subscribe"
+    id="demo-form"
     novalidate
     class="bg-white rounded-2xl p-4 lg:py-12 shadow-sm"
   >
@@ -157,13 +156,13 @@ import Button from "@components/Button.astro"
       </div>
     </div>
 
+    <Button type="submit" size="md" class="mt-8 w-full">Enviar</Button>
     <p
       id="form-error"
+      aria-live="polite"
       class="hidden mt-5 text-sm text-m-red-500 text-center font-medium"
     >
     </p>
-
-    <Button type="submit" size="md" class="mt-8 w-full">Enviar</Button>
   </form>
 </div>
 
@@ -201,3 +200,51 @@ import Button from "@components/Button.astro"
     display: block;
   }
 </style>
+
+<script>
+  const form = document.getElementById("demo-form") as HTMLFormElement | null
+
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault()
+
+      const submitBtn = form.querySelector<HTMLButtonElement>('[type="submit"]')!
+      const successEl = document.getElementById("form-success")!
+      const errorEl = document.getElementById("form-error")!
+      const originalText = submitBtn.textContent ?? "Enviar"
+
+      submitBtn.disabled = true
+      submitBtn.textContent = "Enviando…"
+      errorEl.classList.add("hidden")
+
+      const fd = new FormData(form)
+      const data = {
+        firstname: fd.get("firstname") as string,
+        lastname: fd.get("lastname") as string,
+        email: fd.get("email") as string,
+        phone: fd.get("phone") as string,
+        practice_type: fd.get("practice_type") as string,
+      }
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+
+        if (!res.ok) throw new Error()
+
+        form.classList.add("hidden")
+        successEl.classList.remove("hidden")
+        form.reset()
+      } catch {
+        errorEl.textContent = "Hubo un problema al enviar el formulario. Por favor intenta de nuevo."
+        errorEl.classList.remove("hidden")
+        submitBtn.disabled = false
+      } finally {
+        submitBtn.textContent = originalText
+      }
+    })
+  }
+</script>
