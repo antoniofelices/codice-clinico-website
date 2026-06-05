@@ -10,7 +10,6 @@
   --color-text: oklch(0.177 0.0307 282.81);
   --color-background: oklch(0.9588 0.0127 86.83);
 
-  /* Indigo — primary */
   --color-m-indigo-50: oklch(0.97 0.018 276.85);
   --color-m-indigo-100: oklch(0.94 0.038 276.85);
   --color-m-indigo-200: oklch(0.88 0.065 276.85);
@@ -23,7 +22,6 @@
   --color-m-indigo-900: oklch(0.196 0.1134 276.85);
   --color-m-indigo-950: oklch(0.1841 0.1134 276.85);
 
-  /* Sky — accent */
   --color-m-sky-50: oklch(0.8593 0.0798 232.75);
   --color-m-sky-100: oklch(0.845 0.09 232.75);
   --color-m-sky-200: oklch(0.83 0.1 232.75);
@@ -36,7 +34,6 @@
   --color-m-sky-900: oklch(0.29 0.095 232.75);
   --color-m-sky-950: oklch(0.2 0.07 232.75);
 
-  /* Cream — warm surfaces */
   --color-m-cream-50: oklch(0.9843 0.004 106.47);
   --color-m-cream-100: oklch(0.97 0.007 106.47);
   --color-m-cream-200: oklch(0.95 0.01 106.47);
@@ -49,7 +46,6 @@
   --color-m-cream-900: oklch(0.28 0.012 106.47);
   --color-m-cream-950: oklch(0.18 0.008 106.47);
 
-  /* Gray — muted text & borders */
   --color-m-gray-50: oklch(0.5331 0.0233 285.58 / 0.09);
   --color-m-gray-100: oklch(0.97 0.008 285.58);
   --color-m-gray-200: oklch(0.93 0.013 285.58);
@@ -62,7 +58,7 @@
   --color-m-gray-900: oklch(0.18 0.01 285.58);
   --color-m-gray-950: oklch(0.12 0.007 285.58);
 
-  /* Blue — legacy */
+  /* Legacy */
   --color-m-blue-50: oklch(0.974 0.018 263);
   --color-m-blue-100: oklch(0.94 0.037 263);
   --color-m-blue-200: oklch(0.863 0.058 263);
