@@ -8,7 +8,7 @@ import Button from "@components/Button.astro"
     aria-live="polite"
     class="hidden text-center py-16 px-4 lg:px-8"
   >
-    <p class="text-5xl lg:text-7xl font-bold text-m-indigo-500 leading-tight">
+    <p class="text-5xl lg:text-7xl font-bold text-indigo-500 leading-tight">
       ¡Listo! Te contactaremos en menos de 24 horas.
     </p>
   </div>
@@ -22,9 +22,9 @@ import Button from "@components/Button.astro"
       <div class="field flex flex-col gap-1.5">
         <label
           for="firstname"
-          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+          class="text-sm font-medium text-gray-900 leading-snug cursor-default"
         >
-          Nombre <span class="text-m-red-500" aria-hidden="true">*</span>
+          Nombre <span class="text-red-500" aria-hidden="true">*</span>
         </label>
         <input
           type="text"
@@ -33,18 +33,18 @@ import Button from "@components/Button.astro"
           required
           autocomplete="firstname"
           placeholder="Ana"
-          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
+          class="w-full py-3 px-4 font-sans text-base text-gray-900 bg-white border-2 border-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
         />
-        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+        <span class="error-msg hidden text-xs text-red-500 font-medium"
           >Por favor, introduce tu nombre.</span
         >
       </div>
       <div class="field flex flex-col gap-1.5">
         <label
           for="lastname"
-          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+          class="text-sm font-medium text-gray-900 leading-snug cursor-default"
         >
-          Apellidos <span class="text-m-red-500" aria-hidden="true">*</span>
+          Apellidos <span class="text-red-500" aria-hidden="true">*</span>
         </label>
         <input
           type="text"
@@ -53,9 +53,9 @@ import Button from "@components/Button.astro"
           required
           autocomplete="lastname"
           placeholder="García López"
-          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
+          class="w-full py-3 px-4 font-sans text-base text-gray-900 bg-white border-2 border-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
         />
-        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+        <span class="error-msg hidden text-xs text-red-500 font-medium"
           >Por favor, introduce tu apellido.</span
         >
       </div>
@@ -65,9 +65,9 @@ import Button from "@components/Button.astro"
       <div class="field flex flex-col gap-1.5">
         <label
           for="email"
-          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+          class="text-sm font-medium text-gray-900 leading-snug cursor-default"
         >
-          Email <span class="text-m-red-500" aria-hidden="true">*</span>
+          Email <span class="text-red-500" aria-hidden="true">*</span>
         </label>
         <input
           type="email"
@@ -76,9 +76,9 @@ import Button from "@components/Button.astro"
           required
           autocomplete="email"
           placeholder="ana@ejemplo.com"
-          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
+          class="w-full py-3 px-4 font-sans text-base text-gray-900 bg-white border-2 border-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
         />
-        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+        <span class="error-msg hidden text-xs text-red-500 font-medium"
           >Introduce un correo electrónico válido.</span
         >
       </div>
@@ -86,7 +86,7 @@ import Button from "@components/Button.astro"
       <div class="field flex flex-col gap-1.5">
         <label
           for="phone"
-          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+          class="text-sm font-medium text-gray-900 leading-snug cursor-default"
         >
           Teléfono
         </label>
@@ -97,9 +97,9 @@ import Button from "@components/Button.astro"
           pattern="[0-9+\s]{9,15}"
           autocomplete="tel"
           placeholder="612 345 678"
-          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
+          class="w-full py-3 px-4 font-sans text-base text-gray-900 bg-white border-2 border-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
         />
-        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+        <span class="error-msg hidden text-xs text-red-500 font-medium"
           >Introduce un número válido (9 - 15 dígitos).</span
         >
       </div>
@@ -107,9 +107,9 @@ import Button from "@components/Button.astro"
       <div class="field flex flex-col gap-1.5 sm:col-span-2">
         <label
           for="practice_type"
-          class="text-sm font-medium text-m-gray-900 leading-snug cursor-default"
+          class="text-sm font-medium text-gray-900 leading-snug cursor-default"
         >
-          Tipo de práctica <span class="text-m-red-500" aria-hidden="true"
+          Tipo de práctica <span class="text-red-500" aria-hidden="true"
             >*</span
           >
         </label>
@@ -117,14 +117,14 @@ import Button from "@components/Button.astro"
           id="practice_type"
           name="practice_type"
           required
-          class="w-full py-3 px-4 font-sans text-base text-m-gray-900 bg-white border-2 border-m-gray-200 rounded-lg outline-none transition duration-150 ease-in-out cursor-pointer"
+          class="w-full py-3 px-4 font-sans text-base text-gray-900 bg-white border-2 border-gray-200 rounded-lg outline-none transition duration-150 ease-in-out cursor-pointer"
         >
           <option value="" disabled selected>Selecciona una opción</option>
           <option value="particular">Médico independiente</option>
           <option value="small">Clínica pequeña o mediana</option>
           <option value="corporative">Grupo de clínicas</option>
         </select>
-        <span class="error-msg hidden text-xs text-m-red-500 font-medium"
+        <span class="error-msg hidden text-xs text-red-500 font-medium"
           >Por favor, selecciona el tipo de práctica.</span
         >
       </div>
@@ -136,21 +136,21 @@ import Button from "@components/Button.astro"
             id="privacy"
             name="privacy"
             required
-            class="privacy-check w-4 h-4 mt-0.5 shrink-0 accent-m-indigo-500 cursor-pointer rounded"
+            class="privacy-check w-4 h-4 mt-0.5 shrink-0 accent-indigo-500 cursor-pointer rounded"
           />
           <label
             for="privacy"
-            class="text-sm font-medium text-m-gray-700 leading-snug cursor-pointer"
+            class="text-sm font-medium text-gray-700 leading-snug cursor-pointer"
           >
             Acepto <a
               href="/politica-de-privacidad"
-              class="underline text-m-indigo-500 hover:text-m-indigo-400"
+              class="underline text-indigo-500 hover:text-indigo-400"
               >política de privacidad</a
             >
-            <span class="text-m-red-500" aria-hidden="true">*</span>
+            <span class="text-red-500" aria-hidden="true">*</span>
           </label>
         </div>
-        <span class="error-msg hidden text-xs text-m-red-500 font-medium ml-7"
+        <span class="error-msg hidden text-xs text-red-500 font-medium ml-7"
           >Debes aceptar la política de privacidad.</span
         >
       </div>
@@ -160,7 +160,7 @@ import Button from "@components/Button.astro"
     <p
       id="form-error"
       aria-live="polite"
-      class="hidden mt-5 text-sm text-m-red-500 text-center font-medium"
+      class="hidden mt-5 text-sm text-red-500 text-center font-medium"
     >
     </p>
   </form>
@@ -169,21 +169,21 @@ import Button from "@components/Button.astro"
 <style>
   /* pseudo-states that cannot be expressed as inline Tailwind */
   input:not([type="checkbox"])::placeholder {
-    color: var(--color-m-gray-400);
+    color: var(--color-gray-400);
   }
 
   input:not([type="checkbox"]):focus,
   select:focus {
-    border-color: var(--color-m-indigo-500);
+    border-color: var(--color-indigo-500);
     box-shadow: 0 0 0 3px
-      color-mix(in srgb, var(--color-m-indigo-500) 12%, transparent);
+      color-mix(in srgb, var(--color-indigo-500) 12%, transparent);
   }
 
   /* :user-invalid — only fires after user interaction */
   input:not([type="checkbox"]):user-invalid,
   select:user-invalid {
-    border-color: var(--color-m-red-500);
-    background-color: color-mix(in srgb, var(--color-m-red-50) 60%, white);
+    border-color: var(--color-red-500);
+    background-color: color-mix(in srgb, var(--color-red-50) 60%, white);
   }
 
   .field:has(input:not([type="checkbox"]):user-invalid, select:user-invalid)
@@ -192,7 +192,7 @@ import Button from "@components/Button.astro"
   }
 
   .privacy-check:user-invalid {
-    outline: 2px solid var(--color-m-red-500);
+    outline: 2px solid var(--color-red-500);
     outline-offset: 2px;
   }
 

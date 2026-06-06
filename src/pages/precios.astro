@@ -93,7 +93,7 @@ const tableRows = [
 
 <Layout title="Precios" description="">
   <Container
-    classSection="relative overflow-hidden border-b border-m-gray-50 pt-24 pb-20"
+    classSection="relative overflow-hidden border-b border-gray-50 pt-24 pb-20"
     classInner="relative z-10"
     classMaxWidth="max-w-3xl"
     shadowVariant="top"
@@ -104,7 +104,7 @@ const tableRows = [
     >
       Un plan para cada tipo de práctica.
     </p>
-    <p class="mt-6 text-l text-m-gray-800 leading-relaxed">
+    <p class="mt-6 text-l text-gray-800 leading-relaxed">
       Nos adaptamos a todo tipo de práctica clínica, desde el médico particular
       hasta la clínica con varios especialistas. <strong
         >Sin sorpresas, sin permanencia</strong
@@ -112,7 +112,7 @@ const tableRows = [
     </p>
   </Container>
 
-  <Container classSection="bg-m-cream-50 py-28">
+  <Container classSection="bg-cream-50 py-28">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
       {
         plans.map(({ name, seats, desc, tag, features, cta, featured }) => (
@@ -120,8 +120,8 @@ const tableRows = [
             class:list={[
               "rounded-3xl p-8 flex flex-col border",
               featured
-                ? "bg-m-indigo-900 text-m-cream-50 shadow-lg border-m-indigo-800 relative overflow-hidden"
-                : "bg-white border-m-gray-50 shadow-card",
+                ? "bg-indigo-900 text-cream-50 shadow-lg border-indigo-800 relative overflow-hidden"
+                : "bg-white border-gray-50 shadow-card",
             ]}
           >
             {/* {featured && (
@@ -135,7 +135,7 @@ const tableRows = [
             <h3
               class:list={[
                 "text-2xl font-bold tracking-tight",
-                featured ? "text-m-cream-50" : "text-m-indigo-500",
+                featured ? "text-cream-50" : "text-indigo-500",
               ]}
             >
               {name}
@@ -144,7 +144,7 @@ const tableRows = [
             <span
               class:list={[
                 "font-mono text-xs tracking-[0.12em] uppercase mt-1 mb-4",
-                featured ? "text-m-sky-500" : "text-m-gray-500",
+                featured ? "text-sky-500" : "text-gray-500",
               ]}
             >
               {seats}
@@ -153,7 +153,7 @@ const tableRows = [
             <p
               class:list={[
                 "text-sm lg:text-lg leading-relaxed mb-4",
-                featured ? "text-m-cream-50/70" : "text-m-gray-500",
+                featured ? "text-cream-50/70" : "text-gray-500",
               ]}
               style="min-height: 48px;"
             >
@@ -163,13 +163,13 @@ const tableRows = [
             <div
               class:list={[
                 "border-t pt-4 mb-6",
-                featured ? "border-white/10" : "border-m-gray-50",
+                featured ? "border-white/10" : "border-gray-50",
               ]}
             >
               <p
                 class:list={[
                   "font-semibold",
-                  featured ? "text-m-cream-50/60" : "text-m-gray-500",
+                  featured ? "text-cream-50/60" : "text-gray-500",
                 ]}
               >
                 {tag}
@@ -182,10 +182,10 @@ const tableRows = [
                   <Check
                     class:list={[
                       "w-4 h-4 shrink-0",
-                      featured ? "text-m-sky-500" : "text-m-indigo-500",
+                      featured ? "text-sky-500" : "text-indigo-500",
                     ]}
                   />
-                  <span class:list={[featured ? "text-m-cream-50/80" : ""]}>
+                  <span class:list={[featured ? "text-cream-50/80" : ""]}>
                     {feat}
                   </span>
                 </li>
@@ -207,11 +207,11 @@ const tableRows = [
       }
     </div>
 
-    <p class="text-center mt-10 text-sm text-m-gray-500">
+    <p class="text-center mt-10 text-sm text-gray-500">
       ¿No estás seguro de qué plan necesitas?{" "}
       <a
         href="/solicita-demo"
-        class="underline text-m-indigo-500 hover:text-m-indigo-400"
+        class="underline text-indigo-500 hover:text-indigo-400"
       >
         Solicita una demo
       </a>{" "}
@@ -230,24 +230,24 @@ const tableRows = [
     <div class="overflow-x-auto">
       <table class="w-full text-sm">
         <thead>
-          <tr class="border-b border-m-gray-50">
+          <tr class="border-b border-gray-50">
             <th
-              class="text-left pb-4 font-mono text-xs tracking-[0.12em] uppercase text-m-gray-500 w-2/5"
+              class="text-left pb-4 font-mono text-xs tracking-[0.12em] uppercase text-gray-500 w-2/5"
             >
               Características
             </th>
             <th
-              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-m-gray-500"
+              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-gray-500"
             >
               Solo
             </th>
             <th
-              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-m-gray-500"
+              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-gray-500"
             >
               Clínica
             </th>
             <th
-              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-m-gray-500"
+              class="text-center pb-4 font-mono text-xs tracking-[0.12em] uppercase text-gray-500"
             >
               Corporativa
             </th>
@@ -256,16 +256,16 @@ const tableRows = [
         <tbody>
           {
             tableRows.map(({ feature, solo, clinica, corp }) => (
-              <tr class="border-b border-m-gray-50 hover:bg-m-gray-50 transition-colors">
-                <td class="px-2 py-4 text-m-gray-800">{feature}</td>
+              <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                <td class="px-2 py-4 text-gray-800">{feature}</td>
                 {[solo, clinica, corp].map((val) => (
                   <td class="py-3.5 text-center">
                     {val === true ? (
-                      <Check class="w-4 h-4 text-m-indigo-500 mx-auto" />
+                      <Check class="w-4 h-4 text-indigo-500 mx-auto" />
                     ) : val === false ? (
-                      <span class="text-m-gray-400">—</span>
+                      <span class="text-gray-400">—</span>
                     ) : (
-                      <span class="text-m-gray-600">{val}</span>
+                      <span class="text-gray-600">{val}</span>
                     )}
                   </td>
                 ))}

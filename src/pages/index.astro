@@ -87,10 +87,10 @@ const stats = [
         <p
           class="text-7xl md:text-10xl lg:text-12xl 2xl:text-14xl font-bold tracking-tighter mt-6"
         >
-          Tu clínica, <span class="text-m-indigo-500">sin papeles.</span><br />
+          Tu clínica, <span class="text-indigo-500">sin papeles.</span><br />
           Sin errores. Sin límites.
         </p>
-        <p class="mt-6 text-l text-m-gray-800 max-w-lg leading-relaxed">
+        <p class="mt-6 text-l text-gray-800 max-w-lg leading-relaxed">
           Códice Clínico es el sistema médico en la nube para consultorios y
           clínicas privadas que quieren trabajar mejor desde el primer día.
           Citas, historias clínicas y equipo, en un solo lugar.
@@ -104,12 +104,12 @@ const stats = [
           </Button>
         </div>
         <div
-          class="flex flex-wrap items-center gap-2.5 mt-6 text-sm text-m-gray-500"
+          class="flex flex-wrap items-center gap-2.5 mt-6 text-sm text-gray-500"
         >
           <span>Sin instalaciones</span>
-          <span class="w-1 h-1 rounded-full bg-m-gray-400 shrink-0"></span>
+          <span class="w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>
           <span>Sin permanencia</span>
-          <span class="w-1 h-1 rounded-full bg-m-gray-400 shrink-0"></span>
+          <span class="w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>
           <span>Tus datos siempre son tuyos</span>
         </div>
       </div>
@@ -129,17 +129,17 @@ const stats = [
     <Shadow />
   </section>
 
-  <Container classSection="bg-m-cream-50 border-t border-m-gray-50 pt-36 pb-16">
+  <Container classSection="bg-cream-50 border-t border-gray-50 pt-36 pb-16">
     <div class="flex items-center lg:justify-center gap-x-10 gap-y-4 flex-wrap">
       <span
-        class="font-mono text-xs tracking-[0.14em] uppercase text-m-gray-500"
+        class="font-mono text-xs tracking-[0.14em] uppercase text-gray-500"
       >
         Construido sobre estándares abiertos
       </span>
       {
         standards.map((std) => (
-          <span class="inline-flex items-center gap-2 text-m-indigo-500 font-bold text-l tracking-tight">
-            <span class="w-2 h-2 rounded-sm bg-m-sky-500 shrink-0" />
+          <span class="inline-flex items-center gap-2 text-indigo-500 font-bold text-l tracking-tight">
+            <span class="w-2 h-2 rounded-sm bg-sky-500 shrink-0" />
             {std}
           </span>
         ))
@@ -147,13 +147,13 @@ const stats = [
     </div>
   </Container>
 
-  <Container classSection="bg-m-cream-50 py-28">
+  <Container classSection="bg-cream-50 py-28">
     <Heading maintitle="El producto" eyebrow={true} variant="h2" />
     <LeadParagraph
       content="Todo lo que necesita tu práctica, en un solo lugar"
       class="max-w-2xl"
     />
-    <p class="mb-14 text-m-gray-500">
+    <p class="mb-14 text-gray-500">
       Tres módulos que trabajan juntos para que dediques menos tiempo a la
       administración y más a tus pacientes.
     </p>
@@ -165,7 +165,7 @@ const stats = [
         class="md:col-span-4 md:min-h-95 flex flex-col"
       >
         <h3 class="text-2xl font-bold tracking-tight mb-2">Gestión de citas</h3>
-        <p class="text-m-gray-500">
+        <p class="text-gray-500">
           Reserva, cancela y reprograma desde cualquier dispositivo. La agenda
           de tu clínica, siempre actualizada y sincronizada entre todo el
           equipo.
@@ -182,14 +182,14 @@ const stats = [
         <h3 class="text-xl font-bold tracking-tight mb-2">
           Historia clínica digital
         </h3>
-        <p class="text-m-gray-500 text-sm">
+        <p class="text-gray-500 text-sm">
           Diagnósticos, medicamentos, estudios y notas de evolución. El
           historial completo de cada paciente, disponible en segundos.
         </p>
         <div class="mt-auto flex flex-wrap gap-1.5 pt-4">
           {
             hcTags.map((tag) => (
-              <span class="font-mono text-xs tracking-wide px-2.5 py-1 rounded-full bg-m-sky-50 text-m-indigo-500 border border-m-sky-500/30">
+              <span class="font-mono text-xs tracking-wide px-2.5 py-1 rounded-full bg-sky-50 text-indigo-500 border border-sky-500/30">
                 {tag}
               </span>
             ))
@@ -201,7 +201,7 @@ const stats = [
         <h3 class="text-xl font-bold tracking-tight mb-2">
           Personal y consultorios
         </h3>
-        <p class="text-m-gray-500 text-sm">
+        <p class="text-gray-500 text-sm">
           Asigna médicos a consultorios y controla accesos por rol para mantener
           tu equipo coordinado, sin fricciones.
         </p>
@@ -211,14 +211,14 @@ const stats = [
               <div
                 class:list={[
                   "flex items-center gap-2.5 py-2.5 text-[13.5px]",
-                  i > 0 && "border-t border-m-gray-50",
+                  i > 0 && "border-t border-gray-50",
                 ]}
               >
-                <span class="w-7 h-7 rounded-lg bg-m-cream-300 flex items-center justify-center text-xs font-bold text-m-indigo-500 shrink-0">
+                <span class="w-7 h-7 rounded-lg bg-cream-300 flex items-center justify-center text-xs font-bold text-indigo-500 shrink-0">
                   {initials}
                 </span>
                 {name}
-                <span class="ml-auto font-mono text-xs text-m-gray-500 tracking-wide">
+                <span class="ml-auto font-mono text-xs text-gray-500 tracking-wide">
                   {role}
                 </span>
               </div>
@@ -230,7 +230,7 @@ const stats = [
   </Container>
 
   <Container
-    classSection="bg-m-indigo-900 text-m-cream-50 py-28 relative overflow-hidden"
+    classSection="bg-indigo-900 text-cream-50 py-28 relative overflow-hidden"
     classInner="relative z-10"
     shadowVariant="bottom"
   >
@@ -249,7 +249,7 @@ const stats = [
           theme="on-dark"
         />
       </div>
-      <p class="text-m-cream-50/60 text-l leading-relaxed">
+      <p class="text-cream-50/60 text-l leading-relaxed">
         Sin la complejidad de los grandes sistemas hospitalarios. Configurable,
         ágil y a tu medida desde el día uno.
       </p>
@@ -259,18 +259,18 @@ const stats = [
         whyItems.map(({ title, content }) => (
           <ListItemOl markerSingleLine={false} variant="dark">
             <h4 class="text-l font-bold text-white tracking-tight">{title}</h4>
-            <p class="text-m-cream-50/60 text-sm lg:text-lg mt-2">{content}</p>
+            <p class="text-cream-50/60 text-sm lg:text-lg mt-2">{content}</p>
           </ListItemOl>
         ))
       }
     </ol>
   </Container>
 
-  <Container classSection="bg-m-cream-50 py-28">
+  <Container classSection="bg-cream-50 py-28">
     <div class="max-w-3xl mb-14">
       <Heading maintitle="Precios" eyebrow={true} variant="h2" />
       <LeadParagraph content="Un plan para cada tipo de práctica" />
-      <p class="text-m-gray-500">
+      <p class="text-gray-500">
         Desde el médico particular hasta la clínica con varios especialistas.
         Sin sorpresas, sin permanencia.
       </p>
@@ -282,12 +282,12 @@ const stats = [
             <div
               class:list={[
                 "text-8xl md:text-9xl font-extrabold tracking-tighter leading-none",
-                sky ? "text-m-sky-500" : "text-m-indigo-500",
+                sky ? "text-sky-500" : "text-indigo-500",
               ]}
             >
               {value}
             </div>
-            <p class="text-sm text-m-gray-500 mt-3 max-w-55">{desc}</p>
+            <p class="text-sm text-gray-500 mt-3 max-w-55">{desc}</p>
           </div>
         ))
       }

@@ -18,13 +18,13 @@ const {
 
 <div
   class:list={[
-    "bg-m-cream-50 rounded-3xl p-8 border border-m-gray-50 shadow-card overflow-hidden relative",
+    "bg-cream-50 rounded-3xl p-8 border border-gray-50 shadow-card overflow-hidden relative",
     extraClass,
   ]}
 >
   {
     gradientBar && (
-      <div class="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-m-indigo-500 to-m-sky-500" />
+      <div class="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-indigo-500 to-sky-500" />
     )
   }
   {
@@ -33,8 +33,8 @@ const {
         class:list={[
           "w-11 h-11 rounded-2xl flex items-center justify-center mb-6",
           iconDark
-            ? "bg-m-indigo-800 text-m-sky-500"
-            : "bg-m-indigo-50 text-m-indigo-500",
+            ? "bg-indigo-800 text-sky-500"
+            : "bg-indigo-50 text-indigo-500",
         ]}
       >
         <IconComponent class="w-5 h-5" />
