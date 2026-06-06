@@ -53,7 +53,7 @@ const values = [
 
 <Layout title="" description="">
   <Container
-    classSection="relative overflow-hidden border-b border-m-gray-50 pt-24 pb-20"
+    classSection="relative overflow-hidden border-b border-gray-50 pt-24 pb-20"
     classInner="relative z-10"
     classMaxWidth="max-w-3xl"
     shadowVariant="top"
@@ -64,14 +64,14 @@ const values = [
     >
       Nacimos de un problema real.
     </p>
-    <p class="mt-6 text-l text-m-gray-800 leading-relaxed">
+    <p class="mt-6 text-l text-gray-800 leading-relaxed">
       Somos un <strong>equipo familiar</strong> con experiencia directa en la práctica
       clínica privada. Vimos de cerca cómo las historias en papel, las agendas en
       cuadernos y los datos dispersos frenaban a médicos con vocación. Decidimos cambiarlo.
     </p>
   </Container>
 
-  <Container classSection="bg-m-cream-50 py-28">
+  <Container classSection="bg-cream-50 py-28">
     <Heading maintitle="Nuestra organización" variant="h2" />
     <LeadParagraph
       content="Una finalidad clara, una misión y una visión."
@@ -81,7 +81,7 @@ const values = [
       {
         goals.map(({ icon, label, title, content }) => (
           <Card icon={icon} iconDark gradientBar>
-            <span class="font-mono text-xs tracking-[0.14em] uppercase text-m-gray-500 block mb-2">
+            <span class="font-mono text-xs tracking-[0.14em] uppercase text-gray-500 block mb-2">
               {label}
             </span>
             <h3 class="text-2xl font-bold tracking-tight mb-3">{title}</h3>
@@ -107,7 +107,7 @@ const values = [
           values.map(({ title, content }) => (
             <ListItemOl>
               <h4 class="text-l font-bold tracking-tight">{title}</h4>
-              <p class="text-m-gray-500 text-sm lg:text-lg mt-1">{content}</p>
+              <p class="text-gray-500 text-sm lg:text-lg mt-1">{content}</p>
             </ListItemOl>
           ))
         }
