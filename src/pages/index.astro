@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets"
 import { ClipboardClock, Timeline, UsersRound } from "@lucide/astro"
-import screenShot from "@assets/images/1920x1080.jpg"
+import ImgDasboard from "@assets/images/dashboard-00.webp"
+import ImgAppointments from "@assets/images/appointments-00.webp"
 import Layout from "@layouts/Layout.astro"
 import Heading from "@components/Heading.astro"
 import Button from "@components/Button.astro"
@@ -115,15 +116,14 @@ const stats = [
       </div>
     </div>
 
-    <!-- TODO: Add image. Product mockup Screenshot — overlaps next section by 90px -->
     <div
       class="relative z-10 max-w-280 mx-auto px-6 mt-14"
       style="margin-bottom: -90px;"
     >
       <Image
-        src={screenShot}
+        src={ImgDasboard}
         alt="Imagen de la webapp"
-        class="w-full object-cover"
+        class="w-full object-cover p-4 bg-white"
       />
     </div>
     <Shadow />
@@ -131,9 +131,7 @@ const stats = [
 
   <Container classSection="bg-cream-50 border-t border-gray-50 pt-36 pb-16">
     <div class="flex items-center lg:justify-center gap-x-10 gap-y-4 flex-wrap">
-      <span
-        class="font-mono text-xs tracking-[0.14em] uppercase text-gray-500"
-      >
+      <span class="font-mono text-xs tracking-[0.14em] uppercase text-gray-500">
         Construido sobre estándares abiertos
       </span>
       {
@@ -170,9 +168,8 @@ const stats = [
           de tu clínica, siempre actualizada y sincronizada entre todo el
           equipo.
         </p>
-        <!-- Screenshot -->
         <Image
-          src={screenShot}
+          src={ImgAppointments}
           alt="Imagen de la webapp"
           class="w-full object-cover"
         />
@@ -234,9 +231,7 @@ const stats = [
     classInner="relative z-10"
     shadowVariant="bottom"
   >
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14 md:items-end"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14 md:items-end">
       <div>
         <Heading
           maintitle="Por qué elegir Códice"
