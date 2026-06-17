@@ -94,13 +94,13 @@ import Button from "@components/Button.astro"
           type="tel"
           id="phone"
           name="phone"
-          pattern="(\+51|51)?9\d{8}|[0-9\s\+\-]{9,15}"
+          pattern="\+?[0-9][0-9\s\-\(\)]{7,18}[0-9]"
           autocomplete="tel"
-          placeholder="+51 987 654 321"
+          placeholder="+502 1234 5678"
           class="w-full py-3 px-4 font-sans text-base text-gray-900 bg-white border-2 border-gray-200 rounded-lg outline-none transition duration-150 ease-in-out"
         />
         <span class="error-msg hidden text-xs text-red-500 font-medium"
-          >Introduce un número de Perú válido (ej: +51 987 654 321 o 987 654 321).</span
+          >Introduce un número válido (ej: +51 987 654 321 o +502 1234 5678).</span
         >
       </div>
 
@@ -109,8 +109,7 @@ import Button from "@components/Button.astro"
           for="practice_type"
           class="text-sm font-medium text-gray-900 leading-snug cursor-default"
         >
-          Tipo de práctica <span class="text-red-500" aria-hidden="true"
-            >*</span
+          Tipo de práctica <span class="text-red-500" aria-hidden="true">*</span
           >
         </label>
         <select
@@ -208,7 +207,8 @@ import Button from "@components/Button.astro"
     form.addEventListener("submit", async (event) => {
       event.preventDefault()
 
-      const submitBtn = form.querySelector<HTMLButtonElement>('[type="submit"]')!
+      const submitBtn =
+        form.querySelector<HTMLButtonElement>('[type="submit"]')!
       const successEl = document.getElementById("form-success")!
       const errorEl = document.getElementById("form-error")!
       const originalText = submitBtn.textContent ?? "Enviar"
@@ -239,7 +239,8 @@ import Button from "@components/Button.astro"
         successEl.classList.remove("hidden")
         form.reset()
       } catch {
-        errorEl.textContent = "Hubo un problema al enviar el formulario. Por favor intenta de nuevo."
+        errorEl.textContent =
+          "Hubo un problema al enviar el formulario. Por favor intenta de nuevo."
         errorEl.classList.remove("hidden")
         submitBtn.disabled = false
       } finally {
