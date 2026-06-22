@@ -16,6 +16,8 @@ const plans: {
   tag: string
   features: string[]
   cta: { label: string; href: string; variant: ButtonVariant }
+  priceMonth: string
+  priceYear: string
   featured: boolean
 }[] = [
   {
@@ -33,6 +35,8 @@ const plans: {
       href: "/solicita-demo",
       variant: "ghost",
     },
+    priceMonth: "$29/mes",
+    priceYear: "$25/mes",
     featured: false,
   },
   {
@@ -47,6 +51,8 @@ const plans: {
       "Soporte prioritario",
     ],
     cta: { label: "Solicita una demo", href: "/solicita-demo", variant: "sky" },
+    priceMonth: "$79/mes",
+    priceYear: "$69/mes",
     featured: false,
   },
   {
@@ -66,6 +72,8 @@ const plans: {
       href: "/solicita-demo",
       variant: "ghost",
     },
+    priceMonth: "desde $200/mes",
+    priceYear: "",
     featured: false,
   },
 ]
@@ -91,7 +99,10 @@ const tableRows = [
 ]
 ---
 
-<Layout title="Precios - Planes de Códice Clínico" description="Planes flexibles para cada tipo de práctica: Solo, Clínica y Corporativo. Sin sorpresas, sin permanencia. Encuentra el plan perfecto para tu clínica privada.">
+<Layout
+  title="Precios - Planes de Códice Clínico"
+  description="Planes flexibles para cada tipo de práctica: Solo, Clínica y Corporativo. Sin sorpresas, sin permanencia. Encuentra el plan perfecto para tu clínica privada."
+>
   <Container
     classSection="relative overflow-hidden border-b border-gray-50 pt-24 pb-20"
     classInner="relative z-10"
@@ -115,16 +126,17 @@ const tableRows = [
   <Container classSection="bg-cream-50 py-28">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
       {
-        plans.map(({ name, seats, desc, tag, features, cta, featured }) => (
-          <div
-            class:list={[
-              "rounded-3xl p-8 flex flex-col border",
-              featured
-                ? "bg-indigo-900 text-cream-50 shadow-lg border-indigo-800 relative overflow-hidden"
-                : "bg-white border-gray-50 shadow-card",
-            ]}
-          >
-            {/* {featured && (
+        plans.map(
+          ({ name, seats, desc, tag, features, cta, featured, priceMonth }) => (
+            <div
+              class:list={[
+                "rounded-3xl p-8 flex flex-col border",
+                featured
+                  ? "bg-indigo-900 text-cream-50 shadow-lg border-indigo-800 relative overflow-hidden"
+                  : "bg-white border-gray-50 shadow-card",
+              ]}
+            >
+              {/* {featured && (
               <div
                 class="absolute top-0 right-0 w-64 h-64 pointer-events-none"
                 aria-hidden="true"
@@ -132,78 +144,87 @@ const tableRows = [
               />
             )} */}
 
-            <h3
-              class:list={[
-                "text-2xl font-bold tracking-tight",
-                featured ? "text-cream-50" : "text-indigo-500",
-              ]}
-            >
-              {name}
-            </h3>
-
-            <span
-              class:list={[
-                "font-mono text-xs tracking-[0.12em] uppercase mt-1 mb-4",
-                featured ? "text-sky-500" : "text-gray-500",
-              ]}
-            >
-              {seats}
-            </span>
-
-            <p
-              class:list={[
-                "text-sm lg:text-lg leading-relaxed mb-4",
-                featured ? "text-cream-50/70" : "text-gray-500",
-              ]}
-              style="min-height: 48px;"
-            >
-              {desc}
-            </p>
-
-            <div
-              class:list={[
-                "border-t pt-4 mb-6",
-                featured ? "border-white/10" : "border-gray-50",
-              ]}
-            >
               <p
                 class:list={[
-                  "font-semibold",
-                  featured ? "text-cream-50/60" : "text-gray-500",
+                  "text-4xl md:text-5xl font-black tracking-tight",
+                  featured ? "text-cream-50" : "text-indigo-500",
                 ]}
               >
-                {tag}
+                {priceMonth}
               </p>
-            </div>
-
-            <ul class="flex flex-col gap-3 mb-8">
-              {features.map((feat) => (
-                <li class="flex items-center gap-2.5 text-sm">
-                  <Check
-                    class:list={[
-                      "w-4 h-4 shrink-0",
-                      featured ? "text-sky-500" : "text-indigo-500",
-                    ]}
-                  />
-                  <span class:list={[featured ? "text-cream-50/80" : ""]}>
-                    {feat}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div class="mt-auto">
-              <Button
-                href={cta.href}
-                variant="ghost"
-                size="md"
-                class="w-full justify-center"
+              <h2
+                class:list={[
+                  "text-xl font-bold tracking-tight",
+                  featured ? "text-cream-50" : "text-indigo-500",
+                ]}
               >
-                {cta.label}
-              </Button>
+                {name}
+              </h2>
+
+              <span
+                class:list={[
+                  "font-mono text-xs tracking-[0.12em] uppercase mt-1 mb-4",
+                  featured ? "text-sky-500" : "text-gray-500",
+                ]}
+              >
+                {seats}
+              </span>
+
+              <p
+                class:list={[
+                  "text-sm lg:text-lg leading-relaxed mb-4",
+                  featured ? "text-cream-50/70" : "text-gray-500",
+                ]}
+                style="min-height: 48px;"
+              >
+                {desc}
+              </p>
+
+              <div
+                class:list={[
+                  "border-t pt-4 mb-6",
+                  featured ? "border-white/10" : "border-gray-50",
+                ]}
+              >
+                <p
+                  class:list={[
+                    "font-semibold",
+                    featured ? "text-cream-50/60" : "text-gray-500",
+                  ]}
+                >
+                  {tag}
+                </p>
+              </div>
+
+              <ul class="flex flex-col gap-3 mb-8">
+                {features.map((feat) => (
+                  <li class="flex items-center gap-2.5 text-sm">
+                    <Check
+                      class:list={[
+                        "w-4 h-4 shrink-0",
+                        featured ? "text-sky-500" : "text-indigo-500",
+                      ]}
+                    />
+                    <span class:list={[featured ? "text-cream-50/80" : ""]}>
+                      {feat}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="mt-auto">
+                <Button
+                  href={cta.href}
+                  variant="ghost"
+                  size="md"
+                  class="w-full justify-center"
+                >
+                  {cta.label}
+                </Button>
+              </div>
             </div>
-          </div>
-        ))
+          ),
+        )
       }
     </div>
 
