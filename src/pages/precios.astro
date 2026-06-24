@@ -16,8 +16,9 @@ const plans: {
   tag: string
   features: string[]
   cta: { label: string; href: string; variant: ButtonVariant }
-  priceMonth: string
-  priceYear: string
+  priceMonth: number
+  priceYear: number | null
+  prefix?: string
   featured: boolean
 }[] = [
   {
@@ -35,8 +36,8 @@ const plans: {
       href: "/solicita-demo",
       variant: "ghost",
     },
-    priceMonth: "$29/mes",
-    priceYear: "$25/mes",
+    priceMonth: 29,
+    priceYear: 25,
     featured: false,
   },
   {
@@ -51,8 +52,8 @@ const plans: {
       "Soporte prioritario",
     ],
     cta: { label: "Solicita una demo", href: "/solicita-demo", variant: "sky" },
-    priceMonth: "$79/mes",
-    priceYear: "$69/mes",
+    priceMonth: 79,
+    priceYear: 69,
     featured: false,
   },
   {
@@ -72,8 +73,9 @@ const plans: {
       href: "/solicita-demo",
       variant: "ghost",
     },
-    priceMonth: "desde $200/mes",
-    priceYear: "",
+    priceMonth: 200,
+    priceYear: null,
+    prefix: "desde",
     featured: false,
   },
 ]
@@ -124,10 +126,41 @@ const tableRows = [
   </Container>
 
   <Container classSection="bg-cream-50 py-28">
+    <div class="flex justify-center mb-12">
+      <div
+        class="flex items-center bg-white border border-gray-50 rounded-full p-1 shadow-sm gap-1"
+      >
+        <button
+          id="btn-month"
+          class="px-5 py-2 rounded-full text-sm font-semibold transition-all bg-indigo-500 text-white"
+        >
+          Mensual
+        </button>
+        <button
+          id="btn-year"
+          class="px-5 py-2 rounded-full text-sm font-semibold transition-all text-gray-500 hover:text-gray-700"
+        >
+          Anual
+          <span class="ml-1.5 font-mono text-xs text-sky-500">−15%</span>
+        </button>
+      </div>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
       {
         plans.map(
-          ({ name, seats, desc, tag, features, cta, featured, priceMonth }) => (
+          ({
+            name,
+            seats,
+            desc,
+            tag,
+            features,
+            cta,
+            featured,
+            priceMonth,
+            priceYear,
+            prefix,
+          }) => (
             <div
               class:list={[
                 "rounded-3xl p-8 flex flex-col border",
@@ -150,8 +183,26 @@ const tableRows = [
                   featured ? "text-cream-50" : "text-indigo-500",
                 ]}
               >
-                {priceMonth}
+                {prefix && <span class="text-xl font-semibold">{prefix} </span>}
+                $
+                <>
+                  <span
+                    data-price
+                    data-price-month={priceMonth}
+                    data-price-year={priceYear ?? priceMonth}
+                    class="transition-opacity duration-150"
+                  >
+                    {priceMonth}
+                  </span>
+                  <span class="text-xl font-semibold">/mes</span>
+                  {priceYear !== null && (
+                    <span data-annual-label class="text-sm hidden">
+                      Facturado ${priceYear * 12} anual.
+                    </span>
+                  )}
+                </>
               </p>
+
               <h2
                 class:list={[
                   "text-xl font-bold tracking-tight",
@@ -295,8 +346,62 @@ const tableRows = [
           }
         </tbody>
       </table>
+      <p class="mt-8">
+        Tus datos siempre son tuyos, exportables en formato FHIR — el estándar
+        internacional de salud digital.
+      </p>
     </div>
   </Container>
 
   <CTABanner />
 </Layout>
+
+<script>
+  function initPriceToggle() {
+    const btnMonth = document.getElementById("btn-month")
+    const btnYear = document.getElementById("btn-year")
+    if (!btnMonth || !btnYear) return
+
+    const prices = document.querySelectorAll<HTMLElement>("[data-price]")
+    const annualLabels = document.querySelectorAll<HTMLElement>(
+      "[data-annual-label]",
+    )
+
+    function activate(billing: "month" | "year") {
+      annualLabels.forEach((el) =>
+        el.classList.toggle("hidden", billing !== "year"),
+      )
+
+      prices.forEach((el) => {
+        el.style.opacity = "0"
+        setTimeout(() => {
+          el.textContent =
+            billing === "year"
+              ? (el.dataset.priceYear ?? "")
+              : (el.dataset.priceMonth ?? "")
+          el.style.opacity = "1"
+        }, 50)
+      })
+
+      const activeClasses = ["bg-indigo-500", "text-white"]
+      const inactiveClasses = ["text-gray-500", "hover:text-gray-700"]
+
+      if (billing === "year") {
+        btnYear?.classList.add(...activeClasses)
+        btnYear?.classList.remove(...inactiveClasses)
+        btnMonth?.classList.remove(...activeClasses)
+        btnMonth?.classList.add(...inactiveClasses)
+      } else {
+        btnMonth?.classList.add(...activeClasses)
+        btnMonth?.classList.remove(...inactiveClasses)
+        btnYear?.classList.remove(...activeClasses)
+        btnYear?.classList.add(...inactiveClasses)
+      }
+    }
+
+    btnMonth.addEventListener("click", () => activate("month"))
+    btnYear.addEventListener("click", () => activate("year"))
+  }
+
+  document.addEventListener("astro:page-load", initPriceToggle)
+</script>
