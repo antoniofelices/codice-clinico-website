@@ -1,7 +1,6 @@
 {
   "name": "codice-clinico-website",
   "compatibility_date": "2026-04-20",
-  "main": "@astrojs/cloudflare/entrypoints/server",
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
@@ -10,6 +9,6 @@
     "enabled": true,
   },
   "secrets": {
-    "required": ["HUBSPOT_API_KEY"]
+    "required": ["HUBSPOT_API_KEY"],
   },
 }
