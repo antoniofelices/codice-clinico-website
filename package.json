@@ -1,10 +1,10 @@
 {
   "name": "codice-clinico-website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "GPL-3.0",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=24.21.0"
   },
   "scripts": {
     "dev": "astro dev",
@@ -13,14 +13,11 @@
     "generate-types": "wrangler types",
     "build": "wrangler types && astro build"
   },
-  "overrides": {
-    "vite": "^7"
-  },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.5.4",
+    "@astrojs/cloudflare": "^14.4.3",
     "@lucide/astro": "^1.16.0",
     "@tailwindcss/vite": "^4.3.0",
-    "astro": "^6.3.7",
+    "astro": "^7.4.4",
     "lucide": "^1.16.0",
     "tailwindcss": "^4.3.0",
     "wrangler": "^4.94.0",
