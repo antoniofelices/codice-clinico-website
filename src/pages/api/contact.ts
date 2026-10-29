@@ -2,53 +2,40 @@ export const prerender = false
 
 import type { APIRoute } from "astro"
 import { env } from "cloudflare:workers"
+import { z } from "zod"
 
-const CORS = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-}
+const ContactSchema = z.object({
+  firstname: z.string().trim().min(1).max(100),
+  lastname: z.string().trim().min(1).max(100),
+  email: z.email().max(254),
+  phone: z.string().trim().max(30).optional(),
+  practice_type: z.string().trim().min(1).max(100),
+})
 
 function json(body: unknown, status: number) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { ...CORS, "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json" },
   })
 }
 
-export const OPTIONS: APIRoute = () =>
-  new Response(null, { status: 204, headers: CORS })
-
-export const ALL: APIRoute = async (context) => {
-  if (context.request.method !== "POST")
-    return json({ error: "Method not allowed" }, 405)
-
-  let body: Record<string, string>
+export const POST: APIRoute = async ({ request }) => {
+  let body: unknown
   try {
-    body = await context.request.json()
+    body = await request.json()
   } catch {
     return json({ error: "Invalid form data" }, 400)
   }
 
-  const { firstname, lastname, email, phone, practice_type } = body
+  const parsed = ContactSchema.safeParse(body)
+  if (!parsed.success) return json({ error: "Invalid form data" }, 400)
 
-  if (
-    !firstname?.trim() ||
-    !lastname?.trim() ||
-    !email?.includes("@") ||
-    !practice_type?.trim()
-  ) {
-    return json({ error: "Invalid form data" }, 400)
-  }
-
+  const { phone, ...rest } = parsed.data
   const properties: Record<string, string> = {
-    firstname,
-    lastname,
-    email,
-    practice_type,
+    ...rest,
     lead_source: "website-codice-clinico",
   }
-  if (phone?.trim()) properties.phone = phone
+  if (phone) properties.phone = phone
 
   const hubspotRes = await fetch(
     "https://api.hubapi.com/crm/v3/objects/contacts",

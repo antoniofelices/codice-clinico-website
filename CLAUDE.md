@@ -15,7 +15,7 @@ No lint or test commands are configured.
 
 ## Architecture
 
-**Astro 6 static site** for Códice Clínico — a SaaS clinical records product targeting Spanish-speaking private clinics. Deploys to Cloudflare Workers via `@astrojs/cloudflare`.
+**Astro 7 static site** for Códice Clínico — a SaaS clinical records product targeting Spanish-speaking private clinics. Deploys to Cloudflare Workers via `@astrojs/cloudflare`.
 
 ### Routing
 
@@ -83,6 +83,17 @@ Lucide Icons via `@lucide/astro`. Import named components: `import { ArrowRight 
 ### Deployment
 
 Cloudflare Workers. Config in `wrangler.jsonc` (compatibility date: 2026-04-20). Run `npm run generate-types` after changing Cloudflare bindings.
+
+### Decisiones técnicas
+
+- **Node**: `engines` exige `>=22.23.4` (mínimo de Astro 7). El build en Cloudflare debe usar una versión compatible.
+- **Sin override de Vite**: Astro 7 y `@astrojs/cloudflare@14` requieren Vite 8 (`transformWithOxc`). No volver a forzar `"vite": "^7"` en `overrides`.
+- **`output: "static"`**: todo el sitio es estático salvo `src/pages/api/contact.ts` (`prerender = false`), que es la única ruta que ejecuta el Worker. Los assets se sirven sin pasar por él.
+- **Secretos en el Worker**: `env` se importa de `cloudflare:workers` (en la v14 ya no existe `Astro.locals.runtime.env`). `HUBSPOT_API_KEY` está en `secrets.required` de `wrangler.jsonc` y en `.dev.vars` en local. `worker-configuration.d.ts` se genera con `wrangler types` (lo ejecuta `npm run build`) y no se versiona.
+- **Formulario (`/api/contact`)**: solo exporta `POST` (otros métodos dan 404 por defecto de Astro). Valida con Zod y crea el contacto en HubSpot; un 409 se trata como éxito (`existing: true`). Sin CORS porque `Form.astro` hace fetch al mismo origen.
+- **Pendiente anti-spam**: el endpoint no tiene Turnstile, honeypot ni rate limiting.
+- **Bindings automáticos del adaptador**: añade `SESSION` (KV) e `IMAGES` aunque el sitio no use sesiones ni `astro:assets`. Se pueden ajustar con `sessionKVBindingName` / `imageService`.
+- **Sin CHANGELOG**: no hay releases ni consumidores de versiones; el historial está en git y en las PRs.
 
 ### Design reference
 
