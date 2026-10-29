@@ -155,6 +155,20 @@ import Button from "@components/Button.astro"
       </div>
     </div>
 
+    <div
+      aria-hidden="true"
+      class="absolute left-[-9999px] w-px h-px overflow-hidden"
+    >
+      <label for="website">No rellenar este campo</label>
+      <input
+        type="text"
+        id="website"
+        name="website"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+
     <Button type="submit" size="md" class="mt-8 w-full">Enviar</Button>
     <p
       id="form-error"
@@ -224,6 +238,7 @@ import Button from "@components/Button.astro"
         email: fd.get("email") as string,
         phone: fd.get("phone") as string,
         practice_type: fd.get("practice_type") as string,
+        website: fd.get("website") as string,
       }
 
       try {

@@ -10,6 +10,7 @@ const ContactSchema = z.object({
   email: z.email().max(254),
   phone: z.string().trim().max(30).optional(),
   practice_type: z.string().trim().min(1).max(100),
+  website: z.string().max(200).optional(),
 })
 
 function json(body: unknown, status: number) {
@@ -30,7 +31,11 @@ export const POST: APIRoute = async ({ request }) => {
   const parsed = ContactSchema.safeParse(body)
   if (!parsed.success) return json({ error: "Invalid form data" }, 400)
 
-  const { phone, ...rest } = parsed.data
+  const { phone, website, ...rest } = parsed.data
+
+  // Honeypot: humans never see this field. Pretend success so bots don't retry.
+  if (website) return json({ success: true }, 200)
+
   const properties: Record<string, string> = {
     ...rest,
     lead_source: "website-codice-clinico",
