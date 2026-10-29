@@ -91,7 +91,7 @@ Cloudflare Workers. Config in `wrangler.jsonc` (compatibility date: 2026-04-20).
 - **`output: "static"`**: todo el sitio es estático salvo `src/pages/api/contact.ts` (`prerender = false`), que es la única ruta que ejecuta el Worker. Los assets se sirven sin pasar por él.
 - **Secretos en el Worker**: `env` se importa de `cloudflare:workers` (en la v14 ya no existe `Astro.locals.runtime.env`). `HUBSPOT_API_KEY` está en `secrets.required` de `wrangler.jsonc` y en `.dev.vars` en local. `worker-configuration.d.ts` se genera con `wrangler types` (lo ejecuta `npm run build`) y no se versiona.
 - **Formulario (`/api/contact`)**: solo exporta `POST` (otros métodos dan 404 por defecto de Astro). Valida con Zod y crea el contacto en HubSpot; un 409 se trata como éxito (`existing: true`). Sin CORS porque `Form.astro` hace fetch al mismo origen.
-- **Pendiente anti-spam**: el endpoint no tiene Turnstile, honeypot ni rate limiting.
+- **Anti-spam**: `Form.astro` incluye un honeypot oculto (`website`); si llega con valor, `/api/contact` responde éxito sin llamar a HubSpot. No se monta Turnstile por ahora (sin tráfico ni spam). **Si se reciben leads falsos, implementar Turnstile** (widget en `Form.astro` + `siteverify` en `contact.ts`, con `TURNSTILE_SECRET` como secreto del Worker).
 - **Bindings automáticos del adaptador**: añade `SESSION` (KV) e `IMAGES` aunque el sitio no use sesiones ni `astro:assets`. Se pueden ajustar con `sessionKVBindingName` / `imageService`.
 - **Sin CHANGELOG**: no hay releases ni consumidores de versiones; el historial está en git y en las PRs.
 
